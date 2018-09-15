@@ -53,11 +53,6 @@ class Booking extends Component {
           descriptions: "",
           status: "wait",
           title: "Appointment"
-        },
-        {
-          descriptions: "",
-          status: "wait",
-          title: "Prescription"
         }
       ]
     }
@@ -77,7 +72,7 @@ class Booking extends Component {
       description: "Awaiting booking confirmation",
       status: "process",
       title: "Booking"
-    }, ...this.state.steps.slice(2, 4)];
+    }, ...this.state.steps.slice(2, 3)];
     this.setState({steps: newSteps})
     this.setState({selectedStep: 1})
 
@@ -101,26 +96,13 @@ class Booking extends Component {
         description: "Appointment set, waiting",
         status: "process",
         title: "Appointment"
-      }, ...this.state.steps.slice(3, 4)];
+      }, ...this.state.steps.slice(3, 3)];
     this.setState({steps: newSteps})
     this.setState({selectedStep: 2})
 
   }
 
-  step3 () {
-    let newSteps = [...this.state.steps.slice(0, 2), {
-      description: "",
-      status: "finish",
-      title: "Appointment"
-    },
-      {
-        description: "Please, get your prescription",
-        status: "process",
-        title: "Prescription"
-      }];
-    this.setState({steps: newSteps})
-    this.setState({selectedStep: 3})
-  }
+
 
   iconCompleted () {
     return (<Icon type="check-circle" theme="filled" />)
@@ -167,24 +149,24 @@ class Booking extends Component {
   renderPrescription () {
     return (<div>
       <h2>My Prescriptions</h2>
-    <Collapse bordered={false} defaultActiveKey={['']}>
-      <Panel header="Omeoprazol 500mg" key="1">
-        <div>
-          <h3>Dosage</h3>
-        </div>
-        2 times per day, 1 pill at breakfast, 1 pill after dinner.
-        <h3>Targets</h3>
-        burning stomach, etc
-        <h3>Side-effects</h3>
-        Nausea, vomiting, headache
-      </Panel>
-      <Panel header="NeoCitran 20mg" key="2">
+      <Collapse bordered={false} defaultActiveKey={['']}>
+        <Panel header="Omeoprazol 500mg" key="1">
+          <div>
+            <h3>Dosage</h3>
+          </div>
+          2 times per day, 1 pill at breakfast, 1 pill after dinner.
+          <h3>Targets</h3>
+          burning stomach, etc
+          <h3>Side-effects</h3>
+          Nausea, vomiting, headache
+        </Panel>
+        <Panel header="NeoCitran 20mg" key="2">
 
-      </Panel>
-      <Panel header="Frutizolvin 200mg" key="3">
+        </Panel>
+        <Panel header="Frutizolvin 200mg" key="3">
 
-      </Panel>
-    </Collapse>
+        </Panel>
+      </Collapse>
 
       <Button style={{margin: 30, width: '200px'}} variant="contained"
               color="primary">
@@ -206,7 +188,7 @@ class Booking extends Component {
     Would you like to accept the appointment and add it to your calendar?<br><br>
     
     
-    <a href="http://racingzone.eu/accepted.html">Yes</a> or <a href="#">No</a>
+    <a href="https://us-central1-hackzurich2018.cloudfunctions.net/accept"> &nbsp; Yes &nbsp; </a> | <a href="https://us-central1-hackzurich2018.cloudfunctions.net/decline"> &nbsp;No&nbsp; </a>
     `
 
     fetch('https://nasachallenge.herokuapp.com/email', {
@@ -222,9 +204,6 @@ class Booking extends Component {
       })
     }).then(response => {
       console.log(response)
-      setTimeout(() => {
-        this.step2()
-      }, 10000)
     })
   }
 
@@ -241,10 +220,6 @@ class Booking extends Component {
           <div className="centralBody">
             {this.renderPages()}
           </div>
-
-          <div>First select a range, then proceed step by step</div>
-          <button onClick={() => this.step2()}>STEP 2</button>
-          <button onClick={() => this.step3()}>STEP 3</button>
 
         </div>
       </MuiThemeProvider>
