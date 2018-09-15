@@ -220,7 +220,7 @@ class SearchResults extends Component {
                   this.state.doctors.map(d => {
                     switch (d.group) {
                       case 'FAMILY_DOCTOR':
-                        return (<Card className={classes.card}>
+                        return (<Card key={d.id} className={classes.card}>
                           <CardContent>
                             <Typography className={classes.title} color="textSecondary">
                               {d.category}
@@ -248,7 +248,7 @@ class SearchResults extends Component {
                           </CardActions>
                         </Card>);
                       case 'HOSPITAL':
-                        return (<Card className={classes.card}>
+                        return (<Card key={d.id} className={classes.card}>
                           <CardContent>
                             <Typography className={classes.title} color="textSecondary">
                               {d.category}
