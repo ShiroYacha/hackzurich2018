@@ -1,0 +1,15 @@
+.ui.input {
+    width: 100%
+}
+
+.custom-searchbar {
+    position: absolute;
+    top: 40%;
+}
+
+.full-height {
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    height: 100vh;
+}
