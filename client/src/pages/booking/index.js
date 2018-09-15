@@ -84,6 +84,7 @@ class Booking extends Component {
     //this works, don't spam me too many emails
     //this.sendEmail()
 
+    //if the email is active this below should be deleted
     setTimeout(() => {
       this.step2()
     }, 3000)
@@ -202,7 +203,7 @@ class Booking extends Component {
     Mr. Min has requested an appointment with you for the next week,<br><br>
     Based on your availability you have a free slot on Monday 17-09-2018 at 10:00 AM.<br><br>
     
-    Would you like to accept the appointment ad add it to your calendar?<br><br>
+    Would you like to accept the appointment and add it to your calendar?<br><br>
     
     
     <a href="http://racingzone.eu/accepted.html">Yes</a> or <a href="#">No</a>
