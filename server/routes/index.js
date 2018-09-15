@@ -143,7 +143,7 @@ proposeHealthcareProviderFromSpecialisations = (specialisations) => {
                             return;
                         }
                         if(rr.firstName){
-                            doctors.push({ ...rr, group: 'DOCTOR', type: rr.typeData.en });
+                            doctors.push({ ...rr, group: 'DOCTOR', type: rr.typeData.en, category: rr.categoryData.en });
                             count++;
                         }
                     });
