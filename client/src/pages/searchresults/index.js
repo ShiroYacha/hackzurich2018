@@ -17,20 +17,27 @@ const styles = {
   card: {
     width: 200,
   },
+  bigCard: {
+    width: 250,
+  },
   bullet: {
     display: 'inline-block',
     margin: '0 2px',
     transform: 'scale(0.8)',
   },
   title: {
-    marginBottom: 16,
+    marginBottom: 5,
     fontSize: 14,
   },
   heading: {
-    fontSize: 25
+    fontSize: 25,
+    marginBottom: 5,
+    marginTop: 5
   },
   image: {
-    height: 100
+    height: 100,
+    marginBottom: 5,
+    marginTop: 10
   },
   categoryTitle: {
     fontSize: 18,
@@ -88,11 +95,11 @@ class SearchResults extends Component {
     const { classes } = this.props;
     return (
       <div>
-        <div style={{ margin: 'auto', width: '80vw', height: '80vh' }}>
+        <div style={{ margin: 'auto', width: '90vw', height: '80vh' }}>
           <h2>Search results</h2>
           <div style={{ display: 'flex' }}>
             <div
-              style={{ width: '33%', margin: '0px', padding: '0px' }}>
+              style={{ width: '30%', margin: '0px', padding: '0px' }}>
               <div style={{ display: 'flex', marginBottom: '25px' }}>
                 <Ionicon icon="ios-thermometer" fontSize="30px" />
                 <Typography className={classes.categoryTitle} color="textSecondary">
@@ -132,7 +139,7 @@ class SearchResults extends Component {
               </StackGrid>
             </div>
             <div
-              style={{ width: '33%' }}>
+              style={{ width: '40%' }}>
               <div style={{ display: 'flex', marginBottom: '25px' }}>
                 <Ionicon icon="ios-pizza" fontSize="30px" />
                 <Typography className={classes.categoryTitle} color="textSecondary">
@@ -140,16 +147,19 @@ class SearchResults extends Component {
                 </Typography>
               </div>
               <StackGrid
-                columnWidth={200}
+                columnWidth={250}
                 gutterWidth={10}
                 gutterHeight={10}
               >
                 {
                   this.state.drugs.map(d => {
-                    return (<Card className={classes.card} key={d.id}>
+                    return (<Card className={classes.bigCard} key={d.id}>
                       <CardContent>
                         <Typography className={classes.title} color="textSecondary">
-                          {d.prescriptionOnly? 'prescription drug': 'non-prescription drug'}
+                          {d.prescriptionOnly? (<div style={{display:'flex'}}>
+                            <Ionicon icon="ios-paper" fontSize="14px" color="#838383"/>
+                            <div style={{marginLeft: '5px',  marginTop: '-3px'}}>prescription drug</div>
+                            </div>): 'non-prescription drug'}
                         </Typography>
                         <CardMedia className={classes.image} image={d.photo}/>
                         <Typography variant="headline" component="h2">
@@ -168,7 +178,7 @@ class SearchResults extends Component {
               </StackGrid>
             </div>
             <div
-              style={{ width: '33%' }}>
+              style={{ width: '30%' }}>
               <div style={{ display: 'flex', marginBottom: '25px' }}>
                 <Ionicon icon="ios-medkit" fontSize="30px" />
                 <Typography className={classes.categoryTitle} color="textSecondary">
