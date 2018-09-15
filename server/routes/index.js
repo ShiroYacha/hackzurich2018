@@ -6,7 +6,8 @@ var router = express.Router();
 let apimedic_symptoms_file = fs.readFileSync('./data/apimedic_symptoms.json');
 let apimedic_symptoms = JSON.parse(apimedic_symptoms_file).apimedic_symptoms;
 
-console.log(apimedic_symptoms);
+let apimedic_diagnostics_file = fs.readFileSync('./data/apimedic_diagnostics.json');
+let apimedic_diagnostics = JSON.parse(apimedic_diagnostics_file).apimedic_diagnostics;
 
 // firebase auth
 const Firestore = require('@google-cloud/firestore');
@@ -32,9 +33,22 @@ router.get('/run', (req, res, next) => {
             var symptoms = proposeSymptoms(data.query);
             if (symptoms.length > 0) {
 
-                console.log(symptoms);
+                firestore.collection('symptoms').doc('demo').set({ results: symptoms });
 
-                firestore.collection('symptoms').doc('demo').set({results: symptoms});
+                if (symptoms.length == 1) {
+                    console.log('diagnosing = '+symptoms[0].name)
+                    const diagnotics = diagnosticSymptom(symptoms[0]);
+                    if (diagnotics.length > 0) {
+                        // take the top 5 issues
+                        const top5diagnostics = diagnotics.slice(0,5);
+                        const top5issues = top5diagnostics.map(d=>d.issue);
+                        console.log('top 5 diagnostics issues = ', top5issues);
+                        firestore.collection('issues').doc('demo').set({results: top5issues});
+                    }
+                }
+                else{
+                    firestore.collection('issues').doc('demo').set({results: null});
+                }
             }
         }
 
@@ -49,7 +63,22 @@ proposeSymptoms = (query) => {
             symptoms.push(symptom);
         }
     });
-    return symptoms;
+    return symptoms.slice(0, 5);
+}
+
+diagnosticSymptom = (symptom) => {
+    var diagnostics = [];
+    apimedic_diagnostics.forEach(d => {
+        if (d.symptom == symptom.id) {
+            diagnostics = d.results.map(r=>{
+                var r = {...r};
+                r.issue.symptom = symptom.name;
+                return r;
+            });
+            return;
+        }
+    })
+    return diagnostics;
 }
 
 module.exports = router;
