@@ -12,8 +12,9 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Ionicon from 'react-ionicons'
+import SendIcon from '@material-ui/icons/Send';
 
-const styles = {
+const styles = theme => ({
   card: {
     width: 200,
   },
@@ -49,7 +50,15 @@ const styles = {
   pos: {
     marginBottom: 12,
   },
-};
+  button: {
+    marginLeft: 0,
+    marginRight: 0,
+    width: '100%'
+  },
+  rightIcon: {
+    marginLeft: theme.spacing.unit,
+  }
+});
 
 class SearchResults extends Component {
 
@@ -62,33 +71,44 @@ class SearchResults extends Component {
     };
   }
 
-  componentDidMount(){
+  componentDidMount() {
     const db = firebase.firestore();
     // listen to issues
-    this.unsubscribeIssuesListener = db.collection('issues').onSnapshot(refs=>{
+    this.unsubscribeIssuesListener = db.collection('issues').onSnapshot(refs => {
       const issues = [];
-      refs.forEach(ref=>{
+      refs.forEach(ref => {
         var data = ref.data();
         data.id = ref.id;
         issues.push(data);
       });
-      this.setState({issues: issues});
+      this.setState({ issues: issues });
     });
     // listen to drugs
-    this.unsubscribeDrugsListener = db.collection('drugs').onSnapshot(refs=>{
+    this.unsubscribeDrugsListener = db.collection('drugs').onSnapshot(refs => {
       const drugs = [];
-      refs.forEach(ref=>{
+      refs.forEach(ref => {
         var data = ref.data();
         data.id = ref.id;
         drugs.push(data);
       });
-      this.setState({drugs: drugs});
+      this.setState({ drugs: drugs });
+    });
+    // listen to doctors
+    this.unsubscribeDoctorsListener = db.collection('doctors').onSnapshot(refs => {
+      const doctors = [];
+      refs.forEach(ref => {
+        var data = ref.data();
+        data.id = ref.id;
+        doctors.push(data);
+      });
+      this.setState({ doctors: doctors });
     });
   }
 
-  componentWillUnmount(){
+  componentWillUnmount() {
     this.unsubscribeIssuesListener();
     this.unsubscribeDrugsListener();
+    this.unsubscribeDoctorsListener();
   }
 
   render() {
@@ -101,9 +121,9 @@ class SearchResults extends Component {
             <div
               style={{ width: '30%', margin: '0px', padding: '0px' }}>
               <div style={{ display: 'flex', marginBottom: '25px' }}>
-                <Ionicon icon="ios-thermometer" fontSize="30px" />
+                <Ionicon icon="md-thermometer" fontSize="30px" />
                 <Typography className={classes.categoryTitle} color="textSecondary">
-                          Issues
+                  Issues
                 </Typography>
               </div>
               <StackGrid
@@ -141,9 +161,9 @@ class SearchResults extends Component {
             <div
               style={{ width: '40%' }}>
               <div style={{ display: 'flex', marginBottom: '25px' }}>
-                <Ionicon icon="ios-pizza" fontSize="30px" />
+                <Ionicon icon="md-pizza" fontSize="30px" />
                 <Typography className={classes.categoryTitle} color="textSecondary">
-                          Drugs
+                  Drugs
                 </Typography>
               </div>
               <StackGrid
@@ -156,12 +176,12 @@ class SearchResults extends Component {
                     return (<Card className={classes.bigCard} key={d.id}>
                       <CardContent>
                         <Typography className={classes.title} color="textSecondary">
-                          {d.prescriptionOnly? (<div style={{display:'flex'}}>
-                            <Ionicon icon="ios-paper" fontSize="14px" color="#838383"/>
-                            <div style={{marginLeft: '5px',  marginTop: '-3px'}}>prescription drug</div>
-                            </div>): 'non-prescription drug'}
+                          {d.prescriptionOnly ? (<div style={{ display: 'flex' }}>
+                            <Ionicon icon="ios-paper" fontSize="14px" color="#838383" />
+                            <div style={{ marginLeft: '5px', marginTop: '-3px' }}>prescription drug</div>
+                          </div>) : 'non-prescription drug'}
                         </Typography>
-                        <CardMedia className={classes.image} image={d.photo}/>
+                        <CardMedia className={classes.image} image={d.photo} />
                         <Typography variant="headline" component="h2">
                           {d.name}
                         </Typography>
@@ -180,9 +200,9 @@ class SearchResults extends Component {
             <div
               style={{ width: '30%' }}>
               <div style={{ display: 'flex', marginBottom: '25px' }}>
-                <Ionicon icon="ios-medkit" fontSize="30px" />
+                <Ionicon icon="md-medkit" fontSize="30px" />
                 <Typography className={classes.categoryTitle} color="textSecondary">
-                          Doctors
+                  Doctors
                 </Typography>
               </div>
               <StackGrid
@@ -191,28 +211,60 @@ class SearchResults extends Component {
                 gutterHeight={10}
               >
                 {
-                  this.state.doctors.map(s => {
-                    return (<Card className={classes.card}>
-                      <CardContent>
-                        <Typography className={classes.title} color="textSecondary">
-                          Word of the Day
-                        </Typography>
-                        <Typography variant="headline" component="h2">
-                          Test
-                        </Typography>
-                        <Typography className={classes.pos} color="textSecondary">
-                          adjective
-                        </Typography>
-                        <Typography component="p">
-                          well meaning and kindly.
-                          <br />
-                          {'"a benevolent smile"'}
-                        </Typography>
-                      </CardContent>
-                      <CardActions>
-                        <Button size="small">Learn More</Button>
-                      </CardActions>
-                    </Card>);
+                  this.state.doctors.map(d => {
+                    switch (d.group) {
+                      case 'FAMILY_DOCTOR':
+                        return (<Card className={classes.card}>
+                          <CardContent>
+                            <Typography className={classes.title} color="textSecondary">
+                              {d.category}
+                            </Typography>
+                            <Typography variant="headline" component="h2">
+                              <span style={{ fontSize: '15px' }}>{d.title}</span><br /><span>{d.firstname + " " + d.lastname}</span>
+                            </Typography>
+                            <Typography className={classes.pos} color="textSecondary">
+                              {d.type}
+                            </Typography>
+                            <Typography component="p">
+                              <div style={{ display: 'flex' }}>
+                                <Ionicon icon="md-ribbon" fontSize="25px" color='rgb(61, 145, 255)' />
+                                <span style={{ marginTop: '2.5px', color: 'rgb(61, 145, 255)' }}>
+                                  Family doctor
+                                </span>
+                              </div>
+                            </Typography>
+                          </CardContent>
+                          <CardActions>
+                            <Button variant="contained" color="primary" className={classes.button}>
+                              Book
+                              <SendIcon className={classes.rightIcon}></SendIcon>
+                            </Button>
+                          </CardActions>
+                        </Card>);
+                      case 'HOSPITAL':
+                        return (<Card className={classes.card}>
+                          <CardContent>
+                            <Typography className={classes.title} color="textSecondary">
+                              {d.category}
+                            </Typography>
+                            <Typography variant="headline" component="h2">
+                              {d.firstname + " " + d.lastname}
+                            </Typography>
+                            <Typography className={classes.pos} color="textSecondary">
+                              {d.type}
+                            </Typography>
+                            <Typography component="p">
+
+                            </Typography>
+                          </CardContent>
+                          <CardActions>
+                            <Button variant="contained" color="secondary" className={classes.button}>
+                              Check-in
+                              <SendIcon className={classes.rightIcon}></SendIcon>
+                            </Button>
+                          </CardActions>
+                        </Card>);
+                    }
                   })
                 }
               </StackGrid>
