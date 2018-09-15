@@ -5,14 +5,14 @@ body {
 }
 
 .root {
-  top: 0;
-  bottom: 0;
-  margin: auto;
-  height: 100vh;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    height: 100vh;
 }
 
 .ui.category.search .results {
-  width: 100% !important;
+    width: 100% !important;
 }
 
 /*
@@ -30,8 +30,8 @@ I don't like this
     padding-top: 50px;
 }
 
-h2{
-    margin:50px !important;
+h2 {
+    margin: 50px !important;
 }
 
 .centralBody {
@@ -48,4 +48,14 @@ h2{
 .ant-steps-vertical {
     display: block;
     height: 50vh;
+}
+
+.ant-collapse-item {
+    text-align: left;
+}
+
+.ant-collapse-header::after {
+    content: "Details";
+    float: right;
+    padding-right: 50px
 }
