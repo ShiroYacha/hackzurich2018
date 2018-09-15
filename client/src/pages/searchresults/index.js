@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 import auth from 'firebase/auth';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link, withRouter } from "react-router-dom";
 import StackGrid from "react-stack-grid";
 import { withStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
@@ -103,6 +103,10 @@ class SearchResults extends Component {
       });
       this.setState({ doctors: doctors });
     });
+  }
+
+  bookAppointment = (did) => {
+    this.props.history.push(`/booking?did=${did}`);
   }
 
   componentWillUnmount() {
@@ -235,7 +239,7 @@ class SearchResults extends Component {
                             </Typography>
                           </CardContent>
                           <CardActions>
-                            <Button variant="contained" color="primary" className={classes.button}>
+                            <Button variant="contained" color="primary" className={classes.button} onClick={()=>this.bookAppointment(d.id)}>
                               Book
                               <SendIcon className={classes.rightIcon}></SendIcon>
                             </Button>
@@ -276,4 +280,4 @@ class SearchResults extends Component {
   }
 }
 
-export default withStyles(styles)(SearchResults);
+export default withRouter(withStyles(styles)(SearchResults));
