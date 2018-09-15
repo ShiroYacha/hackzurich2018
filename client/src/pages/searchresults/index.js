@@ -5,7 +5,7 @@ import auth from 'firebase/auth';
 import { BrowserRouter as Router, Route, Link, withRouter } from "react-router-dom";
 import StackGrid from "react-stack-grid";
 import { withStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
+// import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
@@ -15,6 +15,8 @@ import Ionicon from 'react-ionicons'
 import SendIcon from '@material-ui/icons/Send';
 import CallIcon from '@material-ui/icons/Call';
 import SearchBar from '../landpage/searchbar';
+import { Card } from 'antd';
+import 'antd/dist/antd.css'
 
 const styles = theme => ({
     card: {
@@ -125,7 +127,6 @@ class SearchResults extends Component {
             <div>
                 <SearchBar style={{margin: '20px'}} noSuggestions value={location.search && location.search.replace('?search=','')}/>
                 <div style={{ margin: 'auto', width: '90vw', height: '80vh' }}>
-                    <h2>Search results</h2>
                     <div style={{ display: 'flex' }}>
                         <div
                             style={{ width: '30%', margin: '0px', padding: '0px' }}>
