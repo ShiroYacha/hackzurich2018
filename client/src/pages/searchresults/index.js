@@ -1,18 +1,227 @@
 import React, { Component } from 'react';
 import firebase from 'firebase/app';
+import 'firebase/firestore';
 import auth from 'firebase/auth';
-import firestore from 'firebase/database';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import StackGrid from "react-stack-grid";
+import { withStyles } from '@material-ui/core/styles';
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardMedia from '@material-ui/core/CardMedia';
+import CardContent from '@material-ui/core/CardContent';
+import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
+import Ionicon from 'react-ionicons'
+
+const styles = {
+  card: {
+    width: 200,
+  },
+  bigCard: {
+    width: 250,
+  },
+  bullet: {
+    display: 'inline-block',
+    margin: '0 2px',
+    transform: 'scale(0.8)',
+  },
+  title: {
+    marginBottom: 5,
+    fontSize: 14,
+  },
+  heading: {
+    fontSize: 25,
+    marginBottom: 5,
+    marginTop: 5
+  },
+  image: {
+    height: 100,
+    marginBottom: 5,
+    marginTop: 10
+  },
+  categoryTitle: {
+    fontSize: 18,
+    marginLeft: '5px',
+    marginBottom: '0px',
+    marginTop: 'auto',
+    color: 'black'
+  },
+  pos: {
+    marginBottom: 12,
+  },
+};
 
 class SearchResults extends Component {
 
+  constructor() {
+    super();
+    this.state = {
+      issues: [],
+      drugs: [],
+      doctors: []
+    };
+  }
+
+  componentDidMount(){
+    const db = firebase.firestore();
+    // listen to issues
+    this.unsubscribeIssuesListener = db.collection('issues').onSnapshot(refs=>{
+      const issues = [];
+      refs.forEach(ref=>{
+        var data = ref.data();
+        data.id = ref.id;
+        issues.push(data);
+      });
+      this.setState({issues: issues});
+    });
+    // listen to drugs
+    this.unsubscribeDrugsListener = db.collection('drugs').onSnapshot(refs=>{
+      const drugs = [];
+      refs.forEach(ref=>{
+        var data = ref.data();
+        data.id = ref.id;
+        drugs.push(data);
+      });
+      this.setState({drugs: drugs});
+    });
+  }
+
+  componentWillUnmount(){
+    this.unsubscribeIssuesListener();
+    this.unsubscribeDrugsListener();
+  }
+
   render() {
+    const { classes } = this.props;
     return (
-        <div>
-            <h2>Search results</h2>
+      <div>
+        <div style={{ margin: 'auto', width: '90vw', height: '80vh' }}>
+          <h2>Search results</h2>
+          <div style={{ display: 'flex' }}>
+            <div
+              style={{ width: '30%', margin: '0px', padding: '0px' }}>
+              <div style={{ display: 'flex', marginBottom: '25px' }}>
+                <Ionicon icon="ios-thermometer" fontSize="30px" />
+                <Typography className={classes.categoryTitle} color="textSecondary">
+                          Issues
+                </Typography>
+              </div>
+              <StackGrid
+                columnWidth={200}
+                gutterWidth={10}
+                gutterHeight={10}
+              >
+                {
+                  this.state.issues.map(i => {
+                    return (<Card className={classes.card} key={i.id}>
+                      <CardContent>
+                        <Typography className={classes.title} color="textSecondary">
+                          {i.symptom}
+                        </Typography>
+                        <Typography variant="headline" className={classes.heading}>
+                          {i.name}
+                        </Typography>
+                        <Typography className={classes.pos} color="textSecondary">
+                          accuracy: {i.accuracy}
+                        </Typography>
+                        <Typography component="p">
+                          {i.icdName}
+                          {i.profName}
+                          <br />
+                        </Typography>
+                      </CardContent>
+                      <CardActions>
+                        <Button size="small">Learn More</Button>
+                      </CardActions>
+                    </Card>);
+                  })
+                }
+              </StackGrid>
+            </div>
+            <div
+              style={{ width: '40%' }}>
+              <div style={{ display: 'flex', marginBottom: '25px' }}>
+                <Ionicon icon="ios-pizza" fontSize="30px" />
+                <Typography className={classes.categoryTitle} color="textSecondary">
+                          Drugs
+                </Typography>
+              </div>
+              <StackGrid
+                columnWidth={250}
+                gutterWidth={10}
+                gutterHeight={10}
+              >
+                {
+                  this.state.drugs.map(d => {
+                    return (<Card className={classes.bigCard} key={d.id}>
+                      <CardContent>
+                        <Typography className={classes.title} color="textSecondary">
+                          {d.prescriptionOnly? (<div style={{display:'flex'}}>
+                            <Ionicon icon="ios-paper" fontSize="14px" color="#838383"/>
+                            <div style={{marginLeft: '5px',  marginTop: '-3px'}}>prescription drug</div>
+                            </div>): 'non-prescription drug'}
+                        </Typography>
+                        <CardMedia className={classes.image} image={d.photo}/>
+                        <Typography variant="headline" component="h2">
+                          {d.name}
+                        </Typography>
+                        <Typography component="p">
+                          {d.description}
+                        </Typography>
+                      </CardContent>
+                      <CardActions>
+                        <Button size="small">Learn More</Button>
+                      </CardActions>
+                    </Card>);
+                  })
+                }
+              </StackGrid>
+            </div>
+            <div
+              style={{ width: '30%' }}>
+              <div style={{ display: 'flex', marginBottom: '25px' }}>
+                <Ionicon icon="ios-medkit" fontSize="30px" />
+                <Typography className={classes.categoryTitle} color="textSecondary">
+                          Doctors
+                </Typography>
+              </div>
+              <StackGrid
+                columnWidth={200}
+                gutterWidth={10}
+                gutterHeight={10}
+              >
+                {
+                  this.state.doctors.map(s => {
+                    return (<Card className={classes.card}>
+                      <CardContent>
+                        <Typography className={classes.title} color="textSecondary">
+                          Word of the Day
+                        </Typography>
+                        <Typography variant="headline" component="h2">
+                          Test
+                        </Typography>
+                        <Typography className={classes.pos} color="textSecondary">
+                          adjective
+                        </Typography>
+                        <Typography component="p">
+                          well meaning and kindly.
+                          <br />
+                          {'"a benevolent smile"'}
+                        </Typography>
+                      </CardContent>
+                      <CardActions>
+                        <Button size="small">Learn More</Button>
+                      </CardActions>
+                    </Card>);
+                  })
+                }
+              </StackGrid>
+            </div>
+          </div>
         </div>
+      </div>
     );
   }
 }
 
-export default SearchResults;
+export default withStyles(styles)(SearchResults);
