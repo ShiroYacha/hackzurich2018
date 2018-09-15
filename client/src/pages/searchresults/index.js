@@ -13,6 +13,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Ionicon from 'react-ionicons'
 import SendIcon from '@material-ui/icons/Send';
+import CallIcon from '@material-ui/icons/Call';
 import SearchBar from '../landpage/searchbar';
 
 const styles = theme => ({
@@ -119,10 +120,10 @@ class SearchResults extends Component {
     }
 
     render() {
-        const { classes } = this.props;
+        const { classes, location } = this.props;
         return (
             <div>
-                <SearchBar noSuggestions/>
+                <SearchBar style={{margin: '20px'}} noSuggestions value={location.search && location.search.replace('?search=','')}/>
                 <div style={{ margin: 'auto', width: '90vw', height: '80vh' }}>
                     <h2>Search results</h2>
                     <div style={{ display: 'flex' }}>
@@ -207,7 +208,7 @@ class SearchResults extends Component {
                                 <Ionicon icon="md-medkit" fontSize="30px" />
                                 <Typography className={classes.categoryTitle} color="textSecondary">
                                     Doctors
-                </Typography>
+                                </Typography>
                             </div>
                             <StackGrid
                                 columnWidth={200}
@@ -224,7 +225,7 @@ class SearchResults extends Component {
                                                             {d.category}
                                                         </Typography>
                                                         <Typography variant="headline" component="h2">
-                                                            <span style={{ fontSize: '15px' }}>{d.title}</span><br /><span>{d.firstname + " " + d.lastname}</span>
+                                                            <span style={{ fontSize: '15px' }}>{d.title}</span><br /><span>{d.firstName + " " + d.name}</span>
                                                         </Typography>
                                                         <Typography className={classes.pos} color="textSecondary">
                                                             {d.type}
@@ -234,25 +235,25 @@ class SearchResults extends Component {
                                                                 <Ionicon icon="md-ribbon" fontSize="25px" color='rgb(61, 145, 255)' />
                                                                 <span style={{ marginTop: '2.5px', color: 'rgb(61, 145, 255)' }}>
                                                                     Family doctor
-                                </span>
+                                                                </span>
                                                             </div>
                                                         </Typography>
                                                     </CardContent>
                                                     <CardActions>
                                                         <Button variant="contained" color="primary" className={classes.button} onClick={() => this.bookAppointment(d.id)}>
                                                             Book
-                              <SendIcon className={classes.rightIcon}></SendIcon>
+                                                            <SendIcon className={classes.rightIcon}></SendIcon>
                                                         </Button>
                                                     </CardActions>
                                                 </Card>);
-                                            case 'HOSPITAL':
+                                            case 'DOCTOR':
                                                 return (<Card className={classes.card}>
                                                     <CardContent>
                                                         <Typography className={classes.title} color="textSecondary">
                                                             {d.category}
                                                         </Typography>
                                                         <Typography variant="headline" component="h2">
-                                                            {d.firstname + " " + d.lastname}
+                                                            <span style={{ fontSize: '15px' }}>{d.title}</span><br /><span>{d.firstName + " " + d.name}</span>
                                                         </Typography>
                                                         <Typography className={classes.pos} color="textSecondary">
                                                             {d.type}
@@ -263,8 +264,8 @@ class SearchResults extends Component {
                                                     </CardContent>
                                                     <CardActions>
                                                         <Button variant="contained" color="secondary" className={classes.button}>
-                                                            Check-in
-                              <SendIcon className={classes.rightIcon}></SendIcon>
+                                                            Call
+                                                            <CallIcon className={classes.rightIcon}></CallIcon>
                                                         </Button>
                                                     </CardActions>
                                                 </Card>);

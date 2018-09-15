@@ -36,13 +36,13 @@ const searchResults = {
 
 class SearchBar extends Component {
 
-    constructor() {
+    constructor(props) {
         super();
         this.state = {
             issues: [],
             drugs: [],
             doctors: [],
-            value: '',
+            value: props.value,
         };
         this._debounceSearchFb.bind(this);
     }
@@ -53,7 +53,7 @@ class SearchBar extends Component {
         this.unsubscribeIssuesListener = db.collection('issues').doc('demo').onSnapshot(ref => {
             var data = ref.data();
             if (data && data.results) {
-                const issues = data.results.splice(0, 2);
+                const issues = data.results.splice(0, 4);
                 this.setState({ issues }, ()=> {
                     this.updateSuggestions(this.state.search);
                 });
@@ -63,7 +63,7 @@ class SearchBar extends Component {
         this.unsubscribeDrugsListener = db.collection('drugs').doc('demo').onSnapshot(ref => {
             var data = ref.data();
             if (data && data.results) {
-                const drugs = data.results.splice(0, 2);
+                const drugs = data.results.splice(0, 4);
                 this.setState({ drugs }, ()=> {
                     this.updateSuggestions(this.state.search);
                 });
@@ -73,7 +73,7 @@ class SearchBar extends Component {
         this.unsubscribeDoctorsListener = db.collection('doctors').doc('demo').onSnapshot(ref => {
             var data = ref.data();
             if (data && data.results) {
-                const doctors = data.results.splice(0, 2);
+                const doctors = data.results.splice(0, 4);
                 this.setState({ doctors }, ()=> {
                     this.updateSuggestions(this.state.search);
                 });
@@ -83,7 +83,7 @@ class SearchBar extends Component {
         this.unsubscribeSymptomsListener = db.collection('symptoms').doc('demo').onSnapshot(ref => {
             var data = ref.data();
             if (data && data.results) {
-                const symptoms = data.results.splice(0, 2);
+                const symptoms = data.results.splice(0, 4);
                 this.setState({ symptoms }, ()=> {
                     this.updateSuggestions(this.state.search);
                 });
