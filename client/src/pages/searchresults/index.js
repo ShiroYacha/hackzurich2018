@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import firebase from 'firebase/app';
+import 'firebase/firestore';
 import auth from 'firebase/auth';
-import firestore from 'firebase/database';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import StackGrid from "react-stack-grid";
 import { withStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
+import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
@@ -25,6 +26,12 @@ const styles = {
     marginBottom: 16,
     fontSize: 14,
   },
+  heading: {
+    fontSize: 25
+  },
+  image: {
+    height: 100
+  },
   categoryTitle: {
     fontSize: 18,
     marginLeft: '5px',
@@ -42,10 +49,39 @@ class SearchResults extends Component {
   constructor() {
     super();
     this.state = {
-      symptoms: [1, 2, 3, 4, 5],
+      issues: [],
       drugs: [],
       doctors: []
     };
+  }
+
+  componentDidMount(){
+    const db = firebase.firestore();
+    // listen to issues
+    this.unsubscribeIssuesListener = db.collection('issues').onSnapshot(refs=>{
+      const issues = [];
+      refs.forEach(ref=>{
+        var data = ref.data();
+        data.id = ref.id;
+        issues.push(data);
+      });
+      this.setState({issues: issues});
+    });
+    // listen to drugs
+    this.unsubscribeDrugsListener = db.collection('drugs').onSnapshot(refs=>{
+      const drugs = [];
+      refs.forEach(ref=>{
+        var data = ref.data();
+        data.id = ref.id;
+        drugs.push(data);
+      });
+      this.setState({drugs: drugs});
+    });
+  }
+
+  componentWillUnmount(){
+    this.unsubscribeIssuesListener();
+    this.unsubscribeDrugsListener();
   }
 
   render() {
@@ -56,11 +92,11 @@ class SearchResults extends Component {
           <h2>Search results</h2>
           <div style={{ display: 'flex' }}>
             <div
-              style={{ width: '30%' }}>
+              style={{ width: '33%', margin: '0px', padding: '0px' }}>
               <div style={{ display: 'flex', marginBottom: '25px' }}>
                 <Ionicon icon="ios-thermometer" fontSize="30px" />
                 <Typography className={classes.categoryTitle} color="textSecondary">
-                          Symptoms
+                          Issues
                 </Typography>
               </div>
               <StackGrid
@@ -69,22 +105,22 @@ class SearchResults extends Component {
                 gutterHeight={10}
               >
                 {
-                  this.state.symptoms.map(s => {
-                    return (<Card className={classes.card}>
+                  this.state.issues.map(i => {
+                    return (<Card className={classes.card} key={i.id}>
                       <CardContent>
                         <Typography className={classes.title} color="textSecondary">
-                          Word of the Day
+                          {i.symptom}
                         </Typography>
-                        <Typography variant="headline" component="h2">
-                          Test
+                        <Typography variant="headline" className={classes.heading}>
+                          {i.name}
                         </Typography>
                         <Typography className={classes.pos} color="textSecondary">
-                          adjective
+                          accuracy: {i.accuracy}
                         </Typography>
                         <Typography component="p">
-                          well meaning and kindly.
+                          {i.icdName}
+                          {i.profName}
                           <br />
-                          {'"a benevolent smile"'}
                         </Typography>
                       </CardContent>
                       <CardActions>
@@ -96,7 +132,7 @@ class SearchResults extends Component {
               </StackGrid>
             </div>
             <div
-              style={{ width: '30%' }}>
+              style={{ width: '33%' }}>
               <div style={{ display: 'flex', marginBottom: '25px' }}>
                 <Ionicon icon="ios-pizza" fontSize="30px" />
                 <Typography className={classes.categoryTitle} color="textSecondary">
@@ -109,22 +145,18 @@ class SearchResults extends Component {
                 gutterHeight={10}
               >
                 {
-                  this.state.symptoms.map(s => {
-                    return (<Card className={classes.card}>
+                  this.state.drugs.map(d => {
+                    return (<Card className={classes.card} key={d.id}>
                       <CardContent>
                         <Typography className={classes.title} color="textSecondary">
-                          Word of the Day
+                          {d.prescriptionOnly? 'prescription drug': 'non-prescription drug'}
                         </Typography>
+                        <CardMedia className={classes.image} image={d.photo}/>
                         <Typography variant="headline" component="h2">
-                          Test
-                        </Typography>
-                        <Typography className={classes.pos} color="textSecondary">
-                          adjective
+                          {d.name}
                         </Typography>
                         <Typography component="p">
-                          well meaning and kindly.
-                          <br />
-                          {'"a benevolent smile"'}
+                          {d.description}
                         </Typography>
                       </CardContent>
                       <CardActions>
@@ -136,7 +168,7 @@ class SearchResults extends Component {
               </StackGrid>
             </div>
             <div
-              style={{ width: '30%' }}>
+              style={{ width: '33%' }}>
               <div style={{ display: 'flex', marginBottom: '25px' }}>
                 <Ionicon icon="ios-medkit" fontSize="30px" />
                 <Typography className={classes.categoryTitle} color="textSecondary">
@@ -149,7 +181,7 @@ class SearchResults extends Component {
                 gutterHeight={10}
               >
                 {
-                  this.state.symptoms.map(s => {
+                  this.state.doctors.map(s => {
                     return (<Card className={classes.card}>
                       <CardContent>
                         <Typography className={classes.title} color="textSecondary">
