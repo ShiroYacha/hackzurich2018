@@ -72,26 +72,20 @@ class Booking extends Component {
       status: "finish",
       title: "Availability"
     }, {
-      description: "awaiting booking confirmation",
+      description: "Awaiting booking confirmation",
       status: "process",
       title: "Booking"
     }, ...this.state.steps.slice(2, 4)];
     this.setState({steps: newSteps})
     this.setState({selectedStep: 1})
-  }
 
-  step1half () {
-    let newSteps = [{
-      description: "",
-      status: "finish",
-      title: "Availability"
-    }, {
-      description: "Booking confirmed",
-      status: "process",
-      title: "Booking"
-    }, ...this.state.steps.slice(2, 4)];
-    this.setState({steps: newSteps})
-    this.setState({selectedStep: 1})
+    //this works, don't spam me too many emails
+    //this.sendEmail()
+
+    setTimeout(() => {
+      this.step2()
+    }, 3000)
+
   }
 
   step2 () {
@@ -107,6 +101,7 @@ class Booking extends Component {
       }, ...this.state.steps.slice(3, 4)];
     this.setState({steps: newSteps})
     this.setState({selectedStep: 2})
+
   }
 
   step3 () {
@@ -143,34 +138,78 @@ class Booking extends Component {
         ranges={this.state.ranges}
         onChange={this.handleSelect}
       />
-      {this.state.ranges[0].startDate<this.state.ranges[0].endDate && <Button style={{margin: 100, width:'40%'}} onClick={() => this.step1()} variant="contained"
-                                                                        color="primary">
+      {this.state.ranges[0].startDate < this.state.ranges[0].endDate &&
+      <Button style={{margin: 100, width: '40%'}} onClick={() => this.step1()} variant="contained"
+              color="primary">
         Confirm availability
       </Button>}
     </div>)
   }
 
+  renderPages () {
+    switch (this.state.selectedStep) {
+      case 0:
+        return this.renderCalendar()
+      case 1:
+        return (<h2>The doctor has been contacted. Waiting for an answer..</h2>)
+      case 2:
+        return (<div><h2>Appointment has been set!</h2>
+          <img src={require('../../assets/booked.png')} />
+        </div>)
+
+    }
+  }
+
+  sendEmail () {
+    let msg = `Dear Dr. Meyer<br><br>
+
+    Mr. Min has requested an appointment with you for the next week,<br><br>
+    Based on your availability you have a free slot on Monday 17-09-2018 at 10:00 AM.<br><br>
+    
+    Would you like to accept the appointment ad add it to your calendar?<br><br>
+    
+    
+    <a href="http://racingzone.eu/accepted.html">Yes</a> or <a href="#">No</a>
+    `
+
+    fetch('https://nasachallenge.herokuapp.com/email', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        destination: "gabriele.prestifilippo@gmail.com",
+        message: msg,
+        subject: "Appointment Requested"
+      })
+    }).then(response => {
+      console.log(response)
+      setTimeout(() => {
+        this.step2()
+      }, 10000)
+    })
+  }
+
   render () {
     return (
       <MuiThemeProvider theme={theme}>
-      <div>
+        <div>
+          <div className="sideBarSteps">
+            <Steps direction="vertical" current={this.state.selectedStep}>
+              {this.renderSteps()}
+            </Steps>
+          </div>
 
-        <div class="sideBarSteps">
-          <Steps direction="vertical" current={this.state.selectedStep}>
-            {this.renderSteps()}
-          </Steps>
+          <div className="centralBody">
+            {this.renderPages()}
+          </div>
+
+          <div>First select a range, then proceed step by step</div>
+          <button onClick={() => this.step2()}>STEP 2</button>
+          <button onClick={() => this.step3()}>STEP 3</button>
+
         </div>
-
-        <div class="centralBody">
-          {this.renderCalendar()}
-        </div>
-
-        <button onClick={() => this.step1()}>STEP 1</button>
-        <button onClick={() => this.step1half()}>STEP 1half</button>
-        <button onClick={() => this.step2()}>STEP 2</button>
-        <button onClick={() => this.step3()}>STEP 3</button>
-
-      </div>
       </MuiThemeProvider>
     )
   }
