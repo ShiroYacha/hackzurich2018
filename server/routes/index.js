@@ -21,21 +21,26 @@ firestore.settings(settings);
 
 const document = firestore.doc('search/demo');
 
-
-
 router.get('/run', (req, res, next) => {
     firestore.collection('search').doc('demo').onSnapshot(ref => {
         var data = ref.data();
         if (data) {
 
             console.log('query = ' + data.query);
+            if(data.query.length==0){
+                console.log('reset...');
+                firestore.collection('drugs').doc('demo').set({ results: null });
+                firestore.collection('issues').doc('demo').set({ results: null });
+                firestore.collection('doctors').doc('demo').set({ results: null });
+                firestore.collection('symptoms').doc('demo').set({ results: null });
+            }
 
             var symptoms = proposeSymptoms(data.query);
             if (symptoms.length > 0) {
 
                 firestore.collection('symptoms').doc('demo').set({ results: symptoms });
 
-                if (symptoms.length == 1) {
+                if (symptoms.length >= 1) {
                     console.log('diagnosing = ' + symptoms[0].name)
                     const diagnotics = diagnosticSymptom(symptoms[0]);
                     if (diagnotics.length > 0) {
@@ -56,6 +61,13 @@ router.get('/run', (req, res, next) => {
                     firestore.collection('issues').doc('demo').set({ results: null });
                 }
             }
+            else{
+                console.log('reset...');
+                firestore.collection('drugs').doc('demo').set({ results: null });
+                firestore.collection('issues').doc('demo').set({ results: null });
+                firestore.collection('doctors').doc('demo').set({ results: null });
+                firestore.collection('symptoms').doc('demo').set({ results: null });
+            }
         }
 
     });
@@ -64,6 +76,8 @@ router.get('/run', (req, res, next) => {
 proposeDrugsFromIssues = (issues) => {
     const issueDrugMaps = {
         '104': ['aspirin', 'naproxen', 'indomethacin'],
+        '118': ['amoxicillin', 'cephalexin'],
+        '18': ['imodium']
     };
     var found = false;
     issues.forEach(issue => {
@@ -78,21 +92,23 @@ proposeDrugsFromIssues = (issues) => {
                 }).then(res1 => res1.json()));
             });
             Promise.all(promises).then(results => {
-                // take the first 2-3 drugs of each category
+                // take the first 2 drugs of each category
                 var flatterned = [];
                 results.forEach(r => {
-                    flatterned = flatterned.concat(r.slice(0, 2*Math.random() + 1));
+                    flatterned = flatterned.concat(r.slice(0, 2));
                 })
                 console.log('found drugs', flatterned);
                 // post processing on top 5 drugs
                 const top5drugs = [];
-                flatterned.splice(0, 5).forEach(d => {
+                flatterned.slice(0, 5).forEach(d => {
                     top5drugs.push({
+                        id: d.swissmedicIds[0],
                         name: d.title,
                         authHolder: d.authHolder,
                         description: d.substances.join(',')
                     });
                 });
+                console.log(top5drugs);
                 firestore.collection('drugs').doc('demo').set({ results: top5drugs });
             })
         }
@@ -110,7 +126,11 @@ proposeHealthcareProviderFromSpecialisations = (specialisations) => {
         if (specialisationMap[s.name]) {
             s.name = specialisationMap[s.name];
         }
-    })
+    });
+
+    if(specialisations.length==0){
+        firestore.collection('doctors').doc('demo').set({ results: null });
+    }
 
     fetch('https://health.axa.ch/hack/api/care-providers/categories', {
             headers: {
@@ -143,7 +163,7 @@ proposeHealthcareProviderFromSpecialisations = (specialisations) => {
                             return;
                         }
                         if(rr.firstName){
-                            doctors.push({ ...rr, group: 'DOCTOR', type: rr.typeData.en, category: rr.categoryData.en });
+                            doctors.push({ ...rr, id: rr._id, group: 'DOCTOR', type: rr.typeData.en, category: rr.categoryData.en });
                             count++;
                         }
                     });

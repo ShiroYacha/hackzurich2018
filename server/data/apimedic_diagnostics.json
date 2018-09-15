@@ -452,71 +452,71 @@
             "birthyear": 1990,
             "results": [
                 {
-                    "Issue": {
-                        "ID": 118,
-                        "Name": "Stomach ulcer",
-                        "Accuracy": 90,
-                        "Icd": "K25;K26;K27",
-                        "IcdName": "Gastric ulcer;Duodenal ulcer;Peptic ulcer, site unspecified",
-                        "ProfName": "Peptic ulcer disease",
-                        "Ranking": 1
+                    "issue": {
+                        "id": 118,
+                        "name": "Stomach ulcer",
+                        "accuracy": 90,
+                        "icd": "K25;K26;K27",
+                        "icdname": "Gastric ulcer;Duodenal ulcer;Peptic ulcer, site unspecified",
+                        "profname": "Peptic ulcer disease",
+                        "ranking": 1
                     },
-                    "Specialisation": [
+                    "specialisation": [
                         {
-                            "ID": 14,
-                            "Name": "Gastroenterology",
-                            "SpecialistID": 40
+                            "id": 14,
+                            "name": "Gastroenterology",
+                            "specialistid": 40
                         },
                         {
-                            "ID": 15,
-                            "Name": "General practice",
-                            "SpecialistID": 3
+                            "id": 15,
+                            "name": "General practice",
+                            "specialistid": 3
                         }
                     ]
                 },
                 {
-                    "Issue": {
-                        "ID": 18,
-                        "Name": "Reflux disease",
-                        "Accuracy": 72,
-                        "Icd": "K21",
-                        "IcdName": "Gastro-oesophageal reflux disease",
-                        "ProfName": "Gastroesophageal reflux disease",
-                        "Ranking": 2
+                    "issue": {
+                        "id": 18,
+                        "name": "Reflux disease",
+                        "accuracy": 72,
+                        "icd": "K21",
+                        "icdname": "Gastro-oesophageal reflux disease",
+                        "profname": "Gastroesophageal reflux disease",
+                        "ranking": 2
                     },
-                    "Specialisation": [
+                    "specialisation": [
                         {
-                            "ID": 14,
-                            "Name": "Gastroenterology",
-                            "SpecialistID": 40
+                            "id": 14,
+                            "name": "Gastroenterology",
+                            "specialistid": 40
                         },
                         {
-                            "ID": 15,
-                            "Name": "General practice",
-                            "SpecialistID": 3
+                            "id": 15,
+                            "name": "General practice",
+                            "specialistid": 3
                         }
                     ]
                 },
                 {
-                    "Issue": {
-                        "ID": 431,
-                        "Name": "Drug side effect",
-                        "Accuracy": 54,
-                        "Icd": "T88.7",
-                        "IcdName": "Unspecified adverse effect of drug or medicament",
-                        "ProfName": "Adverse drug reaction",
-                        "Ranking": 3
+                    "issue": {
+                        "id": 431,
+                        "name": "Drug side effect",
+                        "accuracy": 54,
+                        "icd": "T88.7",
+                        "icdname": "Unspecified adverse effect of drug or medicament",
+                        "profname": "Adverse drug reaction",
+                        "ranking": 3
                     },
-                    "Specialisation": [
+                    "specialisation": [
                         {
-                            "ID": 15,
-                            "Name": "General practice",
-                            "SpecialistID": 3
+                            "id": 15,
+                            "name": "General practice",
+                            "specialistid": 3
                         },
                         {
-                            "ID": 19,
-                            "Name": "Internal medicine",
-                            "SpecialistID": 4
+                            "id": 19,
+                            "name": "Internal medicine",
+                            "specialistid": 4
                         }
                     ]
                 }
