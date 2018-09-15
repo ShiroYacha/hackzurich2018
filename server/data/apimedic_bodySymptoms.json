@@ -1,0 +1,466 @@
+{
+    "apimedic_bodySymptoms": [
+        {
+            "ID": 9,
+            "Name": "Headache",
+            "HasRedFlag": false,
+            "HealthSymptomLocationIDs": [
+                6,
+                22
+            ],
+            "ProfName": "",
+            "Synonyms": []
+        },
+        {
+            "ID": 11,
+            "Name": "Fever",
+            "HasRedFlag": false,
+            "HealthSymptomLocationIDs": [
+                17,
+                47,
+                6,
+                22
+            ],
+            "ProfName": "",
+            "Synonyms": [
+                "Temperature"
+            ]
+        },
+        {
+            "ID": 16,
+            "Name": "Tiredness",
+            "HasRedFlag": false,
+            "HealthSymptomLocationIDs": [
+                17,
+                47,
+                6,
+                22
+            ],
+            "ProfName": "",
+            "Synonyms": [
+                "Feeling of weakness",
+                "Fatigue",
+                "Weakness",
+                "Lack of energy"
+            ]
+        },
+        {
+            "ID": 43,
+            "Name": "Drowsiness",
+            "HasRedFlag": true,
+            "HealthSymptomLocationIDs": [
+                6,
+                22,
+                17,
+                47
+            ],
+            "ProfName": "",
+            "Synonyms": [
+                "Somnolence",
+                "Daze",
+                "Light-headedness",
+                "Lightheadedness",
+                "Lightheadness",
+                "Feeling of lightheadness",
+                "Feeling of lightheadedness"
+            ]
+        },
+        {
+            "ID": 44,
+            "Name": "Nausea",
+            "HasRedFlag": false,
+            "HealthSymptomLocationIDs": [
+                6,
+                22,
+                15,
+                31,
+                16,
+                36,
+                17,
+                47
+            ],
+            "ProfName": "",
+            "Synonyms": []
+        },
+        {
+            "ID": 52,
+            "Name": "Sleeplessness",
+            "HasRedFlag": false,
+            "HealthSymptomLocationIDs": [
+                6,
+                22,
+                17,
+                47
+            ],
+            "ProfName": "",
+            "Synonyms": [
+                "Insomnia"
+            ]
+        },
+        {
+            "ID": 53,
+            "Name": "Difficulty to concentrate",
+            "HasRedFlag": false,
+            "HealthSymptomLocationIDs": [
+                6,
+                22,
+                17,
+                47
+            ],
+            "ProfName": "",
+            "Synonyms": [
+                "Difficulty with concentration",
+                "Concentration difficulty",
+                "Concentration difficulties",
+                "Concentration problem",
+                "Concentration problems",
+                "Difficulty concentrating"
+            ]
+        },
+        {
+            "ID": 57,
+            "Name": "Blackening of vision",
+            "HasRedFlag": true,
+            "HealthSymptomLocationIDs": [
+                6,
+                22,
+                23
+            ],
+            "ProfName": "",
+            "Synonyms": [
+                "Fainting",
+                "Going black before the eyes",
+                "Short vision blackout"
+            ]
+        },
+        {
+            "ID": 85,
+            "Name": "Mood swings",
+            "HasRedFlag": false,
+            "HealthSymptomLocationIDs": [
+                6,
+                22,
+                17,
+                47
+            ],
+            "ProfName": "",
+            "Synonyms": []
+        },
+        {
+            "ID": 114,
+            "Name": "Nervousness",
+            "HasRedFlag": false,
+            "HealthSymptomLocationIDs": [
+                6,
+                22,
+                17,
+                47
+            ],
+            "ProfName": "",
+            "Synonyms": [
+                "Stress",
+                "Feeling of tension",
+                "Irritability"
+            ]
+        },
+        {
+            "ID": 120,
+            "Name": "Impaired balance",
+            "HasRedFlag": false,
+            "HealthSymptomLocationIDs": [
+                6,
+                22,
+                17,
+                47
+            ],
+            "ProfName": "",
+            "Synonyms": [
+                "Loss of balance"
+            ]
+        },
+        {
+            "ID": 125,
+            "Name": "Forgetfulness",
+            "HasRedFlag": false,
+            "HealthSymptomLocationIDs": [
+                6,
+                22
+            ],
+            "ProfName": "",
+            "Synonyms": []
+        },
+        {
+            "ID": 126,
+            "Name": "Difficulty in finding words",
+            "HasRedFlag": false,
+            "HealthSymptomLocationIDs": [
+                6,
+                22,
+                25
+            ],
+            "ProfName": "",
+            "Synonyms": [
+                "Word-finding disorder",
+                "Anomia",
+                "Amnesic aphasia"
+            ]
+        },
+        {
+            "ID": 128,
+            "Name": "Disorientation regarding time or place",
+            "HasRedFlag": true,
+            "HealthSymptomLocationIDs": [
+                6,
+                22,
+                17,
+                47
+            ],
+            "ProfName": "",
+            "Synonyms": [
+                "Confusion",
+                "Temporal or local disorientation"
+            ]
+        },
+        {
+            "ID": 144,
+            "Name": "Unconsciousness, short",
+            "HasRedFlag": true,
+            "HealthSymptomLocationIDs": [
+                6,
+                22,
+                17,
+                47
+            ],
+            "ProfName": "",
+            "Synonyms": [
+                "Shock",
+                "Short unconsciousness",
+                "Syncope",
+                "Faint",
+                "Blackout"
+            ]
+        },
+        {
+            "ID": 207,
+            "Name": "Dizziness",
+            "HasRedFlag": true,
+            "HealthSymptomLocationIDs": [
+                6,
+                22,
+                17,
+                47
+            ],
+            "ProfName": "",
+            "Synonyms": [
+                "Vertigo",
+                "Light-headedness",
+                "Lightheadedness",
+                "Lightheadness",
+                "Feeling of lightheadness",
+                "Feeling of lightheadedness"
+            ]
+        },
+        {
+            "ID": 235,
+            "Name": "Memory gap",
+            "HasRedFlag": false,
+            "HealthSymptomLocationIDs": [
+                22
+            ],
+            "ProfName": "",
+            "Synonyms": []
+        },
+        {
+            "ID": 238,
+            "Name": "Anxiety",
+            "HasRedFlag": false,
+            "HealthSymptomLocationIDs": [
+                6,
+                22,
+                17,
+                47
+            ],
+            "ProfName": "",
+            "Synonyms": []
+        },
+        {
+            "ID": 241,
+            "Name": "Sleepiness with spontaneous falling asleep",
+            "HasRedFlag": true,
+            "HealthSymptomLocationIDs": [
+                6,
+                22,
+                17,
+                47
+            ],
+            "ProfName": "",
+            "Synonyms": [
+                "Spontaneous falling asleep",
+                "Falling asleep spontaneously"
+            ]
+        },
+        {
+            "ID": 242,
+            "Name": "Eye blinking",
+            "HasRedFlag": false,
+            "HealthSymptomLocationIDs": [
+                6,
+                22,
+                23
+            ],
+            "ProfName": "",
+            "Synonyms": []
+        },
+        {
+            "ID": 243,
+            "Name": "Tick",
+            "HasRedFlag": false,
+            "HealthSymptomLocationIDs": [
+                6,
+                22,
+                23,
+                25
+            ],
+            "ProfName": "",
+            "Synonyms": []
+        },
+        {
+            "ID": 244,
+            "Name": "Drooping eyelid",
+            "HasRedFlag": false,
+            "HealthSymptomLocationIDs": [
+                22,
+                6,
+                23
+            ],
+            "ProfName": "",
+            "Synonyms": [
+                "Ptosis"
+            ]
+        },
+        {
+            "ID": 970,
+            "Name": "Facial swelling",
+            "HasRedFlag": false,
+            "HealthSymptomLocationIDs": [
+                6,
+                23,
+                25,
+                22
+            ],
+            "ProfName": "",
+            "Synonyms": [
+                "Swollen face",
+                "Face swelling",
+                "Big face"
+            ]
+        },
+        {
+            "ID": 974,
+            "Name": "Aggressiveness",
+            "HasRedFlag": false,
+            "HealthSymptomLocationIDs": [
+                6,
+                22,
+                17,
+                47
+            ],
+            "ProfName": "",
+            "Synonyms": []
+        },
+        {
+            "ID": 975,
+            "Name": "Sadness",
+            "HasRedFlag": false,
+            "HealthSymptomLocationIDs": [
+                6,
+                22,
+                17,
+                47
+            ],
+            "ProfName": "",
+            "Synonyms": []
+        },
+        {
+            "ID": 976,
+            "Name": "Hallucination",
+            "HasRedFlag": false,
+            "HealthSymptomLocationIDs": [
+                6,
+                22,
+                17,
+                47
+            ],
+            "ProfName": "",
+            "Synonyms": [
+                "Delusion"
+            ]
+        },
+        {
+            "ID": 982,
+            "Name": "Feeling faint",
+            "HasRedFlag": false,
+            "HealthSymptomLocationIDs": [
+                6,
+                22,
+                17,
+                47
+            ],
+            "ProfName": "",
+            "Synonyms": [
+                "Fainting",
+                "Feel faint"
+            ]
+        },
+        {
+            "ID": 984,
+            "Name": "Absence of a pulse",
+            "HasRedFlag": true,
+            "HealthSymptomLocationIDs": [
+                6,
+                24,
+                22,
+                7,
+                29,
+                10,
+                41,
+                16,
+                38
+            ],
+            "ProfName": "",
+            "Synonyms": [
+                "Absence of the pulse",
+                "Acrotism",
+                "Pulselessness"
+            ]
+        },
+        {
+            "ID": 988,
+            "Name": "Trouble understanding speech",
+            "HasRedFlag": true,
+            "HealthSymptomLocationIDs": [
+                6,
+                24,
+                22
+            ],
+            "ProfName": "",
+            "Synonyms": []
+        },
+        {
+            "ID": 1007,
+            "Name": "Difficulty to learn",
+            "HasRedFlag": false,
+            "HealthSymptomLocationIDs": [
+                6,
+                22,
+                47
+            ],
+            "ProfName": "",
+            "Synonyms": [
+                "Learning difficulty",
+                "Learning difficulties",
+                "Difficulty with learning"
+            ]
+        }
+    ]
+}

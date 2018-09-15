@@ -1,4 +1,5 @@
 var express = require('express');
+var fetch = require("node-fetch");
 var router = express.Router();
 
 // firebase auth
@@ -8,20 +9,18 @@ const firestore = new Firestore({
   projectId: 'hackzurich2018',
   keyFilename: './firebase_key.json',
 });
-const settings = {/* your settings... */ timestampsInSnapshots: true};
+const settings = {/* your settings... */ timestampsInSnapshots: true };
 firestore.settings(settings);
 
 const document = firestore.doc('search/demo');
 
+router.get('/run', (req, res, next) => {
+  firestore.collection('search').doc('demo').onSnapshot(ref => {
+    var data = ref.data();
 
-router.get('/', function(req, res, next) {
-
-console.log("log1")
-
-  // Read the document.
-  document.get().then(doc => {
-    // Document read successfully.
-    res.send(doc)
+    if (data) {
+      console.log(data);
+    }
   });
 
 });
