@@ -13,6 +13,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Ionicon from 'react-ionicons'
 import SendIcon from '@material-ui/icons/Send';
+import SearchBar from '../landpage/searchbar';
 
 const styles = theme => ({
     card: {
@@ -121,6 +122,7 @@ class SearchResults extends Component {
         const { classes } = this.props;
         return (
             <div>
+                <SearchBar noSuggestions/>
                 <div style={{ margin: 'auto', width: '90vw', height: '80vh' }}>
                     <h2>Search results</h2>
                     <div style={{ display: 'flex' }}>

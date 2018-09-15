@@ -13,3 +13,7 @@
     margin: auto;
     height: 100vh;
 }
+
+.no-suggestions > .results {
+    display: none !important;
+}
