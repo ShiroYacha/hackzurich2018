@@ -100,6 +100,19 @@ proposeDrugsFromIssues = (issues) => {
 
 proposeHealthcareProviderFromSpecialisations = (specialisations) => {
 
+    const specialisationMap = {'General practice': 'physicians'};
+    const mappedSpecialisation = [];
+    specialisations.forEach(s=>{
+        if(specialisationMap[s.name]){
+            s.name = specialisationMap[s.name];
+        }
+    })
+
+    // fetch('https://health.axa.ch/hack/api/care-providers/categories', {
+    //     headers: {
+    //       Authorization: 'bashful bear'
+    //     }
+    // }).then(res1 => res1.json()).
 }
 
 proposeSymptoms = (query) => {
