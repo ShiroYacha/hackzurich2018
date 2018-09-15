@@ -15,10 +15,14 @@ class Landpage extends Component {
     render() {
 
         return (
-            <Grid style={{backgroundImage:'url("http://hdqwalls.com/wallpapers/switzerland-landscape-4k-hd.jpg")', backgroundSize: 'cover'}}>
+            <Grid style={{ backgroundImage: 'url("http://hdqwalls.com/wallpapers/switzerland-landscape-4k-hd.jpg")', backgroundSize: 'cover' }}>
                 <Grid.Column width={5}></Grid.Column>
                 <Grid.Column width={6} className="full-height">
-                    <SearchBar/>
+                    <div style={{position:'absolute', top:'40%', color:'white', width:'40vw'}}>
+                        <SearchBar/>
+                        <br></br>
+                        <span style={{paddingLeft: '10px'}}> Bring digital healthcare to your finger tips ... </span>
+                    </div>
                 </Grid.Column>
                 <Grid.Column width={5}></Grid.Column>
                 {/*<Grid.Column width={8}>

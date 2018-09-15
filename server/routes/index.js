@@ -77,7 +77,8 @@ proposeDrugsFromIssues = (issues) => {
     const issueDrugMaps = {
         '104': ['aspirin', 'naproxen', 'indomethacin'],
         '118': ['amoxicillin', 'cephalexin'],
-        '18': ['imodium']
+        '18': ['imodium'],
+        '613': ['aspirin', 'ibuprofen', 'tylenol']
     };
     var found = false;
     issues.forEach(issue => {
@@ -122,7 +123,10 @@ proposeDrugsFromIssues = (issues) => {
 
 proposeHealthcareProviderFromSpecialisations = (specialisations) => {
 
-    const specialisationMap = { 'General practice': 'physicians', 'Neurology': 'neruopsychologists' };
+    const specialisationMap = { 
+        'General practice': 'physicians', 
+        'Neurology': 'neruopsychologists', 
+        'Dentistry': 'dentists'};
     const mappedSpecialisation = [];
     const specializationList = [];
     specialisations.forEach(s => {
@@ -173,7 +177,7 @@ proposeHealthcareProviderFromSpecialisations = (specialisations) => {
                             return;
                         }
                         if(rr.firstName){
-                            doctors.push({ ...rr, id: rr._id, group: 'DOCTOR', type: rr.typeData.en, category: rr.categoryData.en, spec: specializationList[index] });
+                            doctors.push({ ...rr, id: rr._id, group: 'DOCTOR', type: rr.typeData.en, category: rr.categoryData.en, spec: specializationList[index]?specializationList[index]:'General practice' });
                             count++;
                         }
                     });

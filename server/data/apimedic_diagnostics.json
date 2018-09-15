@@ -521,6 +521,315 @@
                     ]
                 }
             ]
+        },
+        {
+            "symptom":52,
+            "results":[
+                {
+                  "issue": {
+                    "id": 379,
+                    "name": "Sleeping disorder",
+                    "accuracy": 90,
+                    "icd": "G47;F51",
+                    "icdname": "Sleep disorders;Nonorganic sleep disorders",
+                    "profname": "Somnipathy",
+                    "ranking": 1
+                  },
+                  "specialisation": [
+                    {
+                      "id": 15,
+                      "name": "General practice",
+                      "specialistid": 3
+                    },
+                    {
+                      "id": 27,
+                      "name": "Neurology",
+                      "specialistid": 45
+                    }
+                  ]
+                },
+                {
+                  "issue": {
+                    "id": 47,
+                    "name": "Depression",
+                    "accuracy": 48.97959,
+                    "icd": "F31;F32;F33;F34",
+                    "icdname": "Bipolar affective disorder;Depressive episode;Recurrent depressive disorder;Persistent mood [affective] disorders",
+                    "profname": "Major depressive disorder",
+                    "ranking": 2
+                  },
+                  "specialisation": [
+                    {
+                      "id": 15,
+                      "name": "General practice",
+                      "specialistid": 3
+                    },
+                    {
+                      "id": 36,
+                      "name": "Psychiatry",
+                      "specialistid": 62
+                    }
+                  ]
+                },
+                {
+                  "issue": {
+                    "id": 606,
+                    "name": "State of stress",
+                    "accuracy": 40.8163261,
+                    "icd": "F43.8;F43.9",
+                    "icdname": "Other reactions to severe stress;Reaction to severe stress, unspecified",
+                    "profname": "Stress",
+                    "ranking": 3
+                  },
+                  "specialisation": [
+                    {
+                      "id": 15,
+                      "name": "General practice",
+                      "specialistid": 3
+                    },
+                    {
+                      "id": 36,
+                      "name": "Psychiatry",
+                      "specialistid": 62
+                    }
+                  ]
+                },
+                {
+                  "issue": {
+                    "id": 601,
+                    "name": "Bad sleeping habits",
+                    "accuracy": 30.6122456,
+                    "icd": "G47.0;Z72.8",
+                    "icdname": "Disorders of initiating and maintaining sleep [insomnias];Other problems related to lifestyle",
+                    "profname": "Poor sleep hygiene",
+                    "ranking": 4
+                  },
+                  "specialisation": [
+                    {
+                      "id": 15,
+                      "name": "General practice",
+                      "specialistid": 3
+                    },
+                    {
+                      "id": 27,
+                      "name": "Neurology",
+                      "specialistid": 45
+                    }
+                  ]
+                },
+                {
+                  "issue": {
+                    "id": 364,
+                    "name": "Restless limb syndrome",
+                    "accuracy": 20.4081631,
+                    "icd": "G25.8",
+                    "icdname": "Other specified extrapyramidal and movement disorders",
+                    "profname": "Restless legs syndrome",
+                    "ranking": 5
+                  },
+                  "specialisation": [
+                    {
+                      "id": 15,
+                      "name": "General practice",
+                      "specialistid": 3
+                    },
+                    {
+                      "id": 27,
+                      "name": "Neurology",
+                      "specialistid": 45
+                    }
+                  ]
+                },
+                {
+                  "issue": {
+                    "id": 353,
+                    "name": "Stress disorder after trauma",
+                    "accuracy": 10.2040815,
+                    "icd": "F43.1",
+                    "icdname": "Post-traumatic stress disorder",
+                    "profname": "Post-traumatic stress disorder",
+                    "ranking": 6
+                  },
+                  "specialisation": [
+                    {
+                      "id": 15,
+                      "name": "General practice",
+                      "specialistid": 3
+                    },
+                    {
+                      "id": 36,
+                      "name": "Psychiatry",
+                      "specialistid": 62
+                    }
+                  ]
+                },
+                {
+                  "issue": {
+                    "id": 444,
+                    "name": "Shock",
+                    "accuracy": 10.2040815,
+                    "icd": "F43.0",
+                    "icdname": "Acute stress reaction",
+                    "profname": "Acute stress disorder",
+                    "ranking": 7
+                  },
+                  "specialisation": [
+                    {
+                      "id": 15,
+                      "name": "General practice",
+                      "specialistid": 3
+                    },
+                    {
+                      "id": 36,
+                      "name": "Psychiatry",
+                      "specialistid": 62
+                    }
+                  ]
+                }
+              ]
+        },
+        {
+            "symptom":1008,
+            "results":[
+                {
+                  "issue": {
+                    "id": 613,
+                    "name": "Caries",
+                    "accuracy": 90,
+                    "icd": "K02",
+                    "icdname": "Dental caries",
+                    "profname": "Dental caries",
+                    "ranking": 1
+                  },
+                  "specialisation": [
+                    {
+                      "id": 43,
+                      "name": "Dentistry",
+                      "specialistid": 71
+                    },
+                    {
+                      "id": 15,
+                      "name": "General practice",
+                      "specialistid": 3
+                    }
+                  ]
+                },
+                {
+                  "issue": {
+                    "id": 449,
+                    "name": "Tooth abscess",
+                    "accuracy": 18,
+                    "icd": "K04.6;K04.7",
+                    "icdname": "Periapical abscess with sinus;Periapical abscess without sinus",
+                    "profname": "Dental abscess",
+                    "ranking": 2
+                  },
+                  "specialisation": [
+                    {
+                      "id": 43,
+                      "name": "Dentistry",
+                      "specialistid": 71
+                    },
+                    {
+                      "id": 15,
+                      "name": "General practice",
+                      "specialistid": 3
+                    }
+                  ]
+                },
+                {
+                  "issue": {
+                    "id": 41,
+                    "name": "Inflammation of paranasal sinuses",
+                    "accuracy": 15.2999992,
+                    "icd": "J01;J32",
+                    "icdname": "Acute sinusitis;Chronic sinusitis",
+                    "profname": "Sinusitis",
+                    "ranking": 3
+                  },
+                  "specialisation": [
+                    {
+                      "id": 15,
+                      "name": "General practice",
+                      "specialistid": 3
+                    },
+                    {
+                      "id": 32,
+                      "name": "Otolaryngology",
+                      "specialistid": 49
+                    }
+                  ]
+                },
+                {
+                  "issue": {
+                    "id": 478,
+                    "name": "Difficult dentition",
+                    "accuracy": 13.5,
+                    "icd": "K00.6;K00.7",
+                    "icdname": "Disturbances in tooth eruption;Teething syndrome",
+                    "profname": "Pericoronitis",
+                    "ranking": 4
+                  },
+                  "specialisation": [
+                    {
+                      "id": 43,
+                      "name": "Dentistry",
+                      "specialistid": 71
+                    },
+                    {
+                      "id": 15,
+                      "name": "General practice",
+                      "specialistid": 3
+                    }
+                  ]
+                },
+                {
+                  "issue": {
+                    "id": 474,
+                    "name": "Inflammation of gingiva",
+                    "accuracy": 11.7,
+                    "icd": "K05.0;K05.1",
+                    "icdname": "Acute gingivitis;Chronic gingivitis",
+                    "profname": "Gingivitis",
+                    "ranking": 5
+                  },
+                  "specialisation": [
+                    {
+                      "id": 43,
+                      "name": "Dentistry",
+                      "specialistid": 71
+                    },
+                    {
+                      "id": 15,
+                      "name": "General practice",
+                      "specialistid": 3
+                    }
+                  ]
+                },
+                {
+                  "issue": {
+                    "id": 43,
+                    "name": "Small sore in mouth",
+                    "accuracy": 10.7999992,
+                    "icd": "K12.0",
+                    "icdname": "Recurrent oral aphthae",
+                    "profname": "Aphthous stomatitis",
+                    "ranking": 6
+                  },
+                  "specialisation": [
+                    {
+                      "id": 43,
+                      "name": "Dentistry",
+                      "specialistid": 71
+                    },
+                    {
+                      "id": 15,
+                      "name": "General practice",
+                      "specialistid": 3
+                    }
+                  ]
+                }
+              ]
         }
     ]
 }
