@@ -119,10 +119,10 @@ class SearchResults extends Component {
     }
 
     render() {
-        const { classes } = this.props;
+        const { classes, location } = this.props;
         return (
             <div>
-                <SearchBar noSuggestions/>
+                <SearchBar style={{margin: '20px'}} noSuggestions value={location.search && location.search.replace('?search=','')}/>
                 <div style={{ margin: 'auto', width: '90vw', height: '80vh' }}>
                     <h2>Search results</h2>
                     <div style={{ display: 'flex' }}>

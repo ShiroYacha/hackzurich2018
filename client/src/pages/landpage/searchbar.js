@@ -42,7 +42,7 @@ class SearchBar extends Component {
             issues: [],
             drugs: [],
             doctors: [],
-            value: '',
+            value: this.props && this.props.value,
         };
         this._debounceSearchFb.bind(this);
     }
