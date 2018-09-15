@@ -27,10 +27,15 @@ I don't like this
     margin: 0 auto;
     float: left;
     padding-left: 50px;
+    padding-top: 50px;
+}
+
+h2{
+    margin:50px !important;
 }
 
 .centralBody {
-    width: 70%;
+    width: 35%;
     float: left;
     margin: 0 auto;
     text-align: center;
@@ -39,6 +44,7 @@ I don't like this
 .ant-steps-vertical .ant-steps-item {
     height: 30%
 }
+
 .ant-steps-vertical {
     display: block;
     height: 50vh;

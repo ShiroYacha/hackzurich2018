@@ -183,12 +183,9 @@ class SearchResults extends Component {
                                         return (<Card className={classes.bigCard} key={d.id}>
                                             <CardContent>
                                                 <Typography className={classes.title} color="textSecondary">
-                                                    {d.prescriptionOnly ? (<div style={{ display: 'flex' }}>
-                                                        <Ionicon icon="ios-paper" fontSize="14px" color="#838383" />
-                                                        <div style={{ marginLeft: '5px', marginTop: '-3px' }}>prescription drug</div>
-                                                    </div>) : 'non-prescription drug'}
+                                                   {d.authHolder}
                                                 </Typography>
-                                                <CardMedia className={classes.image} image={d.photo} />
+                                                {d.photo?(<CardMedia className={classes.image} image={d.photo} />):(<div></div>)}
                                                 <Typography variant="headline" component="h2">
                                                     {d.name}
                                                 </Typography>

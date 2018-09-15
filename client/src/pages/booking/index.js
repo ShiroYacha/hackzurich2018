@@ -8,6 +8,16 @@ import 'react-date-range/dist/styles.css'; // main style file
 import 'react-date-range/dist/theme/default.css'; // theme css file
 import { Steps, Icon } from 'antd';
 import 'antd/dist/antd.css'
+import Button from '@material-ui/core/Button'
+
+import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
+import blue from '@material-ui/core/colors/blue';
+
+const theme = createMuiTheme({
+  palette: {
+    primary: blue,
+  },
+});
 
 const Step = Steps.Step;
 
@@ -53,26 +63,60 @@ class Booking extends Component {
   }
 
   handleSelect (ranges) {
+    this.setState({ranges: [ranges.selection]})
+  }
+
+  step1 () {
     let newSteps = [{
       description: "",
       status: "finish",
       title: "Availability"
     }, {
-      description: "Booking confirmed",
+      description: "Awaiting booking confirmation",
       status: "process",
       title: "Booking"
     }, ...this.state.steps.slice(2, 4)];
+    this.setState({steps: newSteps})
+    this.setState({selectedStep: 1})
+
+    //this works, don't spam me too many emails
+    //this.sendEmail()
 
     setTimeout(() => {
-      this.setState({steps: newSteps})
-    }, 2000)
+      this.step2()
+    }, 3000)
 
-    this.setState({ranges: [ranges.selection]})
-    this.setState({selectedStep: 1})
   }
 
-  iconBasic () {
-    return (<Icon type="check-circle" theme="filled" />)
+  step2 () {
+    let newSteps = [...this.state.steps.slice(0, 1), {
+      description: "",
+      status: "finish",
+      title: "Booking"
+    },
+      {
+        description: "Appointment set, waiting",
+        status: "process",
+        title: "Appointment"
+      }, ...this.state.steps.slice(3, 4)];
+    this.setState({steps: newSteps})
+    this.setState({selectedStep: 2})
+
+  }
+
+  step3 () {
+    let newSteps = [...this.state.steps.slice(0, 2), {
+      description: "",
+      status: "finish",
+      title: "Appointment"
+    },
+      {
+        description: "Please, get your prescription",
+        status: "process",
+        title: "Prescription"
+      }];
+    this.setState({steps: newSteps})
+    this.setState({selectedStep: 3})
   }
 
   iconCompleted () {
@@ -81,29 +125,92 @@ class Booking extends Component {
 
   renderSteps () {
     return this.state.steps.map((s, i) => {
-      return <Step title={s.title} icon={this.state.selected > i ? this.iconCompleted() : null} status={s.status}
+      return <Step key={s.title} title={s.title} icon={this.state.selected > i ? this.iconCompleted() : null}
+                   status={s.status}
                    description={s.description} />
+    })
+  }
+
+  renderCalendar () {
+    return this.state.selectedStep === 0 && (<div>
+      <h2>Please, select your availability</h2>
+      <DateRangePicker
+        ranges={this.state.ranges}
+        onChange={this.handleSelect}
+      />
+      {this.state.ranges[0].startDate < this.state.ranges[0].endDate &&
+      <Button style={{margin: 100, width: '40%'}} onClick={() => this.step1()} variant="contained"
+              color="primary">
+        Confirm availability
+      </Button>}
+    </div>)
+  }
+
+  renderPages () {
+    switch (this.state.selectedStep) {
+      case 0:
+        return this.renderCalendar()
+      case 1:
+        return (<h2>The doctor has been contacted. Waiting for an answer..</h2>)
+      case 2:
+        return (<div><h2>Appointment has been set!</h2>
+          <img src={require('../../assets/booked.png')} />
+        </div>)
+
+    }
+  }
+
+  sendEmail () {
+    let msg = `Dear Dr. Meyer<br><br>
+
+    Mr. Min has requested an appointment with you for the next week,<br><br>
+    Based on your availability you have a free slot on Monday 17-09-2018 at 10:00 AM.<br><br>
+    
+    Would you like to accept the appointment ad add it to your calendar?<br><br>
+    
+    
+    <a href="http://racingzone.eu/accepted.html">Yes</a> or <a href="#">No</a>
+    `
+
+    fetch('https://nasachallenge.herokuapp.com/email', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        destination: "gabriele.prestifilippo@gmail.com",
+        message: msg,
+        subject: "Appointment Requested"
+      })
+    }).then(response => {
+      console.log(response)
+      setTimeout(() => {
+        this.step2()
+      }, 10000)
     })
   }
 
   render () {
     return (
-      <div>
+      <MuiThemeProvider theme={theme}>
+        <div>
+          <div className="sideBarSteps">
+            <Steps direction="vertical" current={this.state.selectedStep}>
+              {this.renderSteps()}
+            </Steps>
+          </div>
 
-        <div class="sideBarSteps">
-          <Steps direction="vertical" current={this.state.selectedStep}>
-            {this.renderSteps()}
-          </Steps>
+          <div className="centralBody">
+            {this.renderPages()}
+          </div>
+
+          <div>First select a range, then proceed step by step</div>
+          <button onClick={() => this.step2()}>STEP 2</button>
+          <button onClick={() => this.step3()}>STEP 3</button>
+
         </div>
-
-        <div class="centralBody">
-          <DateRangePicker
-            ranges={this.state.ranges}
-            onChange={this.handleSelect}
-          />
-        </div>
-
-      </div>
+      </MuiThemeProvider>
     )
   }
 }
