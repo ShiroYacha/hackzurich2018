@@ -1,0 +1,23 @@
+curl "https://health.axa.ch/hack/api/care-providers/categories" \
+  -H "Authorization: stormy smile"
+
+  curl "https://health.axa.ch/hack/api/drugs?name=Alca-C®" \
+  -H "Authorization: stormy smile"
+
+
+  curl "https://health.axa.ch/hack/api/drugs/33124" \
+  -H "Authorization: stormy smile"
+
+  curl "https://health.axa.ch/hack/api/drugs/33124/info/patient" \
+  -H "Authorization: stormy smile"
+
+  curl "https://health.axa.ch/hack/api/drugs/33124/info/professional" \
+  -H "Authorization: stormy smile"
+
+------ hospital ------
+  curl "https://health.axa.ch/hack/api/care-providers?type=category=5b33a5142c9dd24355626319" \
+  -H "Authorization: stormy smile"
+
+------ physicians ------
+  curl "https://health.axa.ch/hack/api/care-providers?category=5b33a5142c9dd24355626306" \
+  -H "Authorization: stormy smile"

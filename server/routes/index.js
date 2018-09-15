@@ -1,9 +1,29 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET home page. */
+// firebase auth
+const Firestore = require('@google-cloud/firestore');
+
+const firestore = new Firestore({
+  projectId: 'hackzurich2018',
+  keyFilename: './firebase_key.json',
+});
+const settings = {/* your settings... */ timestampsInSnapshots: true};
+firestore.settings(settings);
+
+const document = firestore.doc('search/demo');
+
+
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+
+console.log("log1")
+
+  // Read the document.
+  document.get().then(doc => {
+    // Document read successfully.
+    res.send(doc)
+  });
+
 });
 
 module.exports = router;
