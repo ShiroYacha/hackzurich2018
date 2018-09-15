@@ -41,7 +41,8 @@ class SearchBar extends Component {
         this.state = {
             issues: [],
             drugs: [],
-            doctors: []
+            doctors: [],
+            value: '',
         };
         this._debounceSearchFb.bind(this);
     }
@@ -53,7 +54,9 @@ class SearchBar extends Component {
             var data = ref.data();
             if (data) {
                 const issues = data.results;
-                this.setState({ issues });
+                this.setState({ issues }, ()=> {
+                    this.updateSuggestions(this.state.search);
+                });
             }
         });
         // listen to drugs
@@ -61,7 +64,9 @@ class SearchBar extends Component {
             var data = ref.data();
             if (data) {
                 const drugs = data.results;
-                this.setState({ drugs });
+                this.setState({ drugs }, ()=> {
+                    this.updateSuggestions(this.state.search);
+                });
             }
         });
         // listen to doctors
@@ -69,7 +74,9 @@ class SearchBar extends Component {
             var data = ref.data();
             if (data) {
                 const doctors = data.results;
-                this.setState({ doctors });
+                this.setState({ doctors }, ()=> {
+                    this.updateSuggestions(this.state.search);
+                });
             }
         });
         // listen to symptoms
@@ -77,7 +84,9 @@ class SearchBar extends Component {
             var data = ref.data();
             if (data) {
                 const symptoms = data.results;
-                this.setState({ symptoms });
+                this.setState({ symptoms }, ()=> {
+                    this.updateSuggestions(this.state.search);
+                });
             }
         });
     }
@@ -115,16 +124,7 @@ class SearchBar extends Component {
         this._debounceSearchFb();
     }
 
-    handleSearchChange = (e, { value }) => {
-        const search = this.removeNonSearch(value);
-        this.setState({ isLoading: true, value, search })
-
-        if (value.length < 1) return this.resetComponent()
-
-        const db = firebase.firestore();
-
-        this.searchFb();
-
+    updateSuggestions = (search) => {
         const re = new RegExp(_.escapeRegExp(search), 'i')
         const isMatch = property => result => re.test(result[property])
 
@@ -166,12 +166,25 @@ class SearchBar extends Component {
             };
         }
 
+        if(searchRes.symptoms && !searchRes.symptoms.results.length)delete searchRes.symptoms;
+        if(searchRes.drugs && !searchRes.drugs.results.length)delete searchRes.drugs;
+        if(searchRes.doctors && !searchRes.doctors.results.length)delete searchRes.doctors;
+        if(searchRes.issues && !searchRes.issues.results.length)delete searchRes.issues;
         console.log('searchRes', searchRes);
+        this.setState({isLoading: false, results: searchRes});
+        return searchRes;
+    }
 
-        this.setState({
-            isLoading: false,
-            results: searchRes,
+    handleSearchChange = (e, { value }) => {
+        const search = this.removeNonSearch(value);
+        this.setState({ isLoading: true, value, search }, () => {
+            this.updateSuggestions(this.state.search);
         })
+
+        if (value.length < 1) return this.resetComponent()
+
+        this.searchFb();
+
     }
 
     render() {
