@@ -125,7 +125,7 @@ class SearchResults extends Component {
         const { classes, location } = this.props;
         return (
             <div>
-                <SearchBar style={{margin: '20px'}} noSuggestions value={location.search && location.search.replace('?search=','')}/>
+                <SearchBar style={{margin: '20px'}} noSuggestions/>
                 <div style={{ margin: 'auto', width: '90vw', height: '80vh' }}>
                     <div style={{ display: 'flex' }}>
                         <div
@@ -220,7 +220,7 @@ class SearchResults extends Component {
                                     this.state.doctors && this.state.doctors.map(d => {
                                         switch (d.group) {
                                             case 'FAMILY_DOCTOR':
-                                                return (<Card className={classes.card}>
+                                                return (<Card key={d.id} className={classes.card}>
                                                     <CardContent>
                                                         <Typography className={classes.title} color="textSecondary">
                                                             {d.category}
@@ -229,7 +229,7 @@ class SearchResults extends Component {
                                                             <span style={{ fontSize: '15px' }}>{d.title}</span><br /><span>{d.firstName + " " + d.name}</span>
                                                         </Typography>
                                                         <Typography className={classes.pos} color="textSecondary">
-                                                            {d.type}
+                                                            <span>{d.phone}<p>{d.email}</p></span>
                                                         </Typography>
                                                         <Typography component="p">
                                                             <div style={{ display: 'flex' }}>
@@ -257,7 +257,7 @@ class SearchResults extends Component {
                                                             <span style={{ fontSize: '15px' }}>{d.title}</span><br /><span>{d.firstName + " " + d.name}</span>
                                                         </Typography>
                                                         <Typography className={classes.pos} color="textSecondary">
-                                                            {d.type}
+                                                            <span>{d.phone}<p>{d.email}</p></span>
                                                         </Typography>
                                                         <Typography component="p">
 
