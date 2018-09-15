@@ -165,7 +165,7 @@ class SearchResults extends Component {
             <div
               style={{ width: '40%' }}>
               <div style={{ display: 'flex', marginBottom: '25px' }}>
-                <Ionicon icon="md-pizza" fontSize="30px" />
+                <Ionicon icon="md-pint" fontSize="30px" />
                 <Typography className={classes.categoryTitle} color="textSecondary">
                   Drugs
                 </Typography>
