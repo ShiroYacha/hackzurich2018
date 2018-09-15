@@ -34,21 +34,7 @@ router.get('/run', (req, res, next) => {
 
                 console.log(symptoms);
 
-                // remove old
-                firestore.collection('symptoms').get().then(snapshot => {
-
-                    if (snapshot.size == 0) return;
-
-                    // delete old in batch
-                    snapshot.docs.forEach((doc) => {
-                        doc.ref.delete();
-                    });
-                }).then(() => {
-                    // add new 
-                    symptoms.slice(0, symptoms.length > 5 ? 5 : symptoms.length).forEach(s => {
-                        firestore.collection('symptoms').add(s);
-                    });
-                });
+                firestore.collection('symptoms').doc('demo').set({results: symptoms});
             }
         }
 

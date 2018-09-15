@@ -11,10 +11,10 @@ import { Search, Grid, Header, Segment } from 'semantic-ui-react';
 
 const getResults = () =>
     [
-        {title: 'I have a headache', description: 'some desc', image: '', price: ''},
-        {title: 'I have a stomach ache', description: 'some desc 2', image: '', price: ''},
-        {title: 'I have back pain', description: 'some desc 3', image: '', price: ''},
-        {title: 'I have flu', description: 'some desc 4', image: '', price: ''},
+        { title: 'I have a headache', description: 'some desc', image: '', price: '' },
+        { title: 'I have a stomach ache', description: 'some desc 2', image: '', price: '' },
+        { title: 'I have back pain', description: 'some desc 3', image: '', price: '' },
+        { title: 'I have flu', description: 'some desc 4', image: '', price: '' },
     ];
 
 const categories = ['symptoms', 'drugs', 'doctors'];
@@ -30,7 +30,7 @@ const source = categories.reduce((memo, name) => {
 
 const searchResults = {
     issues: [],
-    drugs:[],
+    drugs: [],
     doctors: []
 }
 
@@ -46,52 +46,50 @@ class SearchBar extends Component {
         this._debounceSearchFb.bind(this);
     }
 
-    componentDidMount(){
+    componentDidMount() {
         const db = firebase.firestore();
         // listen to issues
-        this.unsubscribeIssuesListener = db.collection('issues').onSnapshot(refs=>{
+        this.unsubscribeIssuesListener = db.collection('issues').onSnapshot(refs => {
             const issues = [];
-            refs.forEach(ref=>{
+            refs.forEach(ref => {
                 var data = ref.data();
                 data.id = ref.id;
                 issues.push(data);
             });
-            this.setState({issues: issues});
+            this.setState({ issues: issues });
             console.log(issues);
         });
         // listen to drugs
-        this.unsubscribeDrugsListener = db.collection('drugs').onSnapshot(refs=>{
+        this.unsubscribeDrugsListener = db.collection('drugs').onSnapshot(refs => {
             const drugs = [];
-            refs.forEach(ref=>{
+            refs.forEach(ref => {
                 var data = ref.data();
                 data.id = ref.id;
                 drugs.push(data);
             });
-            this.setState({drugs: drugs});
+            this.setState({ drugs: drugs });
         });
         // listen to doctors
-        this.unsubscribeDoctorsListener = db.collection('doctors').onSnapshot(refs=>{
+        this.unsubscribeDoctorsListener = db.collection('doctors').onSnapshot(refs => {
             const doctors = [];
-            refs.forEach(ref=>{
+            refs.forEach(ref => {
                 var data = ref.data();
                 data.id = ref.id;
                 doctors.push(data);
             });
-            this.setState({doctors: doctors});
+            this.setState({ doctors: doctors });
         });
         // listen to symptoms
-        this.unsubscribeSymptomsListener = db.collection('symptoms').onSnapshot(refs=>{
-            const symptoms = [];
-            refs.forEach(ref=>{
-                var data = ref.data();
-                data.id = ref.id;
-                symptoms.push(data);
-            });
-            this.setState({symptoms: symptoms});
+        this.unsubscribeSymptomsListener = db.collection('symptoms').doc('demo').onSnapshot(ref => {
+            var data = ref.data();
+            if (data) {
+                const symptoms = data.results.slice(0, 5);
+                this.setState({ symptoms: symptoms });
+            }
         });
     }
 
-    componentWillUnmount(){
+    componentWillUnmount() {
         this.unsubscribeIssuesListener();
         this.unsubscribeDrugsListener();
         this.unsubscribeDoctorsListener();
@@ -105,19 +103,19 @@ class SearchBar extends Component {
     removeNonSearch = (value) => {
         const stringArr = value.split(' ');
         const nonSearch = ['I', 'have', 'a', 'an'];
-        return stringArr.map(w => nonSearch.includes(w)? null : w).filter(x => x).join(' ');
+        return stringArr.map(w => nonSearch.includes(w) ? null : w).filter(x => x).join(' ');
     }
 
     resetComponent = () => this.setState({ isLoading: false, results: [], value: '' })
 
     handleResultSelect = (e, { result }) => {
-        this.props.history.push('/searchresults?search='+result.title);
+        this.props.history.push('/searchresults?search=' + result.title);
         this.setState({ value: result.title });
     }
 
-    _debounceSearchFb = debounce(function(){
+    _debounceSearchFb = debounce(function () {
         const db = firebase.firestore();
-        db.collection('search').doc('demo').set({query: this.state.search});
+        db.collection('search').doc('demo').set({ query: this.state.search });
     }, 500);
 
     searchFb = () => {
@@ -139,33 +137,36 @@ class SearchBar extends Component {
 
         const searchRes = {};
 
-        searchRes.symptoms = {
-            name: 'Symptoms',
-            results: this.state.symptoms
-                .filter(isMatch('name'))
-                .map(item => ({title: item.name}))
+        if (this.state.symptoms) {
+            searchRes.symptoms = {
+                name: 'Symptoms',
+                results: this.state.symptoms
+                    .filter(isMatch('name'))
+                    .map(item => ({ title: item.name }))
+            }
         }
 
-
-        searchRes.issues = {
-            name: 'Issues',
-            results: this.state.issues
-                .filter(isMatch('symptom'))
-                .map(item => ({title: item.name + " ("+item.symptom+" caused by)", description: item.icdName}))
-        };
+        if (this.state.issues) {
+            searchRes.issues = {
+                name: 'Issues',
+                results: this.state.issues
+                    .filter(isMatch('symptom'))
+                    .map(item => ({ title: item.name + " (" + item.symptom + " caused by)", description: item.icdName }))
+            };
+        }
 
         searchRes.drugs = {
             name: 'Drugs',
             results: this.state.drugs
                 .filter(isMatch('name'))
-                .map(item => ({title: item.name, description: item.description}))
+                .map(item => ({ title: item.name, description: item.description }))
         };
 
         searchRes.doctors = {
             name: 'Doctors',
             results: this.state.doctors
                 .filter(isMatch('lastname'))
-                .map(item => ({title: item.title+" "+item.lastname+", "+item.firstname, description: "Group: "+item.group+" "+" Type: "+item.type}))
+                .map(item => ({ title: item.title + " " + item.lastname + ", " + item.firstname, description: "Group: " + item.group + " " + " Type: " + item.type }))
         };
 
         console.log('searchRes', searchRes);
