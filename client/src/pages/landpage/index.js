@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import firebase from 'firebase/app';
 import auth from 'firebase/auth';
 import firestore from 'firebase/database';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, withRouter, Route, Link } from "react-router-dom";
 import 'semantic-ui-css/semantic.min.css';
 import './style.css';
 import _ from 'lodash';
@@ -77,21 +77,41 @@ class Landpage extends Component {
             });
             this.setState({doctors: doctors});
         });
+        // listen to symptoms
+        this.unsubscribeSymptomsListener = db.collection('symptoms').onSnapshot(refs=>{
+            const symptoms = [];
+            refs.forEach(ref=>{
+                var data = ref.data();
+                data.id = ref.id;
+                symptoms.push(data);
+            });
+            this.setState({symptoms: symptoms});
+        });
     }
 
     componentWillUnmount(){
         this.unsubscribeIssuesListener();
         this.unsubscribeDrugsListener();
         this.unsubscribeDoctorsListener();
+        this.unsubscribeSymptomsListener();
     }
 
     componentWillMount() {
         this.resetComponent()
     }
 
+    removeNonSearch = () => {
+        const stringArr = this.state.value.split(' ');
+        const nonSearch = ['I', 'have', 'a', 'an'];
+        return stringArr.map(w => nonSearch.includes(w)? null : w).filter(x => x).join(' ');
+    }
+
     resetComponent = () => this.setState({ isLoading: false, results: [], value: '' })
 
-    handleResultSelect = (e, { result }) => this.setState({ value: result.title })
+    handleResultSelect = (e, { result }) => {
+        this.props.history.push('/searchresults?search='+result.title);
+        this.setState({ value: result.title });
+    }
 
     handleSearchChange = (e, { value }) => {
         this.setState({ isLoading: true, value })
@@ -99,15 +119,24 @@ class Landpage extends Component {
         setTimeout(() => {
             if (this.state.value.length < 1) return this.resetComponent()
 
-            const re = new RegExp(_.escapeRegExp(this.state.value), 'i')
+            const re = new RegExp(_.escapeRegExp(this.removeNonSearch()), 'i')
             const isMatch = property => result => re.test(result[property])
 
             const searchRes = {};
+
+            searchRes.symptoms = {
+                name: 'Symptoms',
+                results: this.state.symptoms
+                    .filter(isMatch('name'))
+                    .map(item => ({title: item.name}))
+            }
+
+
             searchRes.issues = {
                 name: 'Issues',
                 results: this.state.issues
                     .filter(isMatch('symptom'))
-                    .map(item => ({title: item.name, description: item.icdName}))
+                    .map(item => ({title: item.name + " ("+item.symptom+" caused by)", description: item.icdName}))
             };
 
             searchRes.drugs = {
@@ -166,4 +195,4 @@ class Landpage extends Component {
     }
 }
 
-export default Landpage;
+export default withRouter(Landpage);
