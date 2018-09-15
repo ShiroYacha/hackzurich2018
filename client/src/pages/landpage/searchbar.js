@@ -178,11 +178,11 @@ class SearchBar extends Component {
     }
 
     render() {
-        const { isLoading, value, results } = this.state
-
+        const { isLoading, value, results } = this.state;
+        const { noSuggestions } = this.props;
         return (
             <Search
-                className='custom-searchbar'
+                className={`custom-searchbar ${noSuggestions ? 'no-suggestions' : ''}`}
                 category
                 loading={isLoading}
                 onResultSelect={this.handleResultSelect}

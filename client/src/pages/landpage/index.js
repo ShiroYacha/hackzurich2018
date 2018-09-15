@@ -18,7 +18,7 @@ class Landpage extends Component {
             <Grid>
                 <Grid.Column width={5}></Grid.Column>
                 <Grid.Column width={6} className="full-height">
-                    <SearchBar></SearchBar>
+                    <SearchBar/>
                 </Grid.Column>
                 <Grid.Column width={5}></Grid.Column>
                 {/*<Grid.Column width={8}>
