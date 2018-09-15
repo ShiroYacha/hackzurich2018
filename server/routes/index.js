@@ -95,6 +95,7 @@ proposeDrugsFromIssues = (issues) => {
                 // take the first 2 drugs of each category
                 var flatterned = [];
                 results.forEach(r => {
+                    r.forEach(i => i.issue = issue.name);
                     flatterned = flatterned.concat(r.slice(0, 2));
                 })
                 console.log('found drugs', flatterned);
@@ -103,6 +104,7 @@ proposeDrugsFromIssues = (issues) => {
                 flatterned.slice(0, 5).forEach(d => {
                     top5drugs.push({
                         id: d.swissmedicIds[0],
+                        issue: d.issue,
                         name: d.title,
                         authHolder: d.authHolder,
                         description: d.substances.join(',')
@@ -122,8 +124,10 @@ proposeHealthcareProviderFromSpecialisations = (specialisations) => {
 
     const specialisationMap = { 'General practice': 'physicians', 'Neurology': 'neruopsychologists' };
     const mappedSpecialisation = [];
+    const specializationList = [];
     specialisations.forEach(s => {
         if (specialisationMap[s.name]) {
+            specializationList.push(s.name);
             s.name = specialisationMap[s.name];
         }
     });
@@ -157,21 +161,23 @@ proposeHealthcareProviderFromSpecialisations = (specialisations) => {
             });
             Promise.all(promises).then(results => {
                 const doctors = [];
+                var index = 0;
                 // take top 2 doctor of each category
                 results.forEach(r => {
                     var count = 0;
-                    console.log('r',r)
                     if(!r.result) return;
+                    console.log('spec = '+specializationList[index]);
                     r.result.forEach(rr=>{
                          // skip the weird names
                          if(count>1){
                             return;
                         }
                         if(rr.firstName){
-                            doctors.push({ ...rr, id: rr._id, group: 'DOCTOR', type: rr.typeData.en, category: rr.categoryData.en });
+                            doctors.push({ ...rr, id: rr._id, group: 'DOCTOR', type: rr.typeData.en, category: rr.categoryData.en, spec: specializationList[index] });
                             count++;
                         }
                     });
+                    index++;
                 })
                 // HACK: default the first doctor as our family doctor
                 if (doctors.length > 1) {

@@ -15,6 +15,7 @@ import Ionicon from 'react-ionicons'
 import SendIcon from '@material-ui/icons/Send';
 import CallIcon from '@material-ui/icons/Call';
 import SearchBar from '../landpage/searchbar';
+import Chip from '@material-ui/core/Chip';
 // import { Card } from 'antd';
 import 'antd/dist/antd.css'
 
@@ -139,7 +140,7 @@ class SearchResults extends Component {
             <MuiThemeProvider theme={theme}>
                 <div style={{ padding: '20px' }}>
                     <SearchBar style={{ margin: '20px' }} noSuggestions />
-                    <div style={{ margin: 'auto', width: '90vw', height: '80vh' }}>
+                    <div style={{ margin: 'auto', width: '90vw', height: '80vh', marginTop: '20px' }}>
                         <div style={{ display: 'flex' }}>
                             <div
                                 style={{ width: '30%', margin: '0px', padding: '0px' }}>
@@ -158,9 +159,7 @@ class SearchResults extends Component {
                                         this.state.issues && this.state.issues.map(i => {
                                             return (<Card className={classes.card} key={i.id}>
                                                 <CardContent>
-                                                    <Typography className={classes.title} color="textSecondary">
-                                                        {i.symptom}
-                                                    </Typography>
+                                                    <Chip label={i.symptom}/>
                                                     <Typography variant="headline" className={classes.heading}>
                                                         {i.name}
                                                     </Typography>
@@ -200,6 +199,7 @@ class SearchResults extends Component {
                                                     <Typography className={classes.title} color="textSecondary">
                                                         {d.authHolder}
                                                     </Typography>
+                                                    <Chip label={d.issue}/>
                                                     {d.photo ? (<CardMedia className={classes.image} image={d.photo} />) : (<div></div>)}
                                                     <Typography variant="headline" className={classes.heading}>
                                                         {d.name}
@@ -238,6 +238,7 @@ class SearchResults extends Component {
                                                             <Typography className={classes.title} color="textSecondary">
                                                                 {d.category}
                                                             </Typography>
+                                                            <Chip label={d.spec}/>
                                                             <Typography variant="headline" className={classes.heading}>
                                                                 <span style={{ fontSize: '15px' }}>{d.title}</span><br /><span>{d.firstName + " " + d.name}</span>
                                                             </Typography>
@@ -266,6 +267,7 @@ class SearchResults extends Component {
                                                             <Typography className={classes.title} color="textSecondary">
                                                                 {d.category}
                                                             </Typography>
+                                                            <Chip label={d.spec}/>
                                                             <Typography variant="headline" className={classes.heading}>
                                                                 <span style={{ fontSize: '15px' }}>{d.title}</span><br /><span>{d.firstName + " " + d.name}</span>
                                                             </Typography>
