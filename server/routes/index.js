@@ -44,6 +44,10 @@ router.get('/run', (req, res, next) => {
                         const top5issues = top5diagnostics.map(d=>d.issue);
                         console.log('top 5 diagnostics issues = ', top5issues);
                         firestore.collection('issues').doc('demo').set({results: top5issues});
+                        // take the top issue's specialisation
+                        const specialisation = diagnotics[0].specialisation;
+                        console.log('top issue specialisation', specialisation);
+                        // 
                     }
                 }
                 else{
