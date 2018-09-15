@@ -1,1124 +1,1124 @@
 {
     "apimedic_symptoms": [
         {
-            "ID": 188,
-            "Name": "Abdominal guarding"
+            "id": 188,
+            "name": "Abdominal guarding"
         },
         {
-            "ID": 10,
-            "Name": "Abdominal pain"
+            "id": 10,
+            "name": "Abdominal pain"
         },
         {
-            "ID": 223,
-            "Name": "Abdominal pain associated with menstruation"
+            "id": 223,
+            "name": "Abdominal pain associated with menstruation"
         },
         {
-            "ID": 984,
-            "Name": "Absence of a pulse"
+            "id": 984,
+            "name": "Absence of a pulse"
         },
         {
-            "ID": 974,
-            "Name": "Aggressiveness"
+            "id": 974,
+            "name": "Aggressiveness"
         },
         {
-            "ID": 981,
-            "Name": "Agitation"
+            "id": 981,
+            "name": "Agitation"
         },
         {
-            "ID": 996,
-            "Name": "Ankle deformity"
+            "id": 996,
+            "name": "Ankle deformity"
         },
         {
-            "ID": 147,
-            "Name": "Ankle swelling"
+            "id": 147,
+            "name": "Ankle swelling"
         },
         {
-            "ID": 238,
-            "Name": "Anxiety"
+            "id": 238,
+            "name": "Anxiety"
         },
         {
-            "ID": 1009,
-            "Name": "Arm pain"
+            "id": 1009,
+            "name": "Arm pain"
         },
         {
-            "ID": 971,
-            "Name": "Arm swelling"
+            "id": 971,
+            "name": "Arm swelling"
         },
         {
-            "ID": 998,
-            "Name": "Back deformity"
+            "id": 998,
+            "name": "Back deformity"
         },
         {
-            "ID": 104,
-            "Name": "Back pain"
+            "id": 104,
+            "name": "Back pain"
         },
         {
-            "ID": 180,
-            "Name": "Black stools"
+            "id": 180,
+            "name": "Black stools"
         },
         {
-            "ID": 57,
-            "Name": "Blackening of vision"
+            "id": 57,
+            "name": "Blackening of vision"
         },
         {
-            "ID": 24,
-            "Name": "Blackhead"
+            "id": 24,
+            "name": "Blackhead"
         },
         {
-            "ID": 284,
-            "Name": "Bleeding from vagina"
+            "id": 284,
+            "name": "Bleeding from vagina"
         },
         {
-            "ID": 176,
-            "Name": "Bleeding in the conjunctiva of the eye"
+            "id": 176,
+            "name": "Bleeding in the conjunctiva of the eye"
         },
         {
-            "ID": 48,
-            "Name": "Bloated feeling in the stomach"
+            "id": 48,
+            "name": "Bloated feeling in the stomach"
         },
         {
-            "ID": 190,
-            "Name": "Blood in stool"
+            "id": 190,
+            "name": "Blood in stool"
         },
         {
-            "ID": 233,
-            "Name": "Bloody cough"
+            "id": 233,
+            "name": "Bloody cough"
         },
         {
-            "ID": 991,
-            "Name": "Blue colored skin"
+            "id": 991,
+            "name": "Blue colored skin"
         },
         {
-            "ID": 240,
-            "Name": "Blue spot on skin"
+            "id": 240,
+            "name": "Blue spot on skin"
         },
         {
-            "ID": 77,
-            "Name": "Blurred vision"
+            "id": 77,
+            "name": "Blurred vision"
         },
         {
-            "ID": 239,
-            "Name": "Bold area among hair on the head"
+            "id": 239,
+            "name": "Bold area among hair on the head"
         },
         {
-            "ID": 156,
-            "Name": "Bone fracture"
+            "id": 156,
+            "name": "Bone fracture"
         },
         {
-            "ID": 250,
-            "Name": "Breathing-related pains"
+            "id": 250,
+            "name": "Breathing-related pains"
         },
         {
-            "ID": 979,
-            "Name": "Brittleness of nails"
+            "id": 979,
+            "name": "Brittleness of nails"
         },
         {
-            "ID": 192,
-            "Name": "Bulging abdominal wall"
+            "id": 192,
+            "name": "Bulging abdominal wall"
         },
         {
-            "ID": 75,
-            "Name": "Burning eyes"
+            "id": 75,
+            "name": "Burning eyes"
         },
         {
-            "ID": 46,
-            "Name": "Burning in the throat"
+            "id": 46,
+            "name": "Burning in the throat"
         },
         {
-            "ID": 288,
-            "Name": "Burning nose"
+            "id": 288,
+            "name": "Burning nose"
         },
         {
-            "ID": 107,
-            "Name": "Burning sensation when urinating"
+            "id": 107,
+            "name": "Burning sensation when urinating"
         },
         {
-            "ID": 91,
-            "Name": "Changes in the nails"
+            "id": 91,
+            "name": "Changes in the nails"
         },
         {
-            "ID": 170,
-            "Name": "Cheek swelling"
+            "id": 170,
+            "name": "Cheek swelling"
         },
         {
-            "ID": 17,
-            "Name": "Chest pain"
+            "id": 17,
+            "name": "Chest pain"
         },
         {
-            "ID": 31,
-            "Name": "Chest tightness"
+            "id": 31,
+            "name": "Chest tightness"
         },
         {
-            "ID": 175,
-            "Name": "Chills"
+            "id": 175,
+            "name": "Chills"
         },
         {
-            "ID": 218,
-            "Name": "Coarsening of the skin structure"
+            "id": 218,
+            "name": "Coarsening of the skin structure"
         },
         {
-            "ID": 89,
-            "Name": "Cold feet"
+            "id": 89,
+            "name": "Cold feet"
         },
         {
-            "ID": 978,
-            "Name": "Cold hands"
+            "id": 978,
+            "name": "Cold hands"
         },
         {
-            "ID": 139,
-            "Name": "Cold sweats"
+            "id": 139,
+            "name": "Cold sweats"
         },
         {
-            "ID": 15,
-            "Name": "Cough"
+            "id": 15,
+            "name": "Cough"
         },
         {
-            "ID": 228,
-            "Name": "Cough with sputum"
+            "id": 228,
+            "name": "Cough with sputum"
         },
         {
-            "ID": 94,
-            "Name": "Cramps"
+            "id": 94,
+            "name": "Cramps"
         },
         {
-            "ID": 49,
-            "Name": "Cravings"
+            "id": 49,
+            "name": "Cravings"
         },
         {
-            "ID": 134,
-            "Name": "Crusting"
+            "id": 134,
+            "name": "Crusting"
         },
         {
-            "ID": 260,
-            "Name": "Curvature of the spine"
+            "id": 260,
+            "name": "Curvature of the spine"
         },
         {
-            "ID": 108,
-            "Name": "Dark urine"
+            "id": 108,
+            "name": "Dark urine"
         },
         {
-            "ID": 163,
-            "Name": "Decreased urine stream"
+            "id": 163,
+            "name": "Decreased urine stream"
         },
         {
-            "ID": 165,
-            "Name": "Delayed start to urination"
+            "id": 165,
+            "name": "Delayed start to urination"
         },
         {
-            "ID": 50,
-            "Name": "Diarrhea"
+            "id": 50,
+            "name": "Diarrhea"
         },
         {
-            "ID": 79,
-            "Name": "Difficult defecation"
+            "id": 79,
+            "name": "Difficult defecation"
         },
         {
-            "ID": 126,
-            "Name": "Difficulty in finding words"
+            "id": 126,
+            "name": "Difficulty in finding words"
         },
         {
-            "ID": 98,
-            "Name": "Difficulty in speaking"
+            "id": 98,
+            "name": "Difficulty in speaking"
         },
         {
-            "ID": 93,
-            "Name": "Difficulty in swallowing"
+            "id": 93,
+            "name": "Difficulty in swallowing"
         },
         {
-            "ID": 53,
-            "Name": "Difficulty to concentrate"
+            "id": 53,
+            "name": "Difficulty to concentrate"
         },
         {
-            "ID": 1007,
-            "Name": "Difficulty to learn"
+            "id": 1007,
+            "name": "Difficulty to learn"
         },
         {
-            "ID": 1005,
-            "Name": "Difficulty with gait"
+            "id": 1005,
+            "name": "Difficulty with gait"
         },
         {
-            "ID": 216,
-            "Name": "Discoloration of nails"
+            "id": 216,
+            "name": "Discoloration of nails"
         },
         {
-            "ID": 128,
-            "Name": "Disorientation regarding time or place"
+            "id": 128,
+            "name": "Disorientation regarding time or place"
         },
         {
-            "ID": 989,
-            "Name": "Distended abdomen"
+            "id": 989,
+            "name": "Distended abdomen"
         },
         {
-            "ID": 207,
-            "Name": "Dizziness"
+            "id": 207,
+            "name": "Dizziness"
         },
         {
-            "ID": 71,
-            "Name": "Double vision"
+            "id": 71,
+            "name": "Double vision"
         },
         {
-            "ID": 270,
-            "Name": "Double vision, acute-onset"
+            "id": 270,
+            "name": "Double vision, acute-onset"
         },
         {
-            "ID": 162,
-            "Name": "Dribbling after urination"
+            "id": 162,
+            "name": "Dribbling after urination"
         },
         {
-            "ID": 244,
-            "Name": "Drooping eyelid"
+            "id": 244,
+            "name": "Drooping eyelid"
         },
         {
-            "ID": 43,
-            "Name": "Drowsiness"
+            "id": 43,
+            "name": "Drowsiness"
         },
         {
-            "ID": 273,
-            "Name": "Dry eyes"
+            "id": 273,
+            "name": "Dry eyes"
         },
         {
-            "ID": 272,
-            "Name": "Dry mouth"
+            "id": 272,
+            "name": "Dry mouth"
         },
         {
-            "ID": 151,
-            "Name": "Dry skin"
+            "id": 151,
+            "name": "Dry skin"
         },
         {
-            "ID": 87,
-            "Name": "Earache"
+            "id": 87,
+            "name": "Earache"
         },
         {
-            "ID": 92,
-            "Name": "Early satiety"
+            "id": 92,
+            "name": "Early satiety"
         },
         {
-            "ID": 1011,
-            "Name": "Elbow pain"
+            "id": 1011,
+            "name": "Elbow pain"
         },
         {
-            "ID": 1006,
-            "Name": "Enlarged calf"
+            "id": 1006,
+            "name": "Enlarged calf"
         },
         {
-            "ID": 242,
-            "Name": "Eye blinking"
+            "id": 242,
+            "name": "Eye blinking"
         },
         {
-            "ID": 287,
-            "Name": "Eye pain"
+            "id": 287,
+            "name": "Eye pain"
         },
         {
-            "ID": 33,
-            "Name": "Eye redness"
+            "id": 33,
+            "name": "Eye redness"
         },
         {
-            "ID": 208,
-            "Name": "Eyelid swelling"
+            "id": 208,
+            "name": "Eyelid swelling"
         },
         {
-            "ID": 209,
-            "Name": "Eyelids sticking together"
+            "id": 209,
+            "name": "Eyelids sticking together"
         },
         {
-            "ID": 219,
-            "Name": "Face pain"
+            "id": 219,
+            "name": "Face pain"
         },
         {
-            "ID": 246,
-            "Name": "Facial paralysis"
+            "id": 246,
+            "name": "Facial paralysis"
         },
         {
-            "ID": 970,
-            "Name": "Facial swelling"
+            "id": 970,
+            "name": "Facial swelling"
         },
         {
-            "ID": 153,
-            "Name": "Fast, deepened breathing"
+            "id": 153,
+            "name": "Fast, deepened breathing"
         },
         {
-            "ID": 83,
-            "Name": "Fatty defecation"
+            "id": 83,
+            "name": "Fatty defecation"
         },
         {
-            "ID": 982,
-            "Name": "Feeling faint"
+            "id": 982,
+            "name": "Feeling faint"
         },
         {
-            "ID": 76,
-            "Name": "Feeling of foreign body in the eye"
+            "id": 76,
+            "name": "Feeling of foreign body in the eye"
         },
         {
-            "ID": 86,
-            "Name": "Feeling of pressure in the ear"
+            "id": 86,
+            "name": "Feeling of pressure in the ear"
         },
         {
-            "ID": 164,
-            "Name": "Feeling of residual urine"
+            "id": 164,
+            "name": "Feeling of residual urine"
         },
         {
-            "ID": 145,
-            "Name": "Feeling of tension in the legs"
+            "id": 145,
+            "name": "Feeling of tension in the legs"
         },
         {
-            "ID": 11,
-            "Name": "Fever"
+            "id": 11,
+            "name": "Fever"
         },
         {
-            "ID": 995,
-            "Name": "Finger deformity"
+            "id": 995,
+            "name": "Finger deformity"
         },
         {
-            "ID": 1013,
-            "Name": "Finger pain"
+            "id": 1013,
+            "name": "Finger pain"
         },
         {
-            "ID": 1012,
-            "Name": "Finger swelling"
+            "id": 1012,
+            "name": "Finger swelling"
         },
         {
-            "ID": 214,
-            "Name": "Flaking skin"
+            "id": 214,
+            "name": "Flaking skin"
         },
         {
-            "ID": 245,
-            "Name": "Flaking skin on the head"
+            "id": 245,
+            "name": "Flaking skin on the head"
         },
         {
-            "ID": 154,
-            "Name": "Flatulence"
+            "id": 154,
+            "name": "Flatulence"
         },
         {
-            "ID": 255,
-            "Name": "Foot pain"
+            "id": 255,
+            "name": "Foot pain"
         },
         {
-            "ID": 1002,
-            "Name": "Foot swelling"
+            "id": 1002,
+            "name": "Foot swelling"
         },
         {
-            "ID": 125,
-            "Name": "Forgetfulness"
+            "id": 125,
+            "name": "Forgetfulness"
         },
         {
-            "ID": 62,
-            "Name": "Formation of blisters on a skin area"
+            "id": 62,
+            "name": "Formation of blisters on a skin area"
         },
         {
-            "ID": 84,
-            "Name": "Foul smelling defecation"
+            "id": 84,
+            "name": "Foul smelling defecation"
         },
         {
-            "ID": 59,
-            "Name": "Frequent urination"
+            "id": 59,
+            "name": "Frequent urination"
         },
         {
-            "ID": 110,
-            "Name": "Genital warts"
+            "id": 110,
+            "name": "Genital warts"
         },
         {
-            "ID": 152,
-            "Name": "Hair loss"
+            "id": 152,
+            "name": "Hair loss"
         },
         {
-            "ID": 976,
-            "Name": "Hallucination"
+            "id": 976,
+            "name": "Hallucination"
         },
         {
-            "ID": 72,
-            "Name": "Halo"
+            "id": 72,
+            "name": "Halo"
         },
         {
-            "ID": 186,
-            "Name": "Hand pain"
+            "id": 186,
+            "name": "Hand pain"
         },
         {
-            "ID": 148,
-            "Name": "Hand swelling"
+            "id": 148,
+            "name": "Hand swelling"
         },
         {
-            "ID": 80,
-            "Name": "Hard defecation"
+            "id": 80,
+            "name": "Hard defecation"
         },
         {
-            "ID": 184,
-            "Name": "Hardening of the skin"
+            "id": 184,
+            "name": "Hardening of the skin"
         },
         {
-            "ID": 9,
-            "Name": "Headache"
+            "id": 9,
+            "name": "Headache"
         },
         {
-            "ID": 206,
-            "Name": "Hearing loss"
+            "id": 206,
+            "name": "Hearing loss"
         },
         {
-            "ID": 985,
-            "Name": "Heart murmur"
+            "id": 985,
+            "name": "Heart murmur"
         },
         {
-            "ID": 45,
-            "Name": "Heartburn"
+            "id": 45,
+            "name": "Heartburn"
         },
         {
-            "ID": 122,
-            "Name": "Hiccups"
+            "id": 122,
+            "name": "Hiccups"
         },
         {
-            "ID": 993,
-            "Name": "Hip deformity"
+            "id": 993,
+            "name": "Hip deformity"
         },
         {
-            "ID": 196,
-            "Name": "Hip pain"
+            "id": 196,
+            "name": "Hip pain"
         },
         {
-            "ID": 121,
-            "Name": "Hoarseness"
+            "id": 121,
+            "name": "Hoarseness"
         },
         {
-            "ID": 149,
-            "Name": "Hot flushes"
+            "id": 149,
+            "name": "Hot flushes"
         },
         {
-            "ID": 197,
-            "Name": "Immobilization"
+            "id": 197,
+            "name": "Immobilization"
         },
         {
-            "ID": 120,
-            "Name": "Impaired balance"
+            "id": 120,
+            "name": "Impaired balance"
         },
         {
-            "ID": 90,
-            "Name": "Impaired hearing"
+            "id": 90,
+            "name": "Impaired hearing"
         },
         {
-            "ID": 70,
-            "Name": "Impaired light-dark adaptation"
+            "id": 70,
+            "name": "Impaired light-dark adaptation"
         },
         {
-            "ID": 113,
-            "Name": "Impairment of male potency"
+            "id": 113,
+            "name": "Impairment of male potency"
         },
         {
-            "ID": 81,
-            "Name": "Incomplete defecation"
+            "id": 81,
+            "name": "Incomplete defecation"
         },
         {
-            "ID": 131,
-            "Name": "Increased appetite"
+            "id": 131,
+            "name": "Increased appetite"
         },
         {
-            "ID": 262,
-            "Name": "Increased drive"
+            "id": 262,
+            "name": "Increased drive"
         },
         {
-            "ID": 204,
-            "Name": "Increased salivation"
+            "id": 204,
+            "name": "Increased salivation"
         },
         {
-            "ID": 40,
-            "Name": "Increased thirst"
+            "id": 40,
+            "name": "Increased thirst"
         },
         {
-            "ID": 220,
-            "Name": "Increased touch sensitivity"
+            "id": 220,
+            "name": "Increased touch sensitivity"
         },
         {
-            "ID": 39,
-            "Name": "Increased urine quantity"
+            "id": 39,
+            "name": "Increased urine quantity"
         },
         {
-            "ID": 257,
-            "Name": "Involuntary movements"
+            "id": 257,
+            "name": "Involuntary movements"
         },
         {
-            "ID": 986,
-            "Name": "Irregular heartbeat"
+            "id": 986,
+            "name": "Irregular heartbeat"
         },
         {
-            "ID": 65,
-            "Name": "Irregular mole"
+            "id": 65,
+            "name": "Irregular mole"
         },
         {
-            "ID": 73,
-            "Name": "Itching eyes"
+            "id": 73,
+            "name": "Itching eyes"
         },
         {
-            "ID": 88,
-            "Name": "Itching in the ear"
+            "id": 88,
+            "name": "Itching in the ear"
         },
         {
-            "ID": 973,
-            "Name": "Itching in the mouth or throat"
+            "id": 973,
+            "name": "Itching in the mouth or throat"
         },
         {
-            "ID": 96,
-            "Name": "Itching in the nose"
+            "id": 96,
+            "name": "Itching in the nose"
         },
         {
-            "ID": 21,
-            "Name": "Itching of skin"
+            "id": 21,
+            "name": "Itching of skin"
         },
         {
-            "ID": 999,
-            "Name": "Itching of the anus"
+            "id": 999,
+            "name": "Itching of the anus"
         },
         {
-            "ID": 247,
-            "Name": "Itching on head"
+            "id": 247,
+            "name": "Itching on head"
         },
         {
-            "ID": 268,
-            "Name": "Itching or burning in the genital area"
+            "id": 268,
+            "name": "Itching or burning in the genital area"
         },
         {
-            "ID": 194,
-            "Name": "Joint effusion"
+            "id": 194,
+            "name": "Joint effusion"
         },
         {
-            "ID": 198,
-            "Name": "Joint instability"
+            "id": 198,
+            "name": "Joint instability"
         },
         {
-            "ID": 27,
-            "Name": "Joint pain"
+            "id": 27,
+            "name": "Joint pain"
         },
         {
-            "ID": 230,
-            "Name": "Joint redness"
+            "id": 230,
+            "name": "Joint redness"
         },
         {
-            "ID": 193,
-            "Name": "Joint swelling"
+            "id": 193,
+            "name": "Joint swelling"
         },
         {
-            "ID": 47,
-            "Name": "Joylessness"
+            "id": 47,
+            "name": "Joylessness"
         },
         {
-            "ID": 994,
-            "Name": "Knee deformity"
+            "id": 994,
+            "name": "Knee deformity"
         },
         {
-            "ID": 256,
-            "Name": "Knee pain"
+            "id": 256,
+            "name": "Knee pain"
         },
         {
-            "ID": 146,
-            "Name": "Leg cramps"
+            "id": 146,
+            "name": "Leg cramps"
         },
         {
-            "ID": 1010,
-            "Name": "Leg pain"
+            "id": 1010,
+            "name": "Leg pain"
         },
         {
-            "ID": 231,
-            "Name": "Leg swelling"
+            "id": 231,
+            "name": "Leg swelling"
         },
         {
-            "ID": 143,
-            "Name": "Leg ulcer"
+            "id": 143,
+            "name": "Leg ulcer"
         },
         {
-            "ID": 82,
-            "Name": "Less than 3 defecations per week"
+            "id": 82,
+            "name": "Less than 3 defecations per week"
         },
         {
-            "ID": 992,
-            "Name": "Limited mobility of the ankle"
+            "id": 992,
+            "name": "Limited mobility of the ankle"
         },
         {
-            "ID": 167,
-            "Name": "Limited mobility of the back"
+            "id": 167,
+            "name": "Limited mobility of the back"
         },
         {
-            "ID": 178,
-            "Name": "Limited mobility of the fingers"
+            "id": 178,
+            "name": "Limited mobility of the fingers"
         },
         {
-            "ID": 1000,
-            "Name": "Limited mobility of the hip"
+            "id": 1000,
+            "name": "Limited mobility of the hip"
         },
         {
-            "ID": 195,
-            "Name": "Limited mobility of the leg"
+            "id": 195,
+            "name": "Limited mobility of the leg"
         },
         {
-            "ID": 35,
-            "Name": "Lip swelling"
+            "id": 35,
+            "name": "Lip swelling"
         },
         {
-            "ID": 205,
-            "Name": "Lockjaw"
+            "id": 205,
+            "name": "Lockjaw"
         },
         {
-            "ID": 210,
-            "Name": "Loss of eye lashes"
+            "id": 210,
+            "name": "Loss of eye lashes"
         },
         {
-            "ID": 174,
-            "Name": "Lower abdominal pain"
+            "id": 174,
+            "name": "Lower abdominal pain"
         },
         {
-            "ID": 263,
-            "Name": "Lower-back pain"
+            "id": 263,
+            "name": "Lower-back pain"
         },
         {
-            "ID": 261,
-            "Name": "Lump in the breast"
+            "id": 261,
+            "name": "Lump in the breast"
         },
         {
-            "ID": 266,
-            "Name": "Malposition of the testicles"
+            "id": 266,
+            "name": "Malposition of the testicles"
         },
         {
-            "ID": 232,
-            "Name": "Marked veins"
+            "id": 232,
+            "name": "Marked veins"
         },
         {
-            "ID": 235,
-            "Name": "Memory gap"
+            "id": 235,
+            "name": "Memory gap"
         },
         {
-            "ID": 112,
-            "Name": "Menstruation disorder"
+            "id": 112,
+            "name": "Menstruation disorder"
         },
         {
-            "ID": 123,
-            "Name": "Missed period"
+            "id": 123,
+            "name": "Missed period"
         },
         {
-            "ID": 215,
-            "Name": "Moist and softened skin"
+            "id": 215,
+            "name": "Moist and softened skin"
         },
         {
-            "ID": 85,
-            "Name": "Mood swings"
+            "id": 85,
+            "name": "Mood swings"
         },
         {
-            "ID": 983,
-            "Name": "Morning stiffness"
+            "id": 983,
+            "name": "Morning stiffness"
         },
         {
-            "ID": 135,
-            "Name": "Mouth pain"
+            "id": 135,
+            "name": "Mouth pain"
         },
         {
-            "ID": 97,
-            "Name": "Mouth ulcers"
+            "id": 97,
+            "name": "Mouth ulcers"
         },
         {
-            "ID": 177,
-            "Name": "Muscle pain"
+            "id": 177,
+            "name": "Muscle pain"
         },
         {
-            "ID": 119,
-            "Name": "Muscle stiffness"
+            "id": 119,
+            "name": "Muscle stiffness"
         },
         {
-            "ID": 987,
-            "Name": "Muscle weakness"
+            "id": 987,
+            "name": "Muscle weakness"
         },
         {
-            "ID": 252,
-            "Name": "Muscular atrophy in the leg"
+            "id": 252,
+            "name": "Muscular atrophy in the leg"
         },
         {
-            "ID": 202,
-            "Name": "Muscular atrophy of the arm"
+            "id": 202,
+            "name": "Muscular atrophy of the arm"
         },
         {
-            "ID": 168,
-            "Name": "Muscular weakness in the arm"
+            "id": 168,
+            "name": "Muscular weakness in the arm"
         },
         {
-            "ID": 253,
-            "Name": "Muscular weakness in the leg"
+            "id": 253,
+            "name": "Muscular weakness in the leg"
         },
         {
-            "ID": 44,
-            "Name": "Nausea"
+            "id": 44,
+            "name": "Nausea"
         },
         {
-            "ID": 136,
-            "Name": "Neck pain"
+            "id": 136,
+            "name": "Neck pain"
         },
         {
-            "ID": 234,
-            "Name": "Neck stiffness"
+            "id": 234,
+            "name": "Neck stiffness"
         },
         {
-            "ID": 114,
-            "Name": "Nervousness"
+            "id": 114,
+            "name": "Nervousness"
         },
         {
-            "ID": 133,
-            "Name": "Night cough"
+            "id": 133,
+            "name": "Night cough"
         },
         {
-            "ID": 1004,
-            "Name": "Night sweats"
+            "id": 1004,
+            "name": "Night sweats"
         },
         {
-            "ID": 63,
-            "Name": "Non-healing skin wound"
+            "id": 63,
+            "name": "Non-healing skin wound"
         },
         {
-            "ID": 38,
-            "Name": "Nosebleed"
+            "id": 38,
+            "name": "Nosebleed"
         },
         {
-            "ID": 221,
-            "Name": "Numbness in the arm"
+            "id": 221,
+            "name": "Numbness in the arm"
         },
         {
-            "ID": 254,
-            "Name": "Numbness in the leg"
+            "id": 254,
+            "name": "Numbness in the leg"
         },
         {
-            "ID": 200,
-            "Name": "Numbness of the hands"
+            "id": 200,
+            "name": "Numbness of the hands"
         },
         {
-            "ID": 137,
-            "Name": "Oversensitivity to light"
+            "id": 137,
+            "name": "Oversensitivity to light"
         },
         {
-            "ID": 157,
-            "Name": "Overweight"
+            "id": 157,
+            "name": "Overweight"
         },
         {
-            "ID": 155,
-            "Name": "Pain in the bones"
+            "id": 155,
+            "name": "Pain in the bones"
         },
         {
-            "ID": 142,
-            "Name": "Pain in the calves"
+            "id": 142,
+            "name": "Pain in the calves"
         },
         {
-            "ID": 12,
-            "Name": "Pain in the limbs"
+            "id": 12,
+            "name": "Pain in the limbs"
         },
         {
-            "ID": 990,
-            "Name": "Pain of the anus"
+            "id": 990,
+            "name": "Pain of the anus"
         },
         {
-            "ID": 203,
-            "Name": "Pain on swallowing"
+            "id": 203,
+            "name": "Pain on swallowing"
         },
         {
-            "ID": 251,
-            "Name": "Pain radiating to the arm"
+            "id": 251,
+            "name": "Pain radiating to the arm"
         },
         {
-            "ID": 103,
-            "Name": "Pain radiating to the leg"
+            "id": 103,
+            "name": "Pain radiating to the leg"
         },
         {
-            "ID": 286,
-            "Name": "Pain when chewing"
+            "id": 286,
+            "name": "Pain when chewing"
         },
         {
-            "ID": 189,
-            "Name": "Painful defecation"
+            "id": 189,
+            "name": "Painful defecation"
         },
         {
-            "ID": 109,
-            "Name": "Painful urination"
+            "id": 109,
+            "name": "Painful urination"
         },
         {
-            "ID": 150,
-            "Name": "Pallor"
+            "id": 150,
+            "name": "Pallor"
         },
         {
-            "ID": 37,
-            "Name": "Palpitations"
+            "id": 37,
+            "name": "Palpitations"
         },
         {
-            "ID": 140,
-            "Name": "Paralysis"
+            "id": 140,
+            "name": "Paralysis"
         },
         {
-            "ID": 118,
-            "Name": "Physical inactivity"
+            "id": 118,
+            "name": "Physical inactivity"
         },
         {
-            "ID": 129,
-            "Name": "Problems with the sense of touch in the face"
+            "id": 129,
+            "name": "Problems with the sense of touch in the face"
         },
         {
-            "ID": 130,
-            "Name": "Problems with the sense of touch in the feet"
+            "id": 130,
+            "name": "Problems with the sense of touch in the feet"
         },
         {
-            "ID": 258,
-            "Name": "Protrusion of the eyes"
+            "id": 258,
+            "name": "Protrusion of the eyes"
         },
         {
-            "ID": 172,
-            "Name": "Purulent discharge from the urethra"
+            "id": 172,
+            "name": "Purulent discharge from the urethra"
         },
         {
-            "ID": 173,
-            "Name": "Purulent discharge from the vagina"
+            "id": 173,
+            "name": "Purulent discharge from the vagina"
         },
         {
-            "ID": 191,
-            "Name": "Rebound tenderness"
+            "id": 191,
+            "name": "Rebound tenderness"
         },
         {
-            "ID": 54,
-            "Name": "Reduced appetite"
+            "id": 54,
+            "name": "Reduced appetite"
         },
         {
-            "ID": 78,
-            "Name": "Ringing in the ear"
+            "id": 78,
+            "name": "Ringing in the ear"
         },
         {
-            "ID": 14,
-            "Name": "Runny nose"
+            "id": 14,
+            "name": "Runny nose"
         },
         {
-            "ID": 975,
-            "Name": "Sadness"
+            "id": 975,
+            "name": "Sadness"
         },
         {
-            "ID": 269,
-            "Name": "Scalp redness"
+            "id": 269,
+            "name": "Scalp redness"
         },
         {
-            "ID": 1001,
-            "Name": "Scar"
+            "id": 1001,
+            "name": "Scar"
         },
         {
-            "ID": 60,
-            "Name": "Sensitivity to cold"
+            "id": 60,
+            "name": "Sensitivity to cold"
         },
         {
-            "ID": 69,
-            "Name": "Sensitivity to glare"
+            "id": 69,
+            "name": "Sensitivity to glare"
         },
         {
-            "ID": 102,
-            "Name": "Sensitivity to noise"
+            "id": 102,
+            "name": "Sensitivity to noise"
         },
         {
-            "ID": 264,
-            "Name": "Shiny red tongue"
+            "id": 264,
+            "name": "Shiny red tongue"
         },
         {
-            "ID": 29,
-            "Name": "Shortness of breath"
+            "id": 29,
+            "name": "Shortness of breath"
         },
         {
-            "ID": 183,
-            "Name": "Side pain"
+            "id": 183,
+            "name": "Side pain"
         },
         {
-            "ID": 26,
-            "Name": "Skin lesion"
+            "id": 26,
+            "name": "Skin lesion"
         },
         {
-            "ID": 25,
-            "Name": "Skin nodules"
+            "id": 25,
+            "name": "Skin nodules"
         },
         {
-            "ID": 124,
-            "Name": "Skin rash"
+            "id": 124,
+            "name": "Skin rash"
         },
         {
-            "ID": 61,
-            "Name": "Skin redness"
+            "id": 61,
+            "name": "Skin redness"
         },
         {
-            "ID": 217,
-            "Name": "Skin thickening"
+            "id": 217,
+            "name": "Skin thickening"
         },
         {
-            "ID": 34,
-            "Name": "Skin wheal"
+            "id": 34,
+            "name": "Skin wheal"
         },
         {
-            "ID": 241,
-            "Name": "Sleepiness with spontaneous falling asleep"
+            "id": 241,
+            "name": "Sleepiness with spontaneous falling asleep"
         },
         {
-            "ID": 52,
-            "Name": "Sleeplessness"
+            "id": 52,
+            "name": "Sleeplessness"
         },
         {
-            "ID": 95,
-            "Name": "Sneezing"
+            "id": 95,
+            "name": "Sneezing"
         },
         {
-            "ID": 13,
-            "Name": "Sore throat"
+            "id": 13,
+            "name": "Sore throat"
         },
         {
-            "ID": 64,
-            "Name": "Sputum"
+            "id": 64,
+            "name": "Sputum"
         },
         {
-            "ID": 179,
-            "Name": "Stomach burning"
+            "id": 179,
+            "name": "Stomach burning"
         },
         {
-            "ID": 185,
-            "Name": "Stress-related leg pain"
+            "id": 185,
+            "name": "Stress-related leg pain"
         },
         {
-            "ID": 28,
-            "Name": "Stuffy nose"
+            "id": 28,
+            "name": "Stuffy nose"
         },
         {
-            "ID": 138,
-            "Name": "Sweating"
+            "id": 138,
+            "name": "Sweating"
         },
         {
-            "ID": 236,
-            "Name": "Swelling in the genital area"
+            "id": 236,
+            "name": "Swelling in the genital area"
         },
         {
-            "ID": 267,
-            "Name": "Swelling of the testicles"
+            "id": 267,
+            "name": "Swelling of the testicles"
         },
         {
-            "ID": 248,
-            "Name": "Swollen glands in the armpit"
+            "id": 248,
+            "name": "Swollen glands in the armpit"
         },
         {
-            "ID": 249,
-            "Name": "Swollen glands in the groin"
+            "id": 249,
+            "name": "Swollen glands in the groin"
         },
         {
-            "ID": 169,
-            "Name": "Swollen glands in the neck"
+            "id": 169,
+            "name": "Swollen glands in the neck"
         },
         {
-            "ID": 211,
-            "Name": "Tears"
+            "id": 211,
+            "name": "Tears"
         },
         {
-            "ID": 222,
-            "Name": "Testicular pain"
+            "id": 222,
+            "name": "Testicular pain"
         },
         {
-            "ID": 243,
-            "Name": "Tick"
+            "id": 243,
+            "name": "Tick"
         },
         {
-            "ID": 201,
-            "Name": "Tingling"
+            "id": 201,
+            "name": "Tingling"
         },
         {
-            "ID": 16,
-            "Name": "Tiredness"
+            "id": 16,
+            "name": "Tiredness"
         },
         {
-            "ID": 997,
-            "Name": "Toe deformity"
+            "id": 997,
+            "name": "Toe deformity"
         },
         {
-            "ID": 1003,
-            "Name": "Toe swelling"
+            "id": 1003,
+            "name": "Toe swelling"
         },
         {
-            "ID": 980,
-            "Name": "Tongue burning"
+            "id": 980,
+            "name": "Tongue burning"
         },
         {
-            "ID": 977,
-            "Name": "Tongue swelling"
+            "id": 977,
+            "name": "Tongue swelling"
         },
         {
-            "ID": 1008,
-            "Name": "Toothache"
+            "id": 1008,
+            "name": "Toothache"
         },
         {
-            "ID": 115,
-            "Name": "Tremor at rest"
+            "id": 115,
+            "name": "Tremor at rest"
         },
         {
-            "ID": 132,
-            "Name": "Tremor on movement"
+            "id": 132,
+            "name": "Tremor on movement"
         },
         {
-            "ID": 988,
-            "Name": "Trouble understanding speech"
+            "id": 988,
+            "name": "Trouble understanding speech"
         },
         {
-            "ID": 144,
-            "Name": "Unconsciousness, short"
+            "id": 144,
+            "name": "Unconsciousness, short"
         },
         {
-            "ID": 265,
-            "Name": "Uncontrolled defecation"
+            "id": 265,
+            "name": "Uncontrolled defecation"
         },
         {
-            "ID": 116,
-            "Name": "Underweight"
+            "id": 116,
+            "name": "Underweight"
         },
         {
-            "ID": 160,
-            "Name": "Urge to urinate"
+            "id": 160,
+            "name": "Urge to urinate"
         },
         {
-            "ID": 161,
-            "Name": "Urination during the night"
+            "id": 161,
+            "name": "Urination during the night"
         },
         {
-            "ID": 68,
-            "Name": "Vision impairment"
+            "id": 68,
+            "name": "Vision impairment"
         },
         {
-            "ID": 213,
-            "Name": "Vision impairment for far objects"
+            "id": 213,
+            "name": "Vision impairment for far objects"
         },
         {
-            "ID": 166,
-            "Name": "Vision impairment for near objects"
+            "id": 166,
+            "name": "Vision impairment for near objects"
         },
         {
-            "ID": 66,
-            "Name": "Visual field loss"
+            "id": 66,
+            "name": "Visual field loss"
         },
         {
-            "ID": 101,
-            "Name": "Vomiting"
+            "id": 101,
+            "name": "Vomiting"
         },
         {
-            "ID": 181,
-            "Name": "Vomiting blood"
+            "id": 181,
+            "name": "Vomiting blood"
         },
         {
-            "ID": 972,
-            "Name": "Weakness or numbness on right or left side of body"
+            "id": 972,
+            "name": "Weakness or numbness on right or left side of body"
         },
         {
-            "ID": 23,
-            "Name": "Weight gain"
+            "id": 23,
+            "name": "Weight gain"
         },
         {
-            "ID": 22,
-            "Name": "Weight loss"
+            "id": 22,
+            "name": "Weight loss"
         },
         {
-            "ID": 30,
-            "Name": "Wheezing"
+            "id": 30,
+            "name": "Wheezing"
         },
         {
-            "ID": 187,
-            "Name": "Wound"
+            "id": 187,
+            "name": "Wound"
         },
         {
-            "ID": 105,
-            "Name": "Yellow colored skin"
+            "id": 105,
+            "name": "Yellow colored skin"
         },
         {
-            "ID": 106,
-            "Name": "Yellowish discoloration of the white part of the eye"
+            "id": 106,
+            "name": "Yellowish discoloration of the white part of the eye"
         }
     ]
 }
