@@ -57,7 +57,7 @@ class Booking extends Component {
       description: "",
       status: "finish",
       title: "Availability"
-    },{
+    }, {
       description: "Booking confirmed",
       status: "process",
       title: "Booking"
@@ -68,7 +68,7 @@ class Booking extends Component {
     }, 2000)
 
     this.setState({ranges: [ranges.selection]})
-    this.setState({selectedStep:1})
+    this.setState({selectedStep: 1})
   }
 
   iconBasic () {
@@ -90,14 +90,19 @@ class Booking extends Component {
     return (
       <div>
 
-        <DateRangePicker
-          ranges={this.state.ranges}
-          onChange={this.handleSelect}
-        />
+        <div class="sideBarSteps">
+          <Steps direction="vertical" current={this.state.selectedStep}>
+            {this.renderSteps()}
+          </Steps>
+        </div>
 
-        <Steps direction="vertical" current={this.state.selectedStep}>
-          {this.renderSteps()}
-        </Steps>
+        <div class="centralBody">
+          <DateRangePicker
+            ranges={this.state.ranges}
+            onChange={this.handleSelect}
+          />
+        </div>
+
       </div>
     )
   }
