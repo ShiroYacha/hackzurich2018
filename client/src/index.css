@@ -10,3 +10,25 @@ I don't like this
 .rdrInputRanges {
     display: none;
 }
+
+.sideBarSteps {
+    width: 30%;
+    margin: 0 auto;
+    float: left;
+    padding-left: 50px;
+}
+
+.centralBody {
+    width: 70%;
+    float: left;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.ant-steps-vertical .ant-steps-item {
+    height: 30%
+}
+.ant-steps-vertical {
+    display: block;
+    height: 50vh;
+}
