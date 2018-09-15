@@ -51,32 +51,32 @@ class SearchBar extends Component {
         // listen to issues
         this.unsubscribeIssuesListener = db.collection('issues').doc('demo').onSnapshot(ref => {
             var data = ref.data();
-            if (data) {
-                const issues = data.results;
+            if (data && data.results) {
+                const issues = data.results.splice(0, 2);
                 this.setState({ issues });
             }
         });
         // listen to drugs
         this.unsubscribeDrugsListener = db.collection('drugs').doc('demo').onSnapshot(ref => {
             var data = ref.data();
-            if (data) {
-                const drugs = data.results;
+            if (data && data.results) {
+                const drugs = data.results.splice(0, 2);
                 this.setState({ drugs });
             }
         });
         // listen to doctors
         this.unsubscribeDoctorsListener = db.collection('doctors').doc('demo').onSnapshot(ref => {
             var data = ref.data();
-            if (data) {
-                const doctors = data.results;
+            if (data && data.results) {
+                const doctors = data.results.splice(0, 2);
                 this.setState({ doctors });
             }
         });
         // listen to symptoms
         this.unsubscribeSymptomsListener = db.collection('symptoms').doc('demo').onSnapshot(ref => {
             var data = ref.data();
-            if (data) {
-                const symptoms = data.results;
+            if (data && data.results) {
+                const symptoms = data.results.splice(0, 2);
                 this.setState({ symptoms });
             }
         });
