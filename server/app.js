@@ -5,7 +5,8 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var axaRouter = require('./routes/axa-drug');
+var axaDrugRouter = require('./routes/axa-drug');
+var axaDocRouter = require('./routes/axa-doctor');
 
 var app = express();
 
@@ -17,6 +18,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/axa-drug', axaRouter);
+app.use('/axa-drug', axaDrugRouter);
+app.use('/axa-doctor', axaDocRouter);
 
 module.exports = app;

@@ -1,0 +1,29 @@
+{
+    "apimedic_bodyLocation": [
+        {
+            "locationsID": 6,
+            "results": [
+                {
+                    "ID": 23,
+                    "Name": "Face & eyes"
+                },
+                {
+                    "ID": 22,
+                    "Name": "Forehead & head in general"
+                },
+                {
+                    "ID": 21,
+                    "Name": "Hair & scalp"
+                },
+                {
+                    "ID": 25,
+                    "Name": "Mouth & jaw"
+                },
+                {
+                    "ID": 24,
+                    "Name": "Nose, ears, throat & neck"
+                }
+            ]
+        }
+    ]
+}

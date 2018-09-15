@@ -1,0 +1,28 @@
+{
+    "apimedic_proposedSymptoms": [
+        {
+            "ID": 288,
+            "Name": "Burning nose"
+        },
+        {
+            "ID": 14,
+            "Name": "Runny nose"
+        },
+        {
+            "ID": 28,
+            "Name": "Stuffy nose"
+        },
+        {
+            "ID": 13,
+            "Name": "Sore throat"
+        },
+        {
+            "ID": 234,
+            "Name": "Neck stiffness"
+        },
+        {
+            "ID": 87,
+            "Name": "Earache"
+        }
+    ]
+}
