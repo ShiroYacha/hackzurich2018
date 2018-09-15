@@ -6,6 +6,7 @@ import { BrowserRouter as Router, withRouter, Route, Link } from "react-router-d
 import 'semantic-ui-css/semantic.min.css';
 import './style.css';
 import _ from 'lodash';
+import debounce from 'debounce';
 import { Search, Grid, Header, Segment } from 'semantic-ui-react';
 
 const getResults = () =>
@@ -42,6 +43,7 @@ class Landpage extends Component {
             drugs: [],
             doctors: []
         };
+        this._debounceSearchFb.bind(this);
     }
 
     componentDidMount(){
@@ -100,8 +102,8 @@ class Landpage extends Component {
         this.resetComponent()
     }
 
-    removeNonSearch = () => {
-        const stringArr = this.state.value.split(' ');
+    removeNonSearch = (value) => {
+        const stringArr = value.split(' ');
         const nonSearch = ['I', 'have', 'a', 'an'];
         return stringArr.map(w => nonSearch.includes(w)? null : w).filter(x => x).join(' ');
     }
@@ -113,53 +115,65 @@ class Landpage extends Component {
         this.setState({ value: result.title });
     }
 
+    _debounceSearchFb = debounce(function(){
+        const db = firebase.firestore();
+            db.collection('search').doc('demo').set({query: this.state.search});
+        }, 500);
+
+    searchFb = () => {
+        this._debounceSearchFb();
+    }
+
     handleSearchChange = (e, { value }) => {
-        this.setState({ isLoading: true, value })
+        const search = this.removeNonSearch(value);
+        this.setState({ isLoading: true, value, search })
 
-        setTimeout(() => {
-            if (this.state.value.length < 1) return this.resetComponent()
+        if (value.length < 1) return this.resetComponent()
 
-            const re = new RegExp(_.escapeRegExp(this.removeNonSearch()), 'i')
-            const isMatch = property => result => re.test(result[property])
+        const db = firebase.firestore();
 
-            const searchRes = {};
+        this.searchFb();
 
-            searchRes.symptoms = {
-                name: 'Symptoms',
-                results: this.state.symptoms
-                    .filter(isMatch('name'))
-                    .map(item => ({title: item.name}))
-            }
+        const re = new RegExp(_.escapeRegExp(search), 'i')
+        const isMatch = property => result => re.test(result[property])
+
+        const searchRes = {};
+
+        searchRes.symptoms = {
+            name: 'Symptoms',
+            results: this.state.symptoms
+                .filter(isMatch('name'))
+                .map(item => ({title: item.name}))
+        }
 
 
-            searchRes.issues = {
-                name: 'Issues',
-                results: this.state.issues
-                    .filter(isMatch('symptom'))
-                    .map(item => ({title: item.name + " ("+item.symptom+" caused by)", description: item.icdName}))
-            };
+        searchRes.issues = {
+            name: 'Issues',
+            results: this.state.issues
+                .filter(isMatch('symptom'))
+                .map(item => ({title: item.name + " ("+item.symptom+" caused by)", description: item.icdName}))
+        };
 
-            searchRes.drugs = {
-                name: 'Drugs',
-                results: this.state.drugs
-                    .filter(isMatch('name'))
-                    .map(item => ({title: item.name, description: item.description}))
-            };
+        searchRes.drugs = {
+            name: 'Drugs',
+            results: this.state.drugs
+                .filter(isMatch('name'))
+                .map(item => ({title: item.name, description: item.description}))
+        };
 
-            searchRes.doctors = {
-                name: 'Doctors',
-                results: this.state.doctors
-                    .filter(isMatch('lastname'))
-                    .map(item => ({title: item.title+" "+item.lastname+", "+item.firstname, description: "Group: "+item.group+" "+" Type: "+item.type}))
-            };
+        searchRes.doctors = {
+            name: 'Doctors',
+            results: this.state.doctors
+                .filter(isMatch('lastname'))
+                .map(item => ({title: item.title+" "+item.lastname+", "+item.firstname, description: "Group: "+item.group+" "+" Type: "+item.type}))
+        };
 
-            console.log('searchRes', searchRes);
+        console.log('searchRes', searchRes);
 
-            this.setState({
-                isLoading: false,
-                results: searchRes,
-            })
-        }, 300)
+        this.setState({
+            isLoading: false,
+            results: searchRes,
+        })
     }
 
     render() {
@@ -175,7 +189,7 @@ class Landpage extends Component {
                         category
                         loading={isLoading}
                         onResultSelect={this.handleResultSelect}
-                        onSearchChange={_.debounce(this.handleSearchChange, 500, { leading: true })}
+                        onSearchChange={this.handleSearchChange}
                         results={results}
                         value={value}
                         {...this.props}
