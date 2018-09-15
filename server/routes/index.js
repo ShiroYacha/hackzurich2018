@@ -120,7 +120,7 @@ proposeHealthcareProviderFromSpecialisations = (specialisations) => {
             const cids = [];
             categories.result.forEach(c => {
                 if (specialisations.some(s => s.name == c.en)) {
-                    cids.push(c._id);
+                    cids.push(c.id);
                 }
             })
             // search all healthcare providers

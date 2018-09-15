@@ -37,12 +37,12 @@ const searchResults = {
 class SearchBar extends Component {
 
     constructor(props) {
-        super();
+        super(props);
         this.state = {
             issues: [],
             drugs: [],
             doctors: [],
-            value: props.value,
+            value: '',
         };
         this._debounceSearchFb.bind(this);
     }
@@ -53,7 +53,7 @@ class SearchBar extends Component {
         this.unsubscribeIssuesListener = db.collection('issues').doc('demo').onSnapshot(ref => {
             var data = ref.data();
             if (data && data.results) {
-                const issues = data.results.splice(0, 4);
+                const issues = data.results.slice(0, 4);
                 this.setState({ issues }, ()=> {
                     this.updateSuggestions(this.state.search);
                 });
@@ -63,7 +63,7 @@ class SearchBar extends Component {
         this.unsubscribeDrugsListener = db.collection('drugs').doc('demo').onSnapshot(ref => {
             var data = ref.data();
             if (data && data.results) {
-                const drugs = data.results.splice(0, 4);
+                const drugs = data.results.slice(0, 4);
                 this.setState({ drugs }, ()=> {
                     this.updateSuggestions(this.state.search);
                 });
@@ -73,7 +73,7 @@ class SearchBar extends Component {
         this.unsubscribeDoctorsListener = db.collection('doctors').doc('demo').onSnapshot(ref => {
             var data = ref.data();
             if (data && data.results) {
-                const doctors = data.results.splice(0, 4);
+                const doctors = data.results.slice(0, 4);
                 this.setState({ doctors }, ()=> {
                     this.updateSuggestions(this.state.search);
                 });
@@ -83,7 +83,7 @@ class SearchBar extends Component {
         this.unsubscribeSymptomsListener = db.collection('symptoms').doc('demo').onSnapshot(ref => {
             var data = ref.data();
             if (data && data.results) {
-                const symptoms = data.results.splice(0, 4);
+                const symptoms = data.results.slice(0, 4);
                 this.setState({ symptoms }, ()=> {
                     this.updateSuggestions(this.state.search);
                 });
@@ -135,7 +135,7 @@ class SearchBar extends Component {
                 name: 'Symptoms',
                 results: this.state.symptoms
                     .filter(isMatch('name'))
-                    .map(item => ({ title: item.name }))
+                    .map(item => ({id: item.id, title: item.name }))
             }
         }
 
@@ -144,7 +144,7 @@ class SearchBar extends Component {
                 name: 'Issues',
                 results: this.state.issues
                     .filter(isMatch('symptom'))
-                    .map(item => ({ title: item.name + " (" + item.symptom + " caused by)", description: item.icdname }))
+                    .map(item => ({id: item.id, title: item.name + " (" + item.symptom + " caused by)", description: item.icdname }))
             };
         }
 
@@ -153,7 +153,7 @@ class SearchBar extends Component {
                 name: 'Drugs',
                 results: this.state.drugs
                     .filter(isMatch('name'))
-                    .map(item => ({ title: item.name, description: item.description }))
+                    .map(item => ({id: item.id, title: item.name, description: item.description }))
             };
         }
 
@@ -162,7 +162,7 @@ class SearchBar extends Component {
                 name: 'Doctors',
                 results: this.state.doctors
                     .filter(isMatch('lastname'))
-                    .map(item => ({ title: item.title + " " + item.lastname + ", " + item.firstname, description: "Group: " + item.group + " " + " Type: " + item.type }))
+                    .map(item => ({id: item.id, title: item.title + " " + item.name + ", " + item.firstName, description: "Group: " + item.group + " " + " Type: " + item.type }))
             };
         }
 
@@ -178,10 +178,11 @@ class SearchBar extends Component {
     handleSearchChange = (e, { value }) => {
         const search = this.removeNonSearch(value);
         this.setState({ isLoading: true, value, search }, () => {
+            console.log('state is', this.state);
             this.updateSuggestions(this.state.search);
         })
 
-        if (value.length < 1) return this.resetComponent()
+        if (value.length < 1) this.resetComponent()
 
         this.searchFb();
 
@@ -199,7 +200,6 @@ class SearchBar extends Component {
                 onSearchChange={this.handleSearchChange}
                 results={results}
                 value={value}
-                {...this.props}
             />
         )
     }

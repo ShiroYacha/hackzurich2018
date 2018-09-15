@@ -15,7 +15,7 @@ router.get('/', function(req, res, next) {
     }
   }).then(res1 => res1.json()).
   then(fetch_res =>{
-      var id_cat = fetch_res.result.filter(n =>n.en==input)[0]._id
+      var id_cat = fetch_res.result.filter(n =>n.en==input)[0].id
         var url = 'https://health.axa.ch/hack/api/care-providers?category='
         url += id_cat
         fetch(url, {
