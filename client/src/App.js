@@ -4,6 +4,11 @@ import './App.css';
 import firebase from 'firebase/app';
 import auth from 'firebase/auth';
 import firestore from 'firebase/database';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import Booking from './pages/booking/index';
+import Landpage from './pages/landpage/index';
+import MyPrescriptions from './pages/myprescriptions/index';
+import SearchResults from './pages/searchresults/index';
 
 class App extends Component {
 
@@ -22,17 +27,64 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+        <Router>
+          <div>
+            <ul>
+              <li>
+                <Link to="/landpage">Landpage</Link>
+              </li>
+              <li>
+                <Link to="/searchresults">Search results</Link>
+              </li>
+              <li>
+                <Link to="/booking">Booking</Link>
+              </li>
+              <li>
+                <Link to="/myprescriptions">My prescriptions</Link>
+              </li>
+            </ul>
+
+            <hr />
+
+            <Route exact path="/landpage" component={Landpage} />
+            <Route path="/searchresults" component={SearchResults} />
+            <Route path="/booking" component={Booking} />
+            <Route path="/myprescriptions" component={MyPrescriptions} />
+          </div>
+        </Router>
     );
   }
 }
+
+const Topics = ({ match }) => (
+    <div>
+      <h2>Topics</h2>
+      <ul>
+        <li>
+          <Link to={`${match.url}/rendering`}>Rendering with React</Link>
+        </li>
+        <li>
+          <Link to={`${match.url}/components`}>Components</Link>
+        </li>
+        <li>
+          <Link to={`${match.url}/props-v-state`}>Props v. State</Link>
+        </li>
+      </ul>
+
+      <Route path={`${match.url}/:topicId`} component={Topic} />
+      <Route
+          exact
+          path={match.url}
+          render={() => <h3>Please select a topic.</h3>}
+      />
+    </div>
+);
+
+const Topic = ({ match }) => (
+    <div>
+      <h3>{match.params.topicId}</h3>
+    </div>
+);
+
 
 export default App;
