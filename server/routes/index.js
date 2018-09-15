@@ -70,19 +70,23 @@ proposeDrugsFromIssues = (issues) => {
         if (issueDrugMaps[issue.id]) {
             found = true;
             const promises = [];
-            issueDrugMaps[issue.id].forEach(n=>{
+            issueDrugMaps[issue.id].forEach(n => {
                 promises.push(fetch(`https://health.axa.ch/hack/api/drugs?name=${n}`, {
                     headers: {
                         Authorization: 'bashful bear'
                     }
                 }).then(res1 => res1.json()));
             });
-            Promise.all(promises).then(results=>{
-                var flatterned = [].concat.apply([], results);
+            Promise.all(promises).then(results => {
+                // take the first 2-3 drugs of each category
+                var flatterned = [];
+                results.forEach(r => {
+                    flatterned = flatterned.concat(r.slice(0, 2*Math.random() + 1));
+                })
                 console.log('found drugs', flatterned);
                 // post processing on top 5 drugs
                 const top5drugs = [];
-                flatterned.splice(0,5).forEach(d=>{
+                flatterned.splice(0, 5).forEach(d => {
                     top5drugs.push({
                         name: d.title,
                         authHolder: d.authHolder,
@@ -93,20 +97,69 @@ proposeDrugsFromIssues = (issues) => {
             })
         }
     });
-    if(!found){
+    if (!found) {
         firestore.collection('drugs').doc('demo').set({ results: null });
     }
 }
 
 proposeHealthcareProviderFromSpecialisations = (specialisations) => {
 
-    const specialisationMap = {'General practice': 'physicians'};
+    const specialisationMap = { 'General practice': 'physicians', 'Neurology': 'neruopsychologists' };
     const mappedSpecialisation = [];
-    specialisations.forEach(s=>{
-        if(specialisationMap[s.name]){
+    specialisations.forEach(s => {
+        if (specialisationMap[s.name]) {
             s.name = specialisationMap[s.name];
         }
     })
+
+    fetch('https://health.axa.ch/hack/api/care-providers/categories', {
+            headers: {
+                Authorization: 'bashful bear'
+            }
+        }).then(res1 => res1.json()).then(categories => {
+            const cids = [];
+            categories.result.forEach(c => {
+                if (specialisations.some(s => s.name == c.en)) {
+                    cids.push(c._id);
+                }
+            })
+            // search all healthcare providers
+            const promises = [];
+            cids.forEach(cid => {
+                promises.push(fetch(`https://health.axa.ch/hack/api/care-providers?category=${cid}&city=zurich`, {
+                    headers: {
+                        Authorization: 'bashful bear'
+                    }
+                }).then(res1 => res1.json()));
+            });
+            Promise.all(promises).then(results => {
+                const doctors = [];
+                // take top 2 doctor of each category
+                results.forEach(r => {
+                    var count = 0;
+                    r.result.forEach(rr=>{
+                        // skip the weird names
+                        if(count>1){
+                            return;
+                        }
+                        if(rr.firstName){
+                            doctors.push({ ...rr, group: 'DOCTOR', type: rr.typeData.en });
+                            count++;
+                        }
+                    });
+                })
+                // HACK: default the first doctor as our family doctor
+                if (doctors.length > 0) {
+                    doctors[0].group = 'FAMILY_DOCTOR';
+                }
+                console.log('found doctors', doctors);
+                firestore.collection('doctors').doc('demo').set({ results: doctors });
+            });
+        });
+
+
+
+    // console.log(specialisations);
 
     // fetch('https://health.axa.ch/hack/api/care-providers/categories', {
     //     headers: {
