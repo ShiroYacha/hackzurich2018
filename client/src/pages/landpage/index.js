@@ -27,7 +27,64 @@ const source = categories.reduce((memo, name) => {
     return memo
 }, {})
 
+const searchResults = {
+    issues: [],
+    drugs:[],
+    doctors: []
+}
+
 class Landpage extends Component {
+
+    constructor() {
+        super();
+        this.state = {
+            issues: [],
+            drugs: [],
+            doctors: []
+        };
+    }
+
+    componentDidMount(){
+        const db = firebase.firestore();
+        // listen to issues
+        this.unsubscribeIssuesListener = db.collection('issues').onSnapshot(refs=>{
+            const issues = [];
+            refs.forEach(ref=>{
+                var data = ref.data();
+                data.id = ref.id;
+                issues.push(data);
+            });
+            this.setState({issues: issues});
+            console.log(issues);
+        });
+        // listen to drugs
+        this.unsubscribeDrugsListener = db.collection('drugs').onSnapshot(refs=>{
+            const drugs = [];
+            refs.forEach(ref=>{
+                var data = ref.data();
+                data.id = ref.id;
+                drugs.push(data);
+            });
+            this.setState({drugs: drugs});
+        });
+        // listen to doctors
+        this.unsubscribeDoctorsListener = db.collection('doctors').onSnapshot(refs=>{
+            const doctors = [];
+            refs.forEach(ref=>{
+                var data = ref.data();
+                data.id = ref.id;
+                doctors.push(data);
+            });
+            this.setState({doctors: doctors});
+        });
+    }
+
+    componentWillUnmount(){
+        this.unsubscribeIssuesListener();
+        this.unsubscribeDrugsListener();
+        this.unsubscribeDoctorsListener();
+    }
+
     componentWillMount() {
         this.resetComponent()
     }
@@ -43,22 +100,35 @@ class Landpage extends Component {
             if (this.state.value.length < 1) return this.resetComponent()
 
             const re = new RegExp(_.escapeRegExp(this.state.value), 'i')
-            const isMatch = result => re.test(result.title)
+            const isMatch = property => result => re.test(result[property])
 
-            const filteredResults = _.reduce(
-                source,
-                (memo, data, name) => {
-                    const results = _.filter(data.results, isMatch)
-                    if (results.length) memo[name] = { name, results } // eslint-disable-line no-param-reassign
+            const searchRes = {};
+            searchRes.issues = {
+                name: 'Issues',
+                results: this.state.issues
+                    .filter(isMatch('symptom'))
+                    .map(item => ({title: item.name, description: item.icdName}))
+            };
 
-                    return memo
-                },
-                {},
-            )
+            searchRes.drugs = {
+                name: 'Drugs',
+                results: this.state.drugs
+                    .filter(isMatch('name'))
+                    .map(item => ({title: item.name, description: item.description}))
+            };
+
+            searchRes.doctors = {
+                name: 'Doctors',
+                results: this.state.doctors
+                    .filter(isMatch('lastname'))
+                    .map(item => ({title: item.title+" "+item.lastname+", "+item.firstname, description: "Group: "+item.group+" "+" Type: "+item.type}))
+            };
+
+            console.log('searchRes', searchRes);
 
             this.setState({
                 isLoading: false,
-                results: filteredResults,
+                results: searchRes,
             })
         }, 300)
     }
