@@ -14,7 +14,6 @@ import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
 import blue from '@material-ui/core/colors/blue';
 
 
-
 const theme = createMuiTheme({
   palette: {
     primary: blue,
@@ -34,7 +33,8 @@ class Booking extends Component {
       ranges: [{
         startDate: new Date(),
         endDate: new Date(),
-        key: 'selection'
+        key: 'selection',
+        bookingStatusLoaded: false,
       }],
       selectedStep: 0,
 
@@ -57,6 +57,15 @@ class Booking extends Component {
       ]
     }
 
+    const db = firebase.firestore();
+
+    db.collection('booking').doc('demo').onSnapshot(docSnapshot => {
+      const data = docSnapshot.data();
+      console.log(data.status);
+      if(!this.state.bookingStatusLoaded)this.setState({bookingStatusLoaded: true});
+      else this.step2();
+    })
+
   }
 
   handleSelect (ranges) {
@@ -77,13 +86,14 @@ class Booking extends Component {
     this.setState({selectedStep: 1})
 
     //this works, don't spam me too many emails
-    //this.sendEmail()
+    this.sendEmail()
 
     //if the email is active this below should be deleted
+      /*
     setTimeout(() => {
       this.step2()
     }, 3000)
-
+*/
   }
 
   step2 () {
@@ -166,7 +176,7 @@ class Booking extends Component {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        destination: "gabriele.prestifilippo@gmail.com",
+        destination: "tuncel.manil@gmail.com",
         message: msg,
         subject: "Appointment Requested"
       })
