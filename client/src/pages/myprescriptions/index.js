@@ -22,22 +22,39 @@ class MyPrescriptions extends Component {
       <MuiThemeProvider theme={theme}>
         <div style={{width:'60%',margin:'0 auto'}}>
           <h2>My Prescriptions</h2>
+          <div><strong>Prescription ID: </strong>24230523</div>
+          <p></p>
+          <p></p>
           <Collapse bordered={false} defaultActiveKey={['']}>
-            <Panel header="Omeoprazol 500mg" key="1">
+            <Panel header="Almotriptan 500mg" key="1">
               <div>
                 <h3>Dosage</h3>
               </div>
-              2 times per day, 1 pill at breakfast, 1 pill after dinner.
+              2 times per day, 1 pill at breakfast, 1 pill after dinner
               <h3>Targets</h3>
-              burning stomach, etc
+              migraines and related symptoms including sensitivity to light/sound, nausea, and vomiting
               <h3>Side-effects</h3>
-              Nausea, vomiting, headache
+              Drowsiness, dizziness, nausea, sensations of tingling/numbness/prickling, or dry mouth
             </Panel>
             <Panel header="NeoCitran 20mg" key="2">
-
+              <div>
+                <h3>Dosage</h3>
+              </div>
+              Max 3 times per day, pills after meals (breakfast, lunch dinner)
+              <h3>Targets</h3>
+              Fortification of the immune system
+              <h3>Side-effects</h3>
+              May cause gastrointestinal discomfort, trouble sleeping, and flushing of the skin
             </Panel>
-            <Panel header="Frutizolvin 200mg" key="3">
-
+            <Panel header="Minoxidil 200mg" key="3">
+              <div>
+                <h3>Dosage</h3>
+              </div>
+              Once per day, after breakfast
+              <h3>Targets</h3>
+              Minoxidil is an antihypertensive peripheral vasodilator, targets hypertension
+              <h3>Side-effects</h3>
+              May produce serious adverse effects such as pericardial effusion
             </Panel>
           </Collapse>
 
