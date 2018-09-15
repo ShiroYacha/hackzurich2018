@@ -6,441 +6,441 @@
             "birthyear": 1990,
             "results": [
                 {
-                    "Issue": {
-                        "ID": 104,
-                        "Name": "Headache",
-                        "Accuracy": 90,
-                        "Icd": "G44;R51",
-                        "IcdName": "Other headache syndromes;Headache",
-                        "ProfName": "Cephalalgia",
-                        "Ranking": 1
+                    "issue": {
+                        "id": 104,
+                        "name": "Headache",
+                        "accuracy": 90,
+                        "icd": "G44;R51",
+                        "icdname": "Other headache syndromes;Headache",
+                        "profname": "Cephalalgia",
+                        "ranking": 1
                     },
-                    "Specialisation": [
+                    "specialisation": [
                         {
-                            "ID": 15,
-                            "Name": "General practice",
-                            "SpecialistID": 3
+                            "id": 15,
+                            "name": "General practice",
+                            "specialistid": 3
                         },
                         {
-                            "ID": 27,
-                            "Name": "Neurology",
-                            "SpecialistID": 45
+                            "id": 27,
+                            "name": "Neurology",
+                            "specialistid": 45
                         }
                     ]
                 },
                 {
-                    "Issue": {
-                        "ID": 67,
-                        "Name": "Sick headache",
-                        "Accuracy": 83.07692,
-                        "Icd": "G43",
-                        "IcdName": "Migraine",
-                        "ProfName": "Migraine",
-                        "Ranking": 2
+                    "issue": {
+                        "id": 67,
+                        "name": "Sick headache",
+                        "accuracy": 83.07692,
+                        "icd": "G43",
+                        "icdname": "Migraine",
+                        "profname": "Migraine",
+                        "ranking": 2
                     },
-                    "Specialisation": [
+                    "specialisation": [
                         {
-                            "ID": 15,
-                            "Name": "General practice",
-                            "SpecialistID": 3
+                            "id": 15,
+                            "name": "General practice",
+                            "specialistid": 3
                         },
                         {
-                            "ID": 19,
-                            "Name": "Internal medicine",
-                            "SpecialistID": 4
+                            "id": 19,
+                            "name": "Internal medicine",
+                            "specialistid": 4
                         },
                         {
-                            "ID": 27,
-                            "Name": "Neurology",
-                            "SpecialistID": 45
+                            "id": 27,
+                            "name": "Neurology",
+                            "specialistid": 45
                         }
                     ]
                 },
                 {
-                    "Issue": {
-                        "ID": 41,
-                        "Name": "Inflammation of paranasal sinuses",
-                        "Accuracy": 75.3230743,
-                        "Icd": "J01;J32",
-                        "IcdName": "Acute sinusitis;Chronic sinusitis",
-                        "ProfName": "Sinusitis",
-                        "Ranking": 3
+                    "issue": {
+                        "id": 41,
+                        "name": "Inflammation of paranasal sinuses",
+                        "accuracy": 75.3230743,
+                        "icd": "J01;J32",
+                        "icdname": "Acute sinusitis;Chronic sinusitis",
+                        "profname": "Sinusitis",
+                        "ranking": 3
                     },
-                    "Specialisation": [
+                    "specialisation": [
                         {
-                            "ID": 15,
-                            "Name": "General practice",
-                            "SpecialistID": 3
+                            "id": 15,
+                            "name": "General practice",
+                            "specialistid": 3
                         },
                         {
-                            "ID": 32,
-                            "Name": "Otolaryngology",
-                            "SpecialistID": 49
+                            "id": 32,
+                            "name": "Otolaryngology",
+                            "specialistid": 49
                         }
                     ]
                 },
                 {
-                    "Issue": {
-                        "ID": 147,
-                        "Name": "Cluster headache",
-                        "Accuracy": 49.8461533,
-                        "Icd": "G44.0",
-                        "IcdName": "Cluster headache syndrome",
-                        "ProfName": "Bing's erythroprosopalgia",
-                        "Ranking": 4
+                    "issue": {
+                        "id": 147,
+                        "name": "Cluster headache",
+                        "accuracy": 49.8461533,
+                        "icd": "G44.0",
+                        "icdname": "Cluster headache syndrome",
+                        "profname": "Bing's erythroprosopalgia",
+                        "ranking": 4
                     },
-                    "Specialisation": [
+                    "specialisation": [
                         {
-                            "ID": 15,
-                            "Name": "General practice",
-                            "SpecialistID": 3
+                            "id": 15,
+                            "name": "General practice",
+                            "specialistid": 3
                         },
                         {
-                            "ID": 27,
-                            "Name": "Neurology",
-                            "SpecialistID": 45
+                            "id": 27,
+                            "name": "Neurology",
+                            "specialistid": 45
                         }
                     ]
                 },
                 {
-                    "Issue": {
-                        "ID": 11,
-                        "Name": "Flu",
-                        "Accuracy": 41.53846,
-                        "Icd": "J10;J11",
-                        "IcdName": "Influenza due to other identified influenza virus;Influenza, virus not identified",
-                        "ProfName": "Influenza",
-                        "Ranking": 5
+                    "issue": {
+                        "id": 11,
+                        "name": "Flu",
+                        "accuracy": 41.53846,
+                        "icd": "J10;J11",
+                        "icdname": "Influenza due to other identified influenza virus;Influenza, virus not identified",
+                        "profname": "Influenza",
+                        "ranking": 5
                     },
-                    "Specialisation": [
+                    "specialisation": [
                         {
-                            "ID": 15,
-                            "Name": "General practice",
-                            "SpecialistID": 3
+                            "id": 15,
+                            "name": "General practice",
+                            "specialistid": 3
                         },
                         {
-                            "ID": 19,
-                            "Name": "Internal medicine",
-                            "SpecialistID": 4
+                            "id": 19,
+                            "name": "Internal medicine",
+                            "specialistid": 4
                         }
                     ]
                 },
                 {
-                    "Issue": {
-                        "ID": 37,
-                        "Name": "Middle ear infection",
-                        "Accuracy": 36,
-                        "Icd": "H65;H66;H67",
-                        "IcdName": "Nonsuppurative otitis media;Suppurative and unspecified otitis media;Otitis media in diseases classified elsewhere",
-                        "ProfName": "Otitis media",
-                        "Ranking": 6
+                    "issue": {
+                        "id": 37,
+                        "name": "Middle ear infection",
+                        "accuracy": 36,
+                        "icd": "H65;H66;H67",
+                        "icdname": "Nonsuppurative otitis media;Suppurative and unspecified otitis media;Otitis media in diseases classified elsewhere",
+                        "profname": "Otitis media",
+                        "ranking": 6
                     },
-                    "Specialisation": [
+                    "specialisation": [
                         {
-                            "ID": 15,
-                            "Name": "General practice",
-                            "SpecialistID": 3
+                            "id": 15,
+                            "name": "General practice",
+                            "specialistid": 3
                         },
                         {
-                            "ID": 32,
-                            "Name": "Otolaryngology",
-                            "SpecialistID": 49
+                            "id": 32,
+                            "name": "Otolaryngology",
+                            "specialistid": 49
                         }
                     ]
                 },
                 {
-                    "Issue": {
-                        "ID": 80,
-                        "Name": "Cold",
-                        "Accuracy": 27.6923084,
-                        "Icd": "J00",
-                        "IcdName": "Acute nasopharyngitis [common cold]",
-                        "ProfName": "Common cold",
-                        "Ranking": 7
+                    "issue": {
+                        "id": 80,
+                        "name": "Cold",
+                        "accuracy": 27.6923084,
+                        "icd": "J00",
+                        "icdname": "Acute nasopharyngitis [common cold]",
+                        "profname": "Common cold",
+                        "ranking": 7
                     },
-                    "Specialisation": [
+                    "specialisation": [
                         {
-                            "ID": 15,
-                            "Name": "General practice",
-                            "SpecialistID": 3
+                            "id": 15,
+                            "name": "General practice",
+                            "specialistid": 3
                         }
                     ]
                 },
                 {
-                    "Issue": {
-                        "ID": 449,
-                        "Name": "Tooth abscess",
-                        "Accuracy": 25.6153851,
-                        "Icd": "K04.6;K04.7",
-                        "IcdName": "Periapical abscess with sinus;Periapical abscess without sinus",
-                        "ProfName": "Dental abscess",
-                        "Ranking": 8
+                    "issue": {
+                        "id": 449,
+                        "name": "Tooth abscess",
+                        "accuracy": 25.6153851,
+                        "icd": "K04.6;K04.7",
+                        "icdname": "Periapical abscess with sinus;Periapical abscess without sinus",
+                        "profname": "Dental abscess",
+                        "ranking": 8
                     },
-                    "Specialisation": [
+                    "specialisation": [
                         {
-                            "ID": 43,
-                            "Name": "Dentistry",
-                            "SpecialistID": 71
+                            "id": 43,
+                            "name": "Dentistry",
+                            "specialistid": 71
                         },
                         {
-                            "ID": 15,
-                            "Name": "General practice",
-                            "SpecialistID": 3
+                            "id": 15,
+                            "name": "General practice",
+                            "specialistid": 3
                         }
                     ]
                 },
                 {
-                    "Issue": {
-                        "ID": 367,
-                        "Name": "Hay fever",
-                        "Accuracy": 24.9230766,
-                        "Icd": "J30",
-                        "IcdName": "Vasomotor and allergic rhinitis",
-                        "ProfName": "Allergic rhinitis",
-                        "Ranking": 9
+                    "issue": {
+                        "id": 367,
+                        "name": "Hay fever",
+                        "accuracy": 24.9230766,
+                        "icd": "J30",
+                        "icdname": "Vasomotor and allergic rhinitis",
+                        "profname": "Allergic rhinitis",
+                        "ranking": 9
                     },
-                    "Specialisation": [
+                    "specialisation": [
                         {
-                            "ID": 5,
-                            "Name": "Allergology",
-                            "SpecialistID": 1
+                            "id": 5,
+                            "name": "Allergology",
+                            "specialistid": 1
                         },
                         {
-                            "ID": 15,
-                            "Name": "General practice",
-                            "SpecialistID": 3
+                            "id": 15,
+                            "name": "General practice",
+                            "specialistid": 3
                         },
                         {
-                            "ID": 32,
-                            "Name": "Otolaryngology",
-                            "SpecialistID": 49
+                            "id": 32,
+                            "name": "Otolaryngology",
+                            "specialistid": 49
                         }
                     ]
                 },
                 {
-                    "Issue": {
-                        "ID": 149,
-                        "Name": "Concussion",
-                        "Accuracy": 17.7230778,
-                        "Icd": "S06.0",
-                        "IcdName": "Concussion",
-                        "ProfName": "Mild traumatic brain injury",
-                        "Ranking": 10
+                    "issue": {
+                        "id": 149,
+                        "name": "Concussion",
+                        "accuracy": 17.7230778,
+                        "icd": "S06.0",
+                        "icdname": "Concussion",
+                        "profname": "Mild traumatic brain injury",
+                        "ranking": 10
                     },
-                    "Specialisation": [
+                    "specialisation": [
                         {
-                            "ID": 15,
-                            "Name": "General practice",
-                            "SpecialistID": 3
+                            "id": 15,
+                            "name": "General practice",
+                            "specialistid": 3
                         },
                         {
-                            "ID": 19,
-                            "Name": "Internal medicine",
-                            "SpecialistID": 4
+                            "id": 19,
+                            "name": "Internal medicine",
+                            "specialistid": 4
                         },
                         {
-                            "ID": 27,
-                            "Name": "Neurology",
-                            "SpecialistID": 45
+                            "id": 27,
+                            "name": "Neurology",
+                            "specialistid": 45
                         },
                         {
-                            "ID": 39,
-                            "Name": "Surgery",
-                            "SpecialistID": 13
+                            "id": 39,
+                            "name": "Surgery",
+                            "specialistid": 13
                         }
                     ]
                 },
                 {
-                    "Issue": {
-                        "ID": 30,
-                        "Name": "Green cataract",
-                        "Accuracy": 15.2307692,
-                        "Icd": "H40;H42*",
-                        "IcdName": "Glaucoma;Glaucoma in diseases classified elsewhere",
-                        "ProfName": "Glaucoma",
-                        "Ranking": 11
+                    "issue": {
+                        "id": 30,
+                        "name": "Green cataract",
+                        "accuracy": 15.2307692,
+                        "icd": "H40;H42*",
+                        "icdname": "Glaucoma;Glaucoma in diseases classified elsewhere",
+                        "profname": "Glaucoma",
+                        "ranking": 11
                     },
-                    "Specialisation": [
+                    "specialisation": [
                         {
-                            "ID": 15,
-                            "Name": "General practice",
-                            "SpecialistID": 3
+                            "id": 15,
+                            "name": "General practice",
+                            "specialistid": 3
                         },
                         {
-                            "ID": 30,
-                            "Name": "Ophthalmology",
-                            "SpecialistID": 8
+                            "id": 30,
+                            "name": "Ophthalmology",
+                            "specialistid": 8
                         }
                     ]
                 },
                 {
-                    "Issue": {
-                        "ID": 379,
-                        "Name": "Sleeping disorder",
-                        "Accuracy": 14.2476921,
-                        "Icd": "G47;F51",
-                        "IcdName": "Sleep disorders;Nonorganic sleep disorders",
-                        "ProfName": "Somnipathy",
-                        "Ranking": 12
+                    "issue": {
+                        "id": 379,
+                        "name": "Sleeping disorder",
+                        "accuracy": 14.2476921,
+                        "icd": "G47;F51",
+                        "icdname": "Sleep disorders;Nonorganic sleep disorders",
+                        "profname": "Somnipathy",
+                        "ranking": 12
                     },
-                    "Specialisation": [
+                    "specialisation": [
                         {
-                            "ID": 15,
-                            "Name": "General practice",
-                            "SpecialistID": 3
+                            "id": 15,
+                            "name": "General practice",
+                            "specialistid": 3
                         },
                         {
-                            "ID": 27,
-                            "Name": "Neurology",
-                            "SpecialistID": 45
+                            "id": 27,
+                            "name": "Neurology",
+                            "specialistid": 45
                         }
                     ]
                 },
                 {
-                    "Issue": {
-                        "ID": 93,
-                        "Name": "Lack of blood",
-                        "Accuracy": 14.1230774,
-                        "Icd": "D50;D51;D52;D53;D55;D56;D57;D58;D59;D60;D61;D62;D63*;D64",
-                        "IcdName": "Iron deficiency anaemia;Vitamin B12 deficiency anaemia;Folate deficiency anaemia;Other nutritional anaemias;Anaemia due to enzyme disorders;Thalassaemia;Sickle-cell disorders;Other hereditary haemolytic anaemias;Acquired pure red cell aplasia [erythroblastopenia];Other aplastic anaemias;Acute posthaemorrhagic anaemia;Anaemia in chronic diseases classified elsewhere;Other anaemias",
-                        "ProfName": "Anemia",
-                        "Ranking": 13
+                    "issue": {
+                        "id": 93,
+                        "name": "Lack of blood",
+                        "accuracy": 14.1230774,
+                        "icd": "D50;D51;D52;D53;D55;D56;D57;D58;D59;D60;D61;D62;D63*;D64",
+                        "icdname": "Iron deficiency anaemia;Vitamin B12 deficiency anaemia;Folate deficiency anaemia;Other nutritional anaemias;Anaemia due to enzyme disorders;Thalassaemia;Sickle-cell disorders;Other hereditary haemolytic anaemias;Acquired pure red cell aplasia [erythroblastopenia];Other aplastic anaemias;Acute posthaemorrhagic anaemia;Anaemia in chronic diseases classified elsewhere;Other anaemias",
+                        "profname": "Anemia",
+                        "ranking": 13
                     },
-                    "Specialisation": [
+                    "specialisation": [
                         {
-                            "ID": 15,
-                            "Name": "General practice",
-                            "SpecialistID": 3
+                            "id": 15,
+                            "name": "General practice",
+                            "specialistid": 3
                         },
                         {
-                            "ID": 19,
-                            "Name": "Internal medicine",
-                            "SpecialistID": 4
+                            "id": 19,
+                            "name": "Internal medicine",
+                            "specialistid": 4
                         }
                     ]
                 },
                 {
-                    "Issue": {
-                        "ID": 83,
-                        "Name": "Inflammation of the brain covering membranes",
-                        "Accuracy": 13.8461542,
-                        "Icd": "G00;G01;G02;G03",
-                        "IcdName": "Bacterial meningitis, not elsewhere classified;Meningitis in bacterial diseases classified elsewhere;Meningitis in other infectious and parasitic diseases classified elsewhere;Meningitis due to other and unspecified causes",
-                        "ProfName": "Meningitis",
-                        "Ranking": 14
+                    "issue": {
+                        "id": 83,
+                        "name": "Inflammation of the brain covering membranes",
+                        "accuracy": 13.8461542,
+                        "icd": "G00;G01;G02;G03",
+                        "icdname": "Bacterial meningitis, not elsewhere classified;Meningitis in bacterial diseases classified elsewhere;Meningitis in other infectious and parasitic diseases classified elsewhere;Meningitis due to other and unspecified causes",
+                        "profname": "Meningitis",
+                        "ranking": 14
                     },
-                    "Specialisation": [
+                    "specialisation": [
                         {
-                            "ID": 15,
-                            "Name": "General practice",
-                            "SpecialistID": 3
+                            "id": 15,
+                            "name": "General practice",
+                            "specialistid": 3
                         },
                         {
-                            "ID": 23,
-                            "Name": "Infectiology",
-                            "SpecialistID": 28
+                            "id": 23,
+                            "name": "Infectiology",
+                            "specialistid": 28
                         },
                         {
-                            "ID": 19,
-                            "Name": "Internal medicine",
-                            "SpecialistID": 4
+                            "id": 19,
+                            "name": "Internal medicine",
+                            "specialistid": 4
                         },
                         {
-                            "ID": 27,
-                            "Name": "Neurology",
-                            "SpecialistID": 45
+                            "id": 27,
+                            "name": "Neurology",
+                            "specialistid": 45
                         }
                     ]
                 },
                 {
-                    "Issue": {
-                        "ID": 16,
-                        "Name": "High blood pressure",
-                        "Accuracy": 12.4615383,
-                        "Icd": "I10;I11;I12;I13;I15",
-                        "IcdName": "Essential (primary) hypertension;Hypertensive heart disease;Hypertensive renal disease;Hypertensive heart and renal disease;Secondary hypertension",
-                        "ProfName": "Hypertension",
-                        "Ranking": 15
+                    "issue": {
+                        "id": 16,
+                        "name": "High blood pressure",
+                        "accuracy": 12.4615383,
+                        "icd": "I10;I11;I12;I13;I15",
+                        "icdname": "Essential (primary) hypertension;Hypertensive heart disease;Hypertensive renal disease;Hypertensive heart and renal disease;Secondary hypertension",
+                        "profname": "Hypertension",
+                        "ranking": 15
                     },
-                    "Specialisation": [
+                    "specialisation": [
                         {
-                            "ID": 1,
-                            "Name": "Cardiology",
-                            "SpecialistID": 25
+                            "id": 1,
+                            "name": "Cardiology",
+                            "specialistid": 25
                         },
                         {
-                            "ID": 15,
-                            "Name": "General practice",
-                            "SpecialistID": 3
+                            "id": 15,
+                            "name": "General practice",
+                            "specialistid": 3
                         }
                     ]
                 },
                 {
-                    "Issue": {
-                        "ID": 271,
-                        "Name": "High blood pressure crisis",
-                        "Accuracy": 9.138461,
-                        "Icd": "I10",
-                        "IcdName": "Essential (primary) hypertension",
-                        "ProfName": "Hypertensive crisis",
-                        "Ranking": 16
+                    "issue": {
+                        "id": 271,
+                        "name": "High blood pressure crisis",
+                        "accuracy": 9.138461,
+                        "icd": "I10",
+                        "icdname": "Essential (primary) hypertension",
+                        "profname": "Hypertensive crisis",
+                        "ranking": 16
                     },
-                    "Specialisation": [
+                    "specialisation": [
                         {
-                            "ID": 15,
-                            "Name": "General practice",
-                            "SpecialistID": 3
+                            "id": 15,
+                            "name": "General practice",
+                            "specialistid": 3
                         },
                         {
-                            "ID": 19,
-                            "Name": "Internal medicine",
-                            "SpecialistID": 4
+                            "id": 19,
+                            "name": "Internal medicine",
+                            "specialistid": 4
                         }
                     ]
                 },
                 {
-                    "Issue": {
-                        "ID": 312,
-                        "Name": "Giant cell arteritis",
-                        "Accuracy": 9,
-                        "Icd": "M31.5;M31.6",
-                        "IcdName": "Giant cell arteritis with polymyalgia rheumatica;Other giant cell arteritis",
-                        "ProfName": "Cranial arteritis",
-                        "Ranking": 17
+                    "issue": {
+                        "id": 312,
+                        "name": "Giant cell arteritis",
+                        "accuracy": 9,
+                        "icd": "M31.5;M31.6",
+                        "icdname": "Giant cell arteritis with polymyalgia rheumatica;Other giant cell arteritis",
+                        "profname": "Cranial arteritis",
+                        "ranking": 17
                     },
-                    "Specialisation": [
+                    "specialisation": [
                         {
-                            "ID": 15,
-                            "Name": "General practice",
-                            "SpecialistID": 3
+                            "id": 15,
+                            "name": "General practice",
+                            "specialistid": 3
                         },
                         {
-                            "ID": 41,
-                            "Name": "Rheumatology",
-                            "SpecialistID": 67
+                            "id": 41,
+                            "name": "Rheumatology",
+                            "specialistid": 67
                         }
                     ]
                 },
                 {
-                    "Issue": {
-                        "ID": 44,
-                        "Name": "Inflammation of the nose and throat",
-                        "Accuracy": 9,
-                        "Icd": "J02;J31.2",
-                        "IcdName": "Acute pharyngitis;Chronic pharyngitis",
-                        "ProfName": "Nasopharyngitis",
-                        "Ranking": 18
+                    "issue": {
+                        "id": 44,
+                        "name": "Inflammation of the nose and throat",
+                        "accuracy": 9,
+                        "icd": "J02;J31.2",
+                        "icdname": "Acute pharyngitis;Chronic pharyngitis",
+                        "profname": "Nasopharyngitis",
+                        "ranking": 18
                     },
-                    "Specialisation": [
+                    "specialisation": [
                         {
-                            "ID": 15,
-                            "Name": "General practice",
-                            "SpecialistID": 3
+                            "id": 15,
+                            "name": "General practice",
+                            "specialistid": 3
                         },
                         {
-                            "ID": 32,
-                            "Name": "Otolaryngology",
-                            "SpecialistID": 49
+                            "id": 32,
+                            "name": "Otolaryngology",
+                            "specialistid": 49
                         }
                     ]
                 }
