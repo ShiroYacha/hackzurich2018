@@ -112,7 +112,9 @@ class SearchBar extends Component {
 
     handleResultSelect = (e, { result }) => {
         this.props.history.push('/searchresults?search=' + result.title);
-        this.setState({ value: result.title });
+        this.setState({ value: result.title});
+        const db = firebase.firestore();
+        db.collection('search').doc('demo').set({ query: result.title });
     }
 
     _debounceSearchFb = debounce(function () {

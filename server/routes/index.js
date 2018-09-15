@@ -127,6 +127,7 @@ proposeHealthcareProviderFromSpecialisations = (specialisations) => {
             s.name = specialisationMap[s.name];
         }
     });
+    console.log(specialisations);
 
     if(specialisations.length==0){
         firestore.collection('doctors').doc('demo').set({ results: null });
@@ -140,13 +141,15 @@ proposeHealthcareProviderFromSpecialisations = (specialisations) => {
             const cids = [];
             categories.result.forEach(c => {
                 if (specialisations.some(s => s.name == c.en)) {
-                    cids.push(c.id);
+                    console.log("c = "+c);
+                    cids.push(c._id);
                 }
             })
             // search all healthcare providers
             const promises = [];
             cids.forEach(cid => {
-                promises.push(fetch(`https://health.axa.ch/hack/api/care-providers?category=${cid}&city=zurich`, {
+                console.log('cid = '+ cid);
+                promises.push(fetch(`https://health.axa.ch/hack/api/care-providers?category=${cid}`, {
                     headers: {
                         Authorization: 'bashful bear'
                     }
@@ -157,9 +160,11 @@ proposeHealthcareProviderFromSpecialisations = (specialisations) => {
                 // take top 2 doctor of each category
                 results.forEach(r => {
                     var count = 0;
+                    console.log('r',r)
+                    if(!r.result) return;
                     r.result.forEach(rr=>{
-                        // skip the weird names
-                        if(count>1){
+                         // skip the weird names
+                         if(count>1){
                             return;
                         }
                         if(rr.firstName){
@@ -169,8 +174,8 @@ proposeHealthcareProviderFromSpecialisations = (specialisations) => {
                     });
                 })
                 // HACK: default the first doctor as our family doctor
-                if (doctors.length > 0) {
-                    doctors[0].group = 'FAMILY_DOCTOR';
+                if (doctors.length > 1) {
+                    doctors[1].group = 'FAMILY_DOCTOR';
                 }
                 console.log('found doctors', doctors);
                 firestore.collection('doctors').doc('demo').set({ results: doctors });
@@ -190,12 +195,20 @@ proposeHealthcareProviderFromSpecialisations = (specialisations) => {
 
 proposeSymptoms = (query) => {
     const symptoms = [];
+    var exactMatch = null;
     apimedic_symptoms.forEach(symptom => {
         const symptomName = symptom.name;
-        if (symptomName.toLowerCase().includes(query)) {
+        if(symptomName.toLowerCase()==query.toLowerCase()){
+            exactMatch = symptom;
+        }else if (symptomName.toLowerCase().includes(query.toLowerCase())) {
             symptoms.push(symptom);
         }
+        
     });
+    if(exactMatch){
+        symptoms.unshift(exactMatch);
+    }
+    console.log(symptoms);
     return symptoms.slice(0, 5);
 }
 
