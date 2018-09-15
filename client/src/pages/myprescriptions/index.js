@@ -10,6 +10,7 @@ class MyPrescriptions extends Component {
     return (
         <div>
             <h2>My prescriptions</h2>
+
         </div>
     );
   }
