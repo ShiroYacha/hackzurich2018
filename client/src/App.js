@@ -32,7 +32,7 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <ul>
+          {/* <ul>
             <li>
               <Link to="/landpage">Landpage</Link>
             </li>
@@ -45,9 +45,9 @@ class App extends Component {
             <li>
               <Link to="/myprescriptions">My prescriptions</Link>
             </li>
-          </ul>
+          </ul> */}
 
-          <hr />
+          {/* <hr /> */}
 
           <Route exact path="/landpage" component={Landpage} />
           <Route path="/searchresults" component={SearchResults} />

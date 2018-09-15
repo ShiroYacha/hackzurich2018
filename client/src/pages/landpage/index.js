@@ -15,7 +15,7 @@ class Landpage extends Component {
     render() {
 
         return (
-            <Grid>
+            <Grid style={{backgroundImage:'url("http://hdqwalls.com/wallpapers/switzerland-landscape-4k-hd.jpg")', backgroundSize: 'cover'}}>
                 <Grid.Column width={5}></Grid.Column>
                 <Grid.Column width={6} className="full-height">
                     <SearchBar/>
