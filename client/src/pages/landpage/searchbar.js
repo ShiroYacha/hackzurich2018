@@ -49,42 +49,35 @@ class SearchBar extends Component {
     componentDidMount() {
         const db = firebase.firestore();
         // listen to issues
-        this.unsubscribeIssuesListener = db.collection('issues').onSnapshot(refs => {
-            const issues = [];
-            refs.forEach(ref => {
-                var data = ref.data();
-                data.id = ref.id;
-                issues.push(data);
-            });
-            this.setState({ issues: issues });
-            console.log(issues);
+        this.unsubscribeIssuesListener = db.collection('issues').doc('demo').onSnapshot(ref => {
+            var data = ref.data();
+            if (data) {
+                const issues = data.results;
+                this.setState({ issues });
+            }
         });
         // listen to drugs
-        this.unsubscribeDrugsListener = db.collection('drugs').onSnapshot(refs => {
-            const drugs = [];
-            refs.forEach(ref => {
-                var data = ref.data();
-                data.id = ref.id;
-                drugs.push(data);
-            });
-            this.setState({ drugs: drugs });
+        this.unsubscribeDrugsListener = db.collection('drugs').doc('demo').onSnapshot(ref => {
+            var data = ref.data();
+            if (data) {
+                const drugs = data.results;
+                this.setState({ drugs });
+            }
         });
         // listen to doctors
-        this.unsubscribeDoctorsListener = db.collection('doctors').onSnapshot(refs => {
-            const doctors = [];
-            refs.forEach(ref => {
-                var data = ref.data();
-                data.id = ref.id;
-                doctors.push(data);
-            });
-            this.setState({ doctors: doctors });
+        this.unsubscribeDoctorsListener = db.collection('doctors').doc('demo').onSnapshot(ref => {
+            var data = ref.data();
+            if (data) {
+                const doctors = data.results;
+                this.setState({ doctors });
+            }
         });
         // listen to symptoms
         this.unsubscribeSymptomsListener = db.collection('symptoms').doc('demo').onSnapshot(ref => {
             var data = ref.data();
             if (data) {
-                const symptoms = data.results.slice(0, 5);
-                this.setState({ symptoms: symptoms });
+                const symptoms = data.results;
+                this.setState({ symptoms });
             }
         });
     }
@@ -151,23 +144,27 @@ class SearchBar extends Component {
                 name: 'Issues',
                 results: this.state.issues
                     .filter(isMatch('symptom'))
-                    .map(item => ({ title: item.name + " (" + item.symptom + " caused by)", description: item.icdName }))
+                    .map(item => ({ title: item.name + " (" + item.symptom + " caused by)", description: item.icdname }))
             };
         }
 
-        searchRes.drugs = {
-            name: 'Drugs',
-            results: this.state.drugs
-                .filter(isMatch('name'))
-                .map(item => ({ title: item.name, description: item.description }))
-        };
+        if (this.state.drugs) {
+            searchRes.drugs = {
+                name: 'Drugs',
+                results: this.state.drugs
+                    .filter(isMatch('name'))
+                    .map(item => ({ title: item.name, description: item.description }))
+            };
+        }
 
-        searchRes.doctors = {
-            name: 'Doctors',
-            results: this.state.doctors
-                .filter(isMatch('lastname'))
-                .map(item => ({ title: item.title + " " + item.lastname + ", " + item.firstname, description: "Group: " + item.group + " " + " Type: " + item.type }))
-        };
+        if (this.state.doctors) {
+            searchRes.doctors = {
+                name: 'Doctors',
+                results: this.state.doctors
+                    .filter(isMatch('lastname'))
+                    .map(item => ({ title: item.title + " " + item.lastname + ", " + item.firstname, description: "Group: " + item.group + " " + " Type: " + item.type }))
+            };
+        }
 
         console.log('searchRes', searchRes);
 
