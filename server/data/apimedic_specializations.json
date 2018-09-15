@@ -6,70 +6,70 @@
             "birthyear": 1990,
             "results": [
                 {
-                    "ID": 15,
-                    "Name": "General practice",
-                    "Accuracy": 90,
-                    "Ranking": 0
+                    "id": 15,
+                    "name": "General practice",
+                    "accuracy": 90,
+                    "ranking": 0
                 },
                 {
-                    "ID": 27,
-                    "Name": "Neurology",
-                    "Accuracy": 42.5231857,
-                    "Ranking": 0
+                    "id": 27,
+                    "name": "Neurology",
+                    "accuracy": 42.5231857,
+                    "ranking": 0
                 },
                 {
-                    "ID": 19,
-                    "Name": "Internal medicine",
-                    "Accuracy": 28.39407,
-                    "Ranking": 0
+                    "id": 19,
+                    "name": "Internal medicine",
+                    "accuracy": 28.39407,
+                    "ranking": 0
                 },
                 {
-                    "ID": 32,
-                    "Name": "Otolaryngology",
-                    "Accuracy": 22.9825459,
-                    "Ranking": 0
+                    "id": 32,
+                    "name": "Otolaryngology",
+                    "accuracy": 22.9825459,
+                    "ranking": 0
                 },
                 {
-                    "ID": 43,
-                    "Name": "Dentistry",
-                    "Accuracy": 4.053166,
-                    "Ranking": 0
+                    "id": 43,
+                    "name": "Dentistry",
+                    "accuracy": 4.053166,
+                    "ranking": 0
                 },
                 {
-                    "ID": 5,
-                    "Name": "Allergology",
-                    "Accuracy": 3.943621,
-                    "Ranking": 0
+                    "id": 5,
+                    "name": "Allergology",
+                    "accuracy": 3.943621,
+                    "ranking": 0
                 },
                 {
-                    "ID": 39,
-                    "Name": "Surgery",
-                    "Accuracy": 2.80435276,
-                    "Ranking": 0
+                    "id": 39,
+                    "name": "Surgery",
+                    "accuracy": 2.80435276,
+                    "ranking": 0
                 },
                 {
-                    "ID": 30,
-                    "Name": "Ophthalmology",
-                    "Accuracy": 2.40999055,
-                    "Ranking": 0
+                    "id": 30,
+                    "name": "Ophthalmology",
+                    "accuracy": 2.40999055,
+                    "ranking": 0
                 },
                 {
-                    "ID": 23,
-                    "Name": "Infectiology",
-                    "Accuracy": 2.19090056,
-                    "Ranking": 0
+                    "id": 23,
+                    "name": "Infectiology",
+                    "accuracy": 2.19090056,
+                    "ranking": 0
                 },
                 {
-                    "ID": 1,
-                    "Name": "Cardiology",
-                    "Accuracy": 1.97181046,
-                    "Ranking": 0
+                    "id": 1,
+                    "name": "Cardiology",
+                    "accuracy": 1.97181046,
+                    "ranking": 0
                 },
                 {
-                    "ID": 41,
-                    "Name": "Rheumatology",
-                    "Accuracy": 1.42408538,
-                    "Ranking": 0
+                    "id": 41,
+                    "name": "Rheumatology",
+                    "accuracy": 1.42408538,
+                    "ranking": 0
                 }
             ]
         }
