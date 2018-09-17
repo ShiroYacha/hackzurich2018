@@ -32,23 +32,6 @@ class App extends Component {
     return (
       <Router>
         <div>
-          {/* <ul>
-            <li>
-              <Link to="/landpage">Landpage</Link>
-            </li>
-            <li>
-              <Link to="/searchresults">Search results</Link>
-            </li>
-            <li>
-              <Link to="/booking">Booking</Link>
-            </li>
-            <li>
-              <Link to="/myprescriptions">My prescriptions</Link>
-            </li>
-          </ul> */}
-
-          {/* <hr /> */}
-
           <Route exact path="/landpage" component={Landpage} />
           <Route path="/searchresults" component={SearchResults} />
           <Route path="/booking" component={Booking} />

@@ -17,3 +17,7 @@
 .no-suggestions > .results {
     display: none !important;
 }
+
+.ant-layout-header {
+    background: transparent !important;
+}
